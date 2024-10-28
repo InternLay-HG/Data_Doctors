@@ -196,7 +196,7 @@ Completion of Mobile App, Web Application, and Data Storage with basic data entr
 display, and AI analysis.
 
 **Phase 2: Telemedicine and Integration**
-● Add telemedicine capabilities, EHR integration, and wearable device compatibility.
+Add telemedicine capabilities, EHR integration, and wearable device compatibility.
 
 **Phase 3: Full AI Backend and Machine Learning Integration**
-● Full deployment of machine learning models, alerts, and recommendations system.
+Full deployment of machine learning models, alerts, and recommendations system.
