@@ -1,83 +1,202 @@
-**Overview**
+**1. Overview**
 
-This design document outlines the architecture and components of the HealthGuardian platform, a comprehensive system for early detection and management of chronic diseases in underserved communities. The platform leverages mobile technology, web applications, and AI-powered analytics to provide personalized health recommendations, telemedicine services, and community support.
 
-**System Architecture**
+**Product Name:** HealthGuardian
 
-**Components**
+**Objective:** HealthGuardian is a health management system designed to empower users to
+track their health proactively. Through an AI-driven platform, users receive personalized
+insights and early risk assessments, enabling better preventive care and management.
+HealthGuardian is built to serve both users and healthcare providers through a mobile app,
+web interface, and an AI backend.
 
-Mobile App: A user-friendly interface for daily health data input, personalized recommendations, and alerts.
 
-Web Application: The website will provide a comprehensive dashboard for users and healthcare providers, along with telemedicine features, community support and administrative tools.
+**2. Objectives and Goals**
 
-AI Backend: An AI-powered engine that analyzes patient data, assesses disease risk, and provides early detection.
 
-Data Storage: A secure database to store patient health data, including demographics, vital signs, symptoms, and lifestyle factors.
+**● Improve Health Outcomes:** Provide users with real-time health insights, early
+detection of potential health issues, and recommendations based on AI-driven
+analytics.
 
-Integration Layer: A component that connects HealthGuardian with external systems such as EHRs and wearable devices.
+**● Enable Remote Monitoring:** Facilitate remote consultations and monitoring for
+healthcare providers.
 
-**Data Flow**
+**● Seamless Integration:** Enable smooth data integration with third-party EHRs and
+wearable devices.
 
-Data Collections: Users input data through the mobile / web app or wearable devices.
+**● Security & Compliance:** Ensure all data is securely managed in compliance with
+healthcare standards (HIPAA, GDPR, etc.).
 
-Data Storage: Collected data is securely stored in the database.
 
-Data Analysis: AI models analyze the data to assess disease risk and provide personalized recommendations.
+**3. System Architecture**
 
-Alert Generation: The system generates alerts for users and healthcare providers when necessary.
 
-Telemedicine: Healthcare providers can use the web application to conduct remote consultations with patients.
+The architecture of HealthGuardian includes the following key components:
 
-**Technology Stack**
+**1. Mobile Application**
+○ Purpose: Daily data input, alerts, and personalized recommendations for
+users.
+○ Data Flow: User data input → Backend via API → AI analysis → Response
+(recommendations, alerts).
 
-Frontend: React (for web), Flutter (for mobile)
+**2. Web Application**
+○ Purpose: Dashboards for users and healthcare providers, telemedicine, and
+community support.
+○ Data Flow: User and provider actions → Backend via API → Database → AI
+analysis for actionable insights.
 
-Backend: Node.,js, Express.js
+**3. AI Backend**
+○ Purpose: Process health data to assess risk, provide recommendations, and
+detect early signs of disease.
 
-Database: MongoDB
+**4. Data Storage**
+○ Purpose: Secure and structured storage for all user and system data.
 
-AI: Tensorflow, DL, ML, NLP
+**5. Integration Layer**
+○ Purpose: Facilitate data flow between HealthGuardian and external systems
+(EHRs, wearables).
 
-Integration: RESTful APIs
 
-**Detailed Design**
+**4. Component Specifications**
 
-Mobile App
+   
+**A. Mobile Application**
 
-User Interface: Intuitive design with clear navigation and easy data entry.
+**User Interface:**
+● Clean, intuitive layout with simple navigation for easy data input and retrieval of
+insights.
+● High-contrast display, large icons, and minimal steps for entering daily data.
 
-Features: Daily health data input, personalized recommendations, symptom tracker, telemedicine integration.
+**Key Features:**
+● Daily Health Data Input: User input for vital signs, symptoms, mood, etc.
+● Symptom Tracker: Users can log specific symptoms for tracking over time.
+● Personalised Recommendations: AI-powered health tips, lifestyle
+recommendations, and reminders based on logged data.
+● Alerts & Notifications: Triggered when risk factors exceed thresholds, prompting
+users to seek further care.
 
-Data Synchronization: Real-time synchronization of data between the app and the backend.
+**Data Synchronisation:**
+● Real-Time Sync: Ensure data sync between mobile app, web, and AI backend.
+● Offline Mode: Allow data entry when offline, with automatic sync when online.
 
-Website Application
 
-Dashboard: Dashboard for healthcare providers to view patient data, trends, and alerts.
+**B. Web Application**
 
-Telemedicine: Video conferencing and messaging capabilities for virtual consultations.
 
-Patient Management: Tools for managing patient appointments, prescriptions, and referrals.
+**Dashboard:**
+● User Dashboard: Graphical display of health metrics and trends for users.
+● Healthcare Provider Dashboard: Detailed view of patients’ health data, trends,
+alerts, and risk assessments.
 
-AI Backend
+**Telemedicine:**
+● Video Conferencing: Built-in video communication for virtual consultations.
+● Messaging: Secure messaging between healthcare providers and users.
 
-Machine Learning Models: Development and training of ML models for disease risk assessment, early detection, and personalized recommendations.
+**Patient Management:**
+● Appointment Scheduling: Integrated scheduling system for consultations.
+● Prescription Management: Prescribing and tracking medications.
+● Referrals: Support for generating and managing referrals to specialists.
 
-Data Processing: Data cleaning, preprocessing, and feature engineering.
 
-Model Deployment: Deployment of trained models to a production environment.
+**C. AI Backend**
 
-**Data Storage**
 
-Database Structure: Design of a robust database schema to store patient data securely and efficiently.
+**Machine Learning Models:**
+● Disease Risk Models: Algorithms to predict disease risk based on user data.
+● Early Detection Models: Identification of subtle patterns to alert on early symptoms.
 
-Data Security: Implementation of encryption and access controls to protect sensitive patient information. 
+**Data Processing:**
+● Data Cleaning and Preprocessing: Automated cleaning processes for consistency
+and accuracy.
+● Feature Engineering: Identify and extract relevant features for model inputs (e.g.,
+age, BMI, activity level).
 
-**Integration Layers**
+**Model Deployment:**
+● Environment: Deployed models with CI/CD pipelines to allow for continuous
+improvements.
+● Monitoring: Regular model performance tracking to detect and resolve potential drift.
 
-API Development: Creation of RESTful APIs for integration with EHRs, wearable devices, and other external systems.
 
-Data Exchange: Secure and efficient exchange of data between HealthGuardian and external systems.
+**D. Data Storage**
 
-Deployment and Scalability: 
 
-Deployment Strategy: 
+**Data Security:**
+● Encryption: Data encryption at rest and in transit.
+● Access Control: Role-based access control, ensuring only authorized personnel can
+access sensitive information.
+
+**Data Organization:**
+● User Profiles: Basic information, demographics, lifestyle, and health history.
+● Health Metrics: Daily and historical health metrics (e.g., vitals, symptoms, activity).
+● Risk Assessments & Recommendations: AI-generated health insights and
+recommendations stored per user.
+
+
+**E. Integration Layer**
+
+
+**Third-Party Integration:**
+● EHR Systems: Two-way sync for key user health data (subject to user permissions).
+● Wearables: Data retrieval from wearables (e.g., heart rate, step count).
+
+**API Gateway:**
+● Centralised API gateway for communication between HealthGuardian components
+and external systems.
+
+
+**6. Data Flow**
+
+
+**1. Data Collection:**
+● Mobile App/Web App: User-entered health data and automated data collection from
+connected wearables.
+● Integration Layer: Data pulled from external systems and wearables for holistic
+health tracking.
+
+**2. Data Storage:**
+● Database: Securely stores collected data, organised for efficient access and
+analysis.
+
+**3. Data Analysis:**
+● AI Backend: Analyses health data to generate recommendations and risk
+assessments.
+
+**4. Alert Generation:**
+● Notifications: AI engine sends alerts to mobile/web app when health risk is
+detected.
+
+**5. Telemedicine:**
+● Healthcare Provider Use: Remote consultations and virtual visits via web app.
+
+
+**6. Requirements**
+
+
+**Functional Requirements**
+
+● User Management: Secure user registration, login, and profile management.
+● Data Input: Daily health data input, wearable data sync, and EHR data import.
+● AI Analysis: Risk assessment and personalised health recommendations.
+● Alerts & Notifications: Real-time alerts for high-risk indicators.
+● Telemedicine: Video and messaging tools for remote consultations.
+
+**Non-Functional Requirements**
+
+● Scalability: Support for large user bases and high data volume.
+● Reliability: Ensure system uptime and high data availability.
+● Security & Compliance: Meet HIPAA, GDPR, and other relevant data protection
+standards.
+● Performance: Quick response times for data input, AI analysis, and UI updates.
+
+
+**7. Project Timeline**
+
+
+**Phase 1: MVP Development**
+● Completion of Mobile App, Web Application, and Data Storage with basic data entry,
+display, and AI analysis.
+
+**Phase 2: Telemedicine and Integration**
+● Add telemedicine capabilities, EHR integration, and wearable device compatibility.
+
+**Phase 3: Full AI Backend and Machine Learning Integration**
+● Full deployment of machine learning models, alerts, and recommendations system.
