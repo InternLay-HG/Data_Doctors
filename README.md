@@ -3,6 +3,8 @@
 
 **Product Name:** HealthGuardian
 
+**Figma File Link:** https://www.figma.com/design/D7PrFikphk0q1i05LbEecy/Health-Gaurdian?node-id=0-1&t=QrMy9VGJWBNaTYYu-1 
+
 **Objective:** HealthGuardian is a health management system designed to empower users to
 track their health proactively. Through an AI-driven platform, users receive personalized
 insights and early risk assessments, enabling better preventive care and management.
