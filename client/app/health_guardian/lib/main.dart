@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:health_guardian/screens/onboard/onboard_screen.dart';
+import 'package:health_guardian/screens/splash/splash_screen.dart';
+import 'package:health_guardian/styling/sizeConfig.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,18 +14,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'Health Guardian',
-      home: HomePage(),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        SizeConfig().init(constraints);
+        return GetMaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: "Health Guardian",
+            home: OnboardScreen());
+      },
     );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
   }
 }
