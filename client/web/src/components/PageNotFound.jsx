@@ -9,6 +9,7 @@ const PageNotFound = () => {
       flexDirection:"column",
       justifyContent:"center",
       alignItems:"center",
+      fontFamily: "Space Mono"
     }}>
         <div style={{color:"white",fontSize:"13rem",}}>404</div>
         <div style={{color:"#808080",fontSize:"2rem"}}>Page Not Found</div>

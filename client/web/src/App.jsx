@@ -1,7 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import GlobalStyles from "./style/GlobalStyle";
-import { Loader1, Loader2 }  from "./ui/Loaders";
+import { Loader1, Loader2 } from "./ui/Loaders";
 
 // Lazy-loaded components
 const Dashboard = lazy(() => import("./components/Dashboard"));
@@ -9,44 +9,32 @@ const HeroLayout = lazy(() => import("./components/HeroLayout"));
 const PageNotFound = lazy(() => import("./components/PageNotFound"));
 const Appointment = lazy(() => import("./components/Appointment"));
 const CommunitySupport = lazy(() => import("./components/CommunitySupport"));
-const Settings = lazy(() => import("./components/Settings"));
 const Home = lazy(() => import("./components/Home"));
+import Settings from "./components/Settings";
 import SignUp from "./components/SignUp";
-
-
 
 export default function App() {
   return (
     <>
       <BrowserRouter>
         <GlobalStyles />
-        <Suspense fallback={<Loader1/>}>
+        <Suspense fallback={<Loader1 />}>
           <Routes>
             <Route element={<HeroLayout />}>
-              <Route
-                index
-                element={<Navigate replace to="home" />}
-              />
+              <Route index element={<Navigate replace to="home" />} />
               <Route
                 path="home"
                 element={
-                  <Suspense fallback={<Loader2/>}>
+                  <Suspense fallback={<Loader2 />}>
                     <Home />
                   </Suspense>
                 }
               />
-              <Route
-                path="signup"
-                element={
-                  <Suspense fallback={<Loader2/>}>
-                    <SignUp />
-                  </Suspense>
-                }
-              />
+              <Route path="signup" element={<SignUp />} />
               <Route
                 path="dashboard"
                 element={
-                  <Suspense fallback={<Loader2/>}>
+                  <Suspense fallback={<Loader2 />}>
                     <Dashboard />
                   </Suspense>
                 }
@@ -54,7 +42,7 @@ export default function App() {
               <Route
                 path="appointment"
                 element={
-                  <Suspense fallback={<Loader2/>}>
+                  <Suspense fallback={<Loader2 />}>
                     <Appointment />
                   </Suspense>
                 }
@@ -62,19 +50,12 @@ export default function App() {
               <Route
                 path="community"
                 element={
-                  <Suspense fallback={<Loader2/>}>
+                  <Suspense fallback={<Loader2 />}>
                     <CommunitySupport />
                   </Suspense>
                 }
               />
-              <Route
-                path="settings"
-                element={
-                  <Suspense fallback={<Loader2/>}>
-                    <Settings />
-                  </Suspense>
-                }
-              />
+              <Route path="settings" element={<Settings />} />
             </Route>
             <Route path="*" element={<PageNotFound />} />
           </Routes>
