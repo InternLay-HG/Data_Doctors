@@ -1,6 +1,6 @@
 // AppointmentDetails.js
 import React from "react";
-import App from "../../assets/App.jpg";
+import App from "../assets/App.jpg";
 
 export default function AppointmentDetails({ appointment }) {
   if (!appointment) return <p>No appointment details available.</p>; // Optional: Fallback message if `appointment` is undefined
