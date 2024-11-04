@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:health_guardian/getX_controllers/onboard/onboard_controllers.dart';
+import 'package:health_guardian/screens/auth/login_screen.dart';
 import 'package:health_guardian/screens/splash/splash_screen.dart';
 import 'package:health_guardian/styling/colors.dart';
 import 'package:health_guardian/styling/sizeConfig.dart';
@@ -23,7 +24,7 @@ class OnboardScreen extends StatelessWidget {
             alignment: Alignment.topCenter,
             heightFactor: 0.67,
             child: Container(
-              decoration: BoxDecoration(gradient: Colours.blueGradient),
+              color: Colours.buttonColorRed,
             ),
           ),
 
@@ -71,7 +72,7 @@ class OnboardScreen extends StatelessWidget {
                     dotHeight: 1.85 * SizeConfig.heightMultiplier,
                     dotWidth: 4.00 * SizeConfig.widthMultiplier,
                     dotColor: Colors.grey,
-                    activeDotColor: Colours.buttonColorDarkBlue),
+                    activeDotColor: Colours.buttonColorRed),
               ),
             ),
           ),
@@ -85,15 +86,17 @@ class OnboardScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    pageViewButtons("Skip", () {}, Colours.buttonColorLightBlue,
-                        Colours.buttonColorDarkBlue),
-                    pageViewButtons(
-                        "Continue",
-                        _pageViewController.pageIndex.value == 2
-                            ? () {}
-                            : () => _pageViewController.navigatePage(),
-                        Colours.buttonColorDarkBlue,
-                        Colors.white)
+                    pageViewButtons("Skip", () => Get.to(()=>LoginScreen(),transition: Transition.upToDown), Color.fromARGB(255, 243, 219, 222),
+                        Colours.buttonColorRed),
+                    Obx(
+                      ()=> pageViewButtons(
+                          "Continue",
+                          _pageViewController.pageIndex.value == 2
+                              ? () => Get.to(()=>LoginScreen(),transition: Transition.upToDown)
+                              : () => _pageViewController.navigatePage(),
+                          Colours.buttonColorRed,
+                          Colors.white),
+                    )
                   ],
                 )),
           ),

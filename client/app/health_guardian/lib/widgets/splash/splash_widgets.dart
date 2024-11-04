@@ -6,7 +6,7 @@ Widget iconWidgetSplash() {
   return Transform.scale(
     scale: 1.180,
     child: Image.asset(
-      Images.heartIcon,
+      Images.heartIconRed,
     ),
   );
 }
@@ -30,7 +30,7 @@ Widget buttonWidgetSplash(String title,void Function() onTap) {
       height: 70,
       width: 260,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(40), color: Colours.buttonColorDarkBlue),
+          borderRadius: BorderRadius.circular(40), color: Colours.buttonColorRed),
       child: Center(
         child: Text(
           title,

@@ -66,3 +66,28 @@ Widget cardText(String title, String desc) {
     ],
   );
 }
+
+Widget buttonsSample(
+    String title, void Function() onTap, Color color, Color textColor,double height,double width) {
+  return InkWell(
+    onTap: onTap,
+    child: Container(
+      decoration: BoxDecoration(
+          color: color,
+          borderRadius:
+              BorderRadius.circular(3.16 * SizeConfig.heightMultiplier)),
+      height: height,
+      width: width,
+      child: Center(
+        child: Text(
+          title,
+          style: TextStyle(
+            color: textColor,
+            fontFamily: "CoreSansMed",
+            fontWeight: FontWeight.bold,
+          ).copyWith(fontSize: 2.6 * SizeConfig.heightMultiplier),
+        ),
+      ),
+    ),
+  );
+}
