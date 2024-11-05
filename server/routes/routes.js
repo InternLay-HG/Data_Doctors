@@ -1,7 +1,9 @@
-const { signup } = require("./signup.js")
+const { register } = require("./register.js")
 const { login } = require("./login.js")
+const { verifyotp } = require("./verifyotp.js")
 
 module.exports = {
-	signup,
-	login
+	register,
+	login,
+	verifyotp,
 }

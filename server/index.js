@@ -21,12 +21,18 @@ app.get('/', async (req, res) => {
 	res.send("<h1> It Works </h1>")
 })
 
-app.post('/signup', async (req, res) => {
+app.post('/register', async (req, res) => {
 	logRequest(req)
 	res.status(200)
 	res.set('Content-Type', 'application/json')
-	response = await routes.signup(req.body)
-	res.send(response)
+	routes.register(req, res)
+})
+
+app.post('/verifyotp', async (req, res) => {
+	logRequest(req)
+	res.status(200)
+	res.set('Content-Type', 'application/json')
+	routes.verifyotp(req, res)
 })
 
 app.post('/login', async (req, res) => {
