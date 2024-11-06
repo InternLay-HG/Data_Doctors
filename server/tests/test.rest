@@ -18,3 +18,13 @@ Content-Type: application/json
     "email": "gyanprakash2483@gmail.com",
     "otp": "838729"
 }
+
+###
+
+POST http://localhost:8080/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "gyanprakash2483@gmail.com",
+    "password": "12345Yu890@"
+}

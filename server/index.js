@@ -39,8 +39,7 @@ app.post('/login', async (req, res) => {
 	logRequest(req)
 	res.status(200)
 	res.set('Content-Type', 'application/json')
-	response = await routes.login(req.body)
-	res.send(response)
+	routes.login(req, res)
 })
 
 app.listen(config.PORT, () => {

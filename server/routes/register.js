@@ -1,7 +1,6 @@
 const userModel = require("../models/user");
 const otpModel = require("../models/otp")
 const bcrypt = require("bcrypt")
-const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer')
 
 function isStrongPassword(password) {
