@@ -2,7 +2,7 @@ import { useState } from "react";
 import Dropdown from "./Dropdown";
 import SearchBar from "./SearchBar";
 import appointmentData from "./AppointmentData";
-import Appointment_Schedule from "../../assets/Appointment_Schedule.jpg";
+import Appointment_Schedule from "../assets/Appointment_Schedule.jpg";
 import { CiHeart } from "react-icons/ci";
 import { LuDot } from "react-icons/lu";
 import AppointmentDetails from "./AppointmentDetails";
