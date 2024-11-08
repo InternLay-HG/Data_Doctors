@@ -73,7 +73,7 @@ html {
 }
 
 body {
-  font-family: "Outfit", sans-serif;
+    font-family: "Roboto", serif;
   color: var(--color-grey-700);
 
   transition: color 0.3s, background-color 0.3s;

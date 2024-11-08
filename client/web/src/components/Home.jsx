@@ -1,21 +1,24 @@
+import { MdKeyboardArrowRight } from "react-icons/md";
+
 export default function Home() {
   return (
-    <div className="flex items-center my-10 mx-10">
+    <div className="flex items-center my-[13%] mx-10">
       <div className="flex flex-col justify-start items-start my-8 mx-1">
-        <h1 className="text-4xl font-bold sm:text-5xl lg:text-9xl text-start tracking-wide">
+        <h1 className="text-4xl font-bold sm:text-5xl lg:text-9xl text-start">
           The Future of{" "}
           <span className="bg-gradient-to-r from-blue-500 to-blue-800 text-transparent bg-clip-text">
             {" "}
             Personal Health
           </span>
         </h1>
-        <p className="mt-10 text-start font-medium text-gray-500 max-w-4xl text-2xl mb-10">
+        <p className="mt-10 text-start font-extralight text-gray-500 max-w-4xl text-2xl mb-10">
           Take control of your health with HealthGuardian. Our AI-powered
           platform provides you with the tools and support to live a healthier
           life.
         </p>
-        <button className="bg-gradient-to-r flex items-center justify-between text-white gap-3 from-blue-400 to-blue-700 lg:py-4 py-5 lg:pl-10 pl-5 lg:pr-8 pr-3 rounded-full transition ease-in-out hover:scale-110 duration-300">
+        <button className="uppercase tracking-wide bg-gradient-to-r flex items-center justify-between text-white gap-3 from-blue-400 to-blue-700 lg:py-4 py-5 lg:pl-10 pl-5 lg:pr-5 pr-3 rounded-full transition ease-in-out hover:scale-110 duration-300">
           Get Started
+          <MdKeyboardArrowRight size={30}/>
         </button>
       </div>
       <div className="relative">

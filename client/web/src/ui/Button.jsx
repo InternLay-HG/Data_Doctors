@@ -10,7 +10,7 @@ const sizes = {
   `,
   medium: css`
     font-size: 1.4rem;
-    padding: 1.2rem 1.8rem;
+    padding: 1rem 1.5rem;
     font-weight: 500;
   `,
   large: css`
@@ -21,12 +21,9 @@ const sizes = {
 };
 
 const variations = {
-  primary: css`
-    color: var(--color-brand-50);
-  `,
-  secondary: css`
-    color: var(--color-brand-700);
-  `,
+  // primary: css`
+  //   color: var(--color-brand-50);
+  // `,
   danger: css`
     color: var(--color-red-100);
     background-color: var(--color-red-700);
@@ -44,9 +41,9 @@ const Button = styled.button`=
   ${(props) => variations[props.variation]}
 `;
 
-Button.defaultProps = {
-  variation: "primary",
-  size: "medium",
-};
+// Button.defaultProps = {
+  // variation: "primary",
+//   size: "medium",
+// };
 
 export default Button;

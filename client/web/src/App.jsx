@@ -2,12 +2,16 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import HeroLayout from "./components/HeroLayout";
 import PageNotFound from "./components/PageNotFound";
-import Appointment from "./components/Appointment";
 import CommunitySupport from "./components/CommunitySupport";
 import GlobalStyles from "./style/GlobalStyle";
 import Settings from "./components/Settings";
 import Home from "./components/Home";
 import SignUp from "./components/SignUp";
+import Login from "./components/Login";
+import AppointmentScheduling from "./components/appointment/Schedule/AppointmentScheduling";
+import UpcomingAppointment from "./components/appointment/Upcoming/UpcomingAppointment";
+import PastAppointment from "./components/appointment/PastAppointment";
+import NotificationAndReminder from "./components/appointment/NotificationAndReminder";
 
 export default function App() {
   return (
@@ -19,8 +23,22 @@ export default function App() {
             <Route index element={<Navigate replace to="home" />} />
             <Route path="home" element={<Home />} />
             <Route path="signup" element={<SignUp />} />
+            <Route path="login" element={<Login />} />
             <Route path="dashboard" element={<Dashboard />} />
-            <Route path="appointment" element={<Appointment />} />
+            <Route path="appointment" element={<AppointmentScheduling />} />
+            <Route
+              path="appointment/schedule"
+              element={<AppointmentScheduling />}
+            />
+            <Route
+              path="appointment/upcoming"
+              element={<UpcomingAppointment />}
+            />
+            <Route path="appointment/past" element={<PastAppointment />} />
+            <Route
+              path="appointment/notifications"
+              element={<NotificationAndReminder />}
+            />
             <Route path="community" element={<CommunitySupport />} />
             <Route path="settings" element={<Settings />} />
           </Route>

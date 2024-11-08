@@ -2,11 +2,10 @@ import styled from "styled-components";
 
 const StyledFormRow = styled.div`
   display: grid;
-  gap: 1rem;
   padding: 1.2rem 0;
 
   /* Specific styles for the first row (First Name and Last Name) */
-  &:nth-child(4) {
+  &:nth-child(2) {
     grid-template-columns: 1fr 1fr; /* Two equal-width columns */
     gap: 1.5rem;
     align-items: center;
