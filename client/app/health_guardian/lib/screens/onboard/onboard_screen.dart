@@ -42,8 +42,8 @@ class OnboardScreen extends StatelessWidget {
                         blurRadius: 10)
                   ],
                   borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(60),
-                      topRight: Radius.circular(60))),
+                      topLeft: Radius.circular(6.32 * SizeConfig.heightMultiplier),
+                      topRight: Radius.circular(6.32 * SizeConfig.heightMultiplier))),
               child: PageView(
                 controller: _pageViewController.pageController,
                 onPageChanged: (index) {
@@ -106,7 +106,7 @@ class OnboardScreen extends StatelessWidget {
             alignment: Alignment.topLeft,
             heightFactor: 0.09,
             child: Padding(
-              padding: EdgeInsets.only(top: 15),
+              padding: EdgeInsets.only(top: 1.58 * SizeConfig.heightMultiplier),
               child: Align(
                 alignment: Alignment.topLeft,
                 child: IconButton(
@@ -117,7 +117,7 @@ class OnboardScreen extends StatelessWidget {
                     icon: Icon(
                       Icons.arrow_back_ios_new,
                       color: Colors.white,
-                      size: 40,
+                      size: 4.21 * SizeConfig.heightMultiplier,
                     )),
               ),
             ),

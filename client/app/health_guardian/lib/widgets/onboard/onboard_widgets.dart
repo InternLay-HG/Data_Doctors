@@ -43,7 +43,7 @@ Widget cardText(String title, String desc) {
                 color: Colors.black,
                 fontFamily: "CoreSansBold",
                 fontWeight: FontWeight.bold,
-                fontSize: 40),
+                fontSize: 4.21 * SizeConfig.heightMultiplier),
           ),
         ),
       ),

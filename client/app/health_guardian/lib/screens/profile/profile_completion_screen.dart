@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:health_guardian/screens/onboard/onboard_screen.dart';
 import 'package:health_guardian/styling/colors.dart';
 import 'package:health_guardian/styling/images.dart';
+import 'package:health_guardian/styling/sizeConfig.dart';
 import 'package:health_guardian/widgets/onboard/onboard_widgets.dart';
 import 'package:health_guardian/widgets/profile/profile_screens.dart';
 import 'package:health_guardian/widgets/profile/profile_screens_1.dart';
@@ -52,7 +55,7 @@ class _ProfileCompletionScreenState extends State<ProfileCompletionScreen> {
             return Dialog(
                 backgroundColor: Colors.transparent,
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30)),
+                    borderRadius: BorderRadius.circular(3.16 * SizeConfig.heightMultiplier)),
                 child: loaderWidget());
           });
     }
@@ -91,15 +94,18 @@ class _ProfileCompletionScreenState extends State<ProfileCompletionScreen> {
               alignment: Alignment.topCenter,
               heightFactor: 0.1,
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 15),
+                padding: EdgeInsets.symmetric(horizontal: 3.34 * SizeConfig.widthMultiplier),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     //* icon for navigating back
-                    Icon(
-                      Icons.arrow_back,
-                      color: Colors.black,
-                      size: 38,
+                    InkWell(
+                      onTap: ()=> Get.back(),
+                      child: Icon(
+                        Icons.arrow_back,
+                        color: Colors.black,
+                        size:4.00 * SizeConfig.heightMultiplier,
+                      ),
                     ),
                     //* indicator for pages
                     LinearPercentIndicator(
@@ -107,10 +113,10 @@ class _ProfileCompletionScreenState extends State<ProfileCompletionScreen> {
                       animationDuration: 1000,
                       progressColor: Colours.buttonColorRed,
                       percent: currentProgress,
-                      barRadius: Radius.circular(22),
+                      barRadius: Radius.circular(2.31 * SizeConfig.heightMultiplier),
                       curve: Curves.linear,
-                      lineHeight: 18,
-                      width: 275,
+                      lineHeight: 1.89 * SizeConfig.heightMultiplier,
+                      width: 61.38 * SizeConfig.widthMultiplier,
                       onAnimationEnd: () {
                         setState(() {
                           _animateProgress = false;
@@ -122,7 +128,7 @@ class _ProfileCompletionScreenState extends State<ProfileCompletionScreen> {
                       "${_currentIndex + 1}/4",
                       style: TextStyle(
                         color: Colors.black,
-                        fontSize: 30,
+                        fontSize: 3.16 * SizeConfig.heightMultiplier,
                         fontFamily: "CoreSansBold",
                       ),
                     ),
@@ -178,27 +184,27 @@ class _ProfileCompletionScreenState extends State<ProfileCompletionScreen> {
 
 Widget loaderWidget() {
   return Container(
-    width: 180,
-    height: 180,
+    width: 40.17 * SizeConfig.widthMultiplier,
+    height: 18.96 * SizeConfig.heightMultiplier,
     decoration: BoxDecoration(
-        color: Colors.white, borderRadius: BorderRadius.circular(10)),
+        color: Colors.white, borderRadius: BorderRadius.circular(1.05 * SizeConfig.heightMultiplier)),
     child: Column(
       children: [
         SizedBox(
-          height: 25,
+          height: 2.63 * SizeConfig.heightMultiplier,
         ),
         LottieBuilder.asset(
           Images.loadingAnimation,
-          height: 80,
-          width: 80,
+          height: 8.42 * SizeConfig.heightMultiplier,
+          width: 17.85 * SizeConfig.widthMultiplier,
         ),
         SizedBox(
-          height: 10,
+          height: 1.05 * SizeConfig.heightMultiplier,
         ),
         Text(
           "Creating your account...",
           style: TextStyle(
-              color: Colors.black, fontFamily: "CoreSansBold", fontSize: 21),
+              color: Colors.black, fontFamily: "CoreSansBold", fontSize: 2.21 * SizeConfig.heightMultiplier),
         )
       ],
     ),

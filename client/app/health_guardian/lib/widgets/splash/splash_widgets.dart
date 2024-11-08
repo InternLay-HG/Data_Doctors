@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:health_guardian/styling/colors.dart';
+import 'package:health_guardian/styling/sizeConfig.dart';
 import '../../styling/images.dart';
 
 Widget iconWidgetSplash() {
   return Transform.scale(
-    scale: 1.180,
+    //* 1.180
+    scale: 0.124 * SizeConfig.heightMultiplier,
     child: Image.asset(
       Images.heartIconRed,
     ),
@@ -27,15 +29,15 @@ Widget buttonWidgetSplash(String title,void Function() onTap) {
   return InkWell(
     onTap: onTap,
     child: Container(
-      height: 70,
-      width: 260,
+      height: 7.37 * SizeConfig.heightMultiplier,
+      width: 58.03 * SizeConfig.widthMultiplier,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(40), color: Colours.buttonColorRed),
+          borderRadius: BorderRadius.circular(4.21 *SizeConfig.heightMultiplier), color: Colours.buttonColorRed),
       child: Center(
         child: Text(
           title,
           style: TextStyle(
-              fontFamily: "Poppins-Med", color: Colors.white, fontSize: 32,fontWeight: FontWeight.w800),
+              fontFamily: "Poppins-Med", color: Colors.white, fontSize: 3.37*SizeConfig.heightMultiplier,fontWeight: FontWeight.w800),
         ),
       ),
     ),
