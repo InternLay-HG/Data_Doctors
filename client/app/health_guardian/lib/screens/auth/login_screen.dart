@@ -11,7 +11,7 @@ class LoginScreen extends StatelessWidget {
 
   void signin(){
     loginControllers.clear();
-    Get.off(()=>OtpScreen(),transition: Transition.rightToLeft);
+    Get.to(()=>OtpScreen(),transition: Transition.rightToLeft);
   }
 
   @override
@@ -20,7 +20,7 @@ class LoginScreen extends StatelessWidget {
         child: Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 14, vertical: 20),
+          padding: EdgeInsets.symmetric(horizontal: 4.5 * SizeConfig.widthMultiplier, vertical: 2.10 * SizeConfig.heightMultiplier),
           child: Column(
             children: [
               Align(
@@ -30,11 +30,11 @@ class LoginScreen extends StatelessWidget {
                     child: Icon(
                       Icons.arrow_back_ios,
                       color: Colors.black,
-                      size: 38,
+                      size: 4.00 * SizeConfig.heightMultiplier,
                     )),
               ),
               SizedBox(
-                height: 30,
+                height: 3.16 * SizeConfig.heightMultiplier,
               ),
               T1(
                 "Welcome Back!",
@@ -104,7 +104,7 @@ class LoginScreen extends StatelessWidget {
               ),
               Obx(() => forgotPassWidget(loginControllers)),
               SizedBox(
-                height: 215,
+                height: 22.65 * SizeConfig.heightMultiplier,
               ),
               authButton(
                 "Sign in",

@@ -37,7 +37,7 @@ Widget T2(String title) {
             color: Color.fromARGB(255, 99, 92, 92),
             fontFamily: "CoreSansLight",
             fontWeight: FontWeight.bold,
-            fontSize: 2.45 * SizeConfig.heightMultiplier),
+            fontSize: 2.38 * SizeConfig.heightMultiplier),
       ),
     ],
   );
@@ -187,7 +187,7 @@ Widget orDivider() {
         child: Divider(
           color: Color.fromARGB(255, 185, 181, 181),
           thickness: 1,
-          height: 10,
+          height: 1.05 * SizeConfig.heightMultiplier,
         ),
       ),
       Padding(
@@ -206,7 +206,7 @@ Widget orDivider() {
         child: Divider(
           color: Color.fromARGB(255, 185, 181, 181),
           thickness: 1,
-          height: 10,
+          height: 1.05 * SizeConfig.heightMultiplier,
         ),
       ),
     ],

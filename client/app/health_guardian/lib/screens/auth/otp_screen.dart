@@ -2,11 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:health_guardian/getX_controllers/auth/login_controllers.dart';
-import 'package:health_guardian/screens/auth/login_screen.dart';
 
-import 'package:health_guardian/screens/onboard/onboard_screen.dart';
 import 'package:health_guardian/screens/profile/profile_completion_screen.dart';
-import 'package:health_guardian/screens/splash/splash_screen.dart';
 import 'package:health_guardian/styling/images.dart';
 import 'package:health_guardian/styling/sizeConfig.dart';
 import 'package:health_guardian/widgets/auth/login_widgets.dart';
@@ -14,9 +11,9 @@ import 'package:health_guardian/widgets/auth/login_widgets.dart';
 class OtpScreen extends StatelessWidget {
   final function controller = Get.put(function());
 
-  void submit(){
+  void submit() {
     controller.otpClear();
-    Get.off(()=>ProfileCompletionScreen(),transition: Transition.upToDown);
+    Get.to(() => ProfileCompletionScreen(), transition: Transition.upToDown);
   }
 
   @override
@@ -27,21 +24,23 @@ class OtpScreen extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 22, vertical: 20),
+              padding: EdgeInsets.symmetric(
+                  horizontal: 4.91 * SizeConfig.widthMultiplier,
+                  vertical: 2.10 * SizeConfig.heightMultiplier),
               child: Column(
                 children: [
                   Align(
                     alignment: Alignment.topLeft,
                     child: InkWell(
-                        onTap: () => Get.off(() => LoginScreen()),
+                        onTap: () => Get.back(),
                         child: Icon(
                           Icons.arrow_back_ios,
                           color: Colors.black,
-                          size: 38,
+                          size: 4.00 * SizeConfig.heightMultiplier,
                         )),
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 3.16 * SizeConfig.heightMultiplier,
                   ),
                   T1(
                     "Enter your App Pin",
@@ -61,11 +60,12 @@ class OtpScreen extends StatelessWidget {
             ),
             OTPfield(controller.otpController),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 22),
+              padding: EdgeInsets.symmetric(
+                  horizontal: 4.91 * SizeConfig.widthMultiplier),
               child: Column(
                 children: [
                   SizedBox(
-                    height: 40,
+                    height: 4.21 * SizeConfig.heightMultiplier,
                   ),
                   FittedBox(
                     child: Text(
@@ -80,7 +80,7 @@ class OtpScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 40,
+                    height: 4.21 * SizeConfig.heightMultiplier,
                   ),
                   authButton("Continue", submit)
                 ],

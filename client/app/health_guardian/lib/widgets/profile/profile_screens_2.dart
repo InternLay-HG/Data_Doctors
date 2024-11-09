@@ -2,25 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:health_guardian/getX_controllers/profile/profile_controller.dart';
 import 'package:health_guardian/styling/colors.dart';
+import 'package:health_guardian/styling/sizeConfig.dart';
 import 'package:health_guardian/widgets/profile/profile_screens.dart';
 
 final ProfileController profileController = Get.put(ProfileController());
 
 Widget screen4() {
   return Container(
-    padding: EdgeInsets.symmetric(horizontal: 12),
+    padding:
+        EdgeInsets.symmetric(horizontal: 2.67 * SizeConfig.widthMultiplier),
     child: Column(
       children: [
-        SizedBox(height: 15),
-        Text(
-          overflow: TextOverflow.ellipsis,
-          maxLines: 2,
-          'Are You Currently Diagnosed with Any of These Diseases?',
-          style: TextStyle(
-              color: Colors.black, fontFamily: "CoreSansBold", fontSize: 29.5),
+        SizedBox(height: 1.58 * SizeConfig.heightMultiplier),
+        FittedBox(
+          child: Text(
+            overflow: TextOverflow.ellipsis,
+            maxLines: 2,
+            'Are You Currently Diagnosed\nwith Any of These Diseases?',
+            style: TextStyle(
+                color: Colors.black, fontFamily: "CoreSansBold", fontSize: 29.5),
+          ),
         ),
         SizedBox(
-          height: 50,
+          height: 5.26 * SizeConfig.heightMultiplier,
         ),
         //* for selecting diseases
 
@@ -36,8 +40,8 @@ Widget screen4() {
                   child: Column(
                     children: [
                       Container(
-                        height: 130,
-                        width: 130,
+                        height: 13.69 * SizeConfig.heightMultiplier,
+                        width: 29.01 * SizeConfig.widthMultiplier,
                         decoration: BoxDecoration(
                             color: profileController.heart_disease.value
                                 ? Colours.buttonColorRed
@@ -51,11 +55,11 @@ Widget screen4() {
                           color: profileController.heart_disease.value
                               ? Colors.white
                               : Colors.black,
-                          size: 80,
+                          size: 8.42 * SizeConfig.heightMultiplier,
                         ),
                       ),
                       SizedBox(
-                        height: 20,
+                        height: 2.10 * SizeConfig.heightMultiplier,
                       ),
                       profileScreenText("Heart")
                     ],
@@ -69,8 +73,8 @@ Widget screen4() {
                   child: Column(
                     children: [
                       Container(
-                        height: 130,
-                        width: 130,
+                        height: 13.69 * SizeConfig.heightMultiplier,
+                        width: 29.01 * SizeConfig.widthMultiplier,
                         decoration: BoxDecoration(
                             color: profileController.blood_sugar.value
                                 ? Colours.buttonColorRed
@@ -84,11 +88,11 @@ Widget screen4() {
                           color: profileController.blood_sugar.value
                               ? Colors.white
                               : Colors.black,
-                          size: 80,
+                          size: 8.42 * SizeConfig.heightMultiplier,
                         ),
                       ),
                       SizedBox(
-                        height: 20,
+                        height: 2.10 * SizeConfig.heightMultiplier,
                       ),
                       profileScreenText("Sugar")
                     ],
@@ -98,7 +102,7 @@ Widget screen4() {
             )),
 
         SizedBox(
-          height: 20,
+          height: 2.107 * SizeConfig.heightMultiplier
         ),
 
         //* pressure and weight
@@ -113,8 +117,8 @@ Widget screen4() {
                   child: Column(
                     children: [
                       Container(
-                        height: 130,
-                        width: 130,
+                            height: 13.69 * SizeConfig.heightMultiplier,
+                        width: 29.01 * SizeConfig.widthMultiplier,
                         decoration: BoxDecoration(
                             color: profileController.blood_pressure.value
                                 ? Colours.buttonColorRed
@@ -128,11 +132,11 @@ Widget screen4() {
                           color: profileController.blood_pressure.value
                               ? Colors.white
                               : Colors.black,
-                          size: 80,
+                          size: 8.42 * SizeConfig.heightMultiplier,
                         ),
                       ),
                       SizedBox(
-                        height: 20,
+                        height: 2.10 * SizeConfig.heightMultiplier,
                       ),
                       profileScreenText("Pressure")
                     ],
@@ -146,8 +150,8 @@ Widget screen4() {
                   child: Column(
                     children: [
                       Container(
-                        height: 130,
-                        width: 130,
+                        height: 13.69 * SizeConfig.heightMultiplier,
+                        width: 29.01 * SizeConfig.widthMultiplier,
                         decoration: BoxDecoration(
                             color: profileController.weight_bmi.value
                                 ? Colours.buttonColorRed
@@ -161,11 +165,11 @@ Widget screen4() {
                           color: profileController.weight_bmi.value
                               ? Colors.white
                               : Colors.black,
-                          size: 80,
+                          size: 8.42 * SizeConfig.heightMultiplier,
                         ),
                       ),
                       SizedBox(
-                        height: 20,
+                        height: 2.10 * SizeConfig.heightMultiplier,
                       ),
                       profileScreenText("Weight")
                     ],
