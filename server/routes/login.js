@@ -8,6 +8,7 @@ async function login(req, res) {
 	if(!user) {
 		return res.status(400).send({
 			status: "failure",
+			rescode: 1009,
 			message: "Invalid credentials"
 		});
 	}
@@ -17,12 +18,14 @@ async function login(req, res) {
 			let token = jwt.sign({email : email , userid : user._id} , process.env.JWT_SECRET);
 			res.status(200).send({
 				status: "success",
+				rescode: 1008,
 				message: "Logged in successfully",
 				token: token
 			});
 		} else {
 			return res.status(400).send({
 				status: "failure",
+				rescode: 1009,
 				message: "Invalid credentials"
 			});
 	   	}

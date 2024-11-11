@@ -35,6 +35,7 @@ async function register(req, res) {
 		if (!isStrongPassword(password)) {
 		  return res.status(400).send({
             status: "success",
+			rescode: 1002,
             message: "Password must be at least 8 characters long, with at least one uppercase letter, one lowercase letter, one number, and one special character."
         });
 		}
@@ -44,6 +45,7 @@ async function register(req, res) {
 		if (user_email) {
 		  return res.status(409).send({
             status: "failure",
+			rescode: 1003,
             message: "Email already registered"
         });
 		}
@@ -52,6 +54,7 @@ async function register(req, res) {
 		if (user_mobile) {
 		  return res.status(409).send({
             status: "failure",
+			rescode: 1004,
             message: "Mobile Number Already in use"
         });
 		}
@@ -77,6 +80,7 @@ async function register(req, res) {
 	
 		return res.status(201).send({
             status: "success",
+			rescode: 1001,
             message: "OTP has been sent to email, proceed with otp verification."
         });
 	
@@ -84,6 +88,7 @@ async function register(req, res) {
 		console.log(error)
 		return res.status(500).send({
             status: "failure",
+			rescode: 1005,
             message: "Unknown Server Error"
         });
 	  }
