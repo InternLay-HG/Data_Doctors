@@ -33,18 +33,27 @@ async function register(req, res) {
 	
 		// Check for strong password
 		if (!isStrongPassword(password)) {
-		  return res.status(400).send("Password must be at least 8 characters long, with at least one uppercase letter, one lowercase letter, one number, and one special character.");
+		  return res.status(400).send({
+            status: "success",
+            message: "Password must be at least 8 characters long, with at least one uppercase letter, one lowercase letter, one number, and one special character."
+        });
 		}
 	
 		// Check if user is already registered
 		let user_email = await userModel.findOne({ email });
 		if (user_email) {
-		  return res.status(409).send("Email already registered");
+		  return res.status(409).send({
+            status: "failure",
+            message: "Email already registered"
+        });
 		}
 	
 		let user_mobile = await userModel.findOne({ mobileNumber });
 		if (user_mobile) {
-		  return res.status(409).send("Mobile Number already in use");
+		  return res.status(409).send({
+            status: "failure",
+            message: "Mobile Number Already in use"
+        });
 		}
 	
 		// Hash the password and create a new user
@@ -66,11 +75,17 @@ async function register(req, res) {
 		  otp
 		});
 	
-		return res.status(201).send("OTP has been sent to email, proceed with otp verification.");
+		return res.status(201).send({
+            status: "success",
+            message: "OTP has been sent to email, proceed with otp verification."
+        });
 	
 	  } catch (error) {
 		console.log(error)
-		return res.status(500).send("Server error");
+		return res.status(500).send({
+            status: "failure",
+            message: "Unknown Server Error"
+        });
 	  }
 }
 
