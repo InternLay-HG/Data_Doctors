@@ -79,3 +79,28 @@ HOST: https://localhost:8000/
             "message": "Invalid or expired OTP. Please try again."
         }
 
+## OTP Verification [/login]
+
+### Request Login (JWT Token) [POST]
+
++ Request (application/json)
+
+        {
+            "email": <Email : String>,
+            "password": <Password : String>
+        }
+
++ Response 200 (application/json)
+
+        {
+            "status": "success",
+            "message": "Logged in successfully",
+            "token": <JWT Token : String>
+        }
+
++ Response 400 (application/json)
+
+        {
+            "status": "failure",
+            "message": "Invalid credentials"
+        }
