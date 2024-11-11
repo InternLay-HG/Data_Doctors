@@ -76,24 +76,24 @@ export default function SignUp() {
   return (
     <Form
       onSubmit={handleSubmit}
-      className="flex flex-col justify-center ml-[52rem] my-5 bg-neutral-900 w-[500px] py-4"
+      className="flex flex-col justify-center mx-auto my-10 bg-neutral-900 w-[500px] py-4"
     >
       <h1 className="text-center text-4xl font-semibold my-4">
         Create account
       </h1>
 
-      <div className="my-6 text-center">
+      {/* <div className="my-6 text-center">
         <GoogleLogin
           onSuccess={handleGoogleLoginSuccess}
           onError={() => console.log("Login failed")}
         />
-      </div>
+      </div> */}
 
-      <div className="flex items-center my-4">
+      {/* <div className="flex items-center my-4">
         <hr className="flex-grow border-t border-gray-300" />
         <span className="mx-4 text-2xl font-light">or</span>
         <hr className="flex-grow border-t border-gray-300" />
-      </div>
+      </div> */}
 
       <FormRow>
         <div>
@@ -226,19 +226,18 @@ export default function SignUp() {
 
       <FormRow>
         <Button
-          variation="secondary"
           type="reset"
           size="medium"
-          className="hover:bg-gray-50 transition ease-in-out hover:scale-110 duration-300 rounded-full"
+          className="hover:bg-blue-500/10 text-blue-700 transition ease-in-out hover:scale-110 duration-300 rounded-lg"
         >
           Sign in
         </Button>
         <Button
           size="medium"
           type="submit"
-          className="bg-gradient-to-r from-blue-400 to-blue-700 transition ease-in-out hover:scale-110 duration-300 rounded-full"
+          className="bg-blue-600 text-white hover:shadow-lg hover:bg-blue-800/90 rounded-lg"
         >
-          Create Account
+          Create account
         </Button>
       </FormRow>
     </Form>

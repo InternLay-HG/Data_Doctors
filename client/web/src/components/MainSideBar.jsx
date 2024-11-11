@@ -7,6 +7,10 @@ import { LayoutDashboard } from "lucide-react";
 import { HiOutlineCog6Tooth } from "react-icons/hi2";
 import { useState } from "react";
 import { AlignJustify } from "lucide-react";
+import { CalendarCheck } from "lucide-react";
+import { BookCheck } from "lucide-react";
+import { Bell } from "lucide-react";
+import { BookX } from "lucide-react";
 
 const NavList = styled.ul`
   display: flex;
@@ -61,8 +65,25 @@ const StyledNavLink = styled(NavLink)`
   // }
 `;
 
+const SubMenu = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 2rem;
+`;
+
+const SubMenuItem = styled(StyledNavLink)`
+  font-size: 10px;
+  &:hover {
+    background-color: var(--color-brand-700);
+  }
+`;
+
 export default function MainSideBar() {
   const [extended, setExtended] = useState(true);
+  const [showAppointmentDropdown, setShowAppointmentDropdown] = useState(false);
   return (
     <nav>
       <NavList>
@@ -82,10 +103,36 @@ export default function MainSideBar() {
               </StyledNavLink>
             </li>
             <li>
-              <StyledNavLink to="/appointment">
+              <StyledNavLink
+                to="/appointment"
+                onClick={() =>
+                  setShowAppointmentDropdown(!showAppointmentDropdown)
+                }
+              >
                 <Presentation />
                 <span>Appointment</span>
               </StyledNavLink>
+
+              {showAppointmentDropdown && (
+                <SubMenu>
+                  <SubMenuItem to="/appointment/schedule">
+                    <CalendarCheck />
+                    <span>Appointment Scheduling</span>
+                  </SubMenuItem>
+                  <SubMenuItem to="/appointment/upcoming">
+                    <BookX />
+                    <span>Upcoming Appointments</span>
+                  </SubMenuItem>
+                  <SubMenuItem to="/appointment/past">
+                    <BookCheck />
+                    <span>Past Appointment</span>
+                  </SubMenuItem>
+                  <SubMenuItem to="/appointment/notifications">
+                    <Bell />
+                    <span>Notifications & Reminders</span>
+                  </SubMenuItem>
+                </SubMenu>
+              )}
             </li>
             <li>
               <StyledNavLink to="/community">
