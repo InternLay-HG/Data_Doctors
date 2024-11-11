@@ -20,6 +20,11 @@ class PageViewController extends GetxController {
     pageController.nextPage(duration: Duration(milliseconds: 500), curve: Curves.linearToEaseOut);
   }
 
+  //* Navigate to previous page
+  void previousPage(){
+     pageController.previousPage(duration: Duration(milliseconds: 500), curve: Curves.linearToEaseOut);
+  }
+
   @override
   void onClose() {
     // TODO: implement onClose

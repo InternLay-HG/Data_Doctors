@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:health_guardian/getX_controllers/auth/login_controllers.dart';
+import 'package:health_guardian/getX_controllers/button/button_controllers.dart';
 import 'package:health_guardian/styling/colors.dart';
 import 'package:health_guardian/styling/sizeConfig.dart';
 import 'package:pinput/pinput.dart';
+
+final ButtonControllers controller = Get.put(ButtonControllers());
 
 Widget T1(String title, String image) {
   return Row(
@@ -17,7 +23,7 @@ Widget T1(String title, String image) {
       SizedBox(
         width: 2.23 * SizeConfig.widthMultiplier,
       ),
-      Image.asset(
+      SvgPicture.asset(
         image,
         height: 4.74 * SizeConfig.heightMultiplier,
         width: 11.40 * SizeConfig.widthMultiplier,
@@ -130,24 +136,48 @@ InputDecoration fieldPasswordDecoration(String text, IconData icon) {
 }
 
 Widget authButton(String text, void Function() onTap) {
-  return InkWell(
+  return GestureDetector(
+    onTapDown: (_) {
+      controller.setPressed(true); //* Shrink the button when pressed
+    },
+    onTapUp: (_) {
+      controller.setPressed(
+          false); //* Return to original size when the tap is released
+    },
+
+    //* onTap is used to navigate to other screen
     onTap: onTap,
-    child: Container(
-      width: double.infinity,
-      height: 6.32 * SizeConfig.heightMultiplier,
-      decoration: BoxDecoration(
-          color: Colors.red,
-          borderRadius:
-              BorderRadius.circular(3.37 * SizeConfig.heightMultiplier)),
-      child: Center(
-        child: Text(
-          text,
-          style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.w500,
-              fontFamily: "CoreSansMed",
-              fontSize: 2.8 * SizeConfig.heightMultiplier),
+    child: Obx(
+      () => TweenAnimationBuilder<double>(
+        duration: const Duration(milliseconds: 100),
+        tween: Tween<double>(
+          begin: 1.0,
+          end: controller.isPressed.value ? 0.93 : 1.0,
         ),
+        builder: (context, scale, child) {
+          return Transform.scale(
+            scale: scale,
+            child: AnimatedContainer(
+              duration: Duration(milliseconds: 100),
+              width: double.infinity,
+              height: 6.32 * SizeConfig.heightMultiplier,
+              decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(
+                      3.37 * SizeConfig.heightMultiplier)),
+              child: Center(
+                child: Text(
+                  text,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: "CoreSansMed",
+                      fontSize: 2.8 * SizeConfig.heightMultiplier),
+                ),
+              ),
+            ),
+          );
+        },
       ),
     ),
   );
@@ -278,11 +308,9 @@ PinTheme pinTheme() {
     textStyle: TextStyle(
         color: Colors.black,
         fontFamily: "CoreSansMed",
-        fontSize: 2.5* SizeConfig.heightMultiplier),
+        fontSize: 2.5 * SizeConfig.heightMultiplier),
     decoration: BoxDecoration(
-      boxShadow: const [
-        BoxShadow(color: Color(0x66D9D9D9))
-      ],
+      boxShadow: const [BoxShadow(color: Color(0x66D9D9D9))],
       color: Color(0x66D9D9D9),
       borderRadius: BorderRadius.circular(
           0.80 * SizeConfig.heightMultiplier), // Rounded corners

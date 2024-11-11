@@ -12,8 +12,10 @@ class OtpScreen extends StatelessWidget {
   final function controller = Get.put(function());
 
   void submit() {
-    controller.otpClear();
-    Get.to(() => ProfileCompletionScreen(), transition: Transition.upToDown);
+    Future.delayed(Duration(milliseconds: 200), () {
+      controller.otpClear();
+      Get.to(() => ProfileCompletionScreen(), transition: Transition.upToDown);
+    });
   }
 
   @override
