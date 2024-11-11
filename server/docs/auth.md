@@ -51,3 +51,31 @@ HOST: https://localhost:8000/
             "status": "failure",
             "message": "Unknown Server Error"
         }
+
+
+## OTP Verification [/verifyotp]
+
+### Request OTP Verification [POST]
+
++ Request (application/json)
+
+        {
+            "email": <Email : String>,
+            "otp": <OTP : String>
+        }
+
++ Response 201 (application/json)
+
+        {
+            "status": "success",
+            "message": "Account created successfully"
+            "token": <JWT Token : String>
+        }
+
++ Response 400 (application/json)
+
+        {
+            "status": "failure",
+            "message": "Invalid or expired OTP. Please try again."
+        }
+

@@ -31,14 +31,19 @@ async function verifyotp(req, res) {
         // Generate JWT token
 		const token = jwt.sign({ email: email, userid: user._id }, process.env.JWT_SECRET);
 	
-		// Set token as a cookie
-		res.cookie("token", token, { httpOnly: true, secure: true }); // Use secure cookies in production
         otpModel.deleteOne({ email }); // delete from temporary db
-        return res.status(201).send("Account created successfully")
+        return res.status(201).send({
+            status: "success",
+            message: "Account created successfully",
+            token: token
+        })
 
     } catch (error) {
         // If OTP verification fails, respond with an error message
-        return res.status(400).send("Invalid or expired OTP. Please try again.");
+        return res.status(400).send({
+            status: "failure",
+            message: "Invalid or expired OTP. Please try again."
+        });
     }
 }
 
