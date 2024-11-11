@@ -34,6 +34,7 @@ async function verifyotp(req, res) {
         otpModel.deleteOne({ email }); // delete from temporary db
         return res.status(201).send({
             status: "success",
+            rescode: 1006,
             message: "Account created successfully",
             token: token
         })
@@ -42,6 +43,7 @@ async function verifyotp(req, res) {
         // If OTP verification fails, respond with an error message
         return res.status(400).send({
             status: "failure",
+            rescode: 1007,
             message: "Invalid or expired OTP. Please try again."
         });
     }
