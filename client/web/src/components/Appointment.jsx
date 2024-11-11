@@ -1,7 +1,7 @@
-import AppointmentScheduling from "../appointment/AppointmentScheduling";
-import NotificationAndReminder from "../appointment/NotificationAndReminder";
-import PastAppointment from "../appointment/PastAppointment";
-import UpcomingAppointment from "../appointment/UpcomingAppointment";
+import AppointmentScheduling from "./appointment/AppointmentScheduling";
+import UpcomingAppointment from "./appointment/UpcomingAppointment";
+import PastAppointment from "./appointment/PastAppointment";
+import NotificationAndReminder from "./appointment/NotificationAndReminder";
 
 export default function Appointment() {
   return (
