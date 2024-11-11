@@ -1,7 +1,9 @@
 # datadoctor
 
 
-HOST: https://localhost:8000/
+HOST: https://data-doctors-puce.vercel.app/
+
+Response code descriptions can be found [here](./responsecode.md)
 
 ## Registration [/register]
 
