@@ -6,6 +6,7 @@ import 'package:health_guardian/screens/splash/splash_screen.dart';
 import 'package:health_guardian/styling/colors.dart';
 import 'package:health_guardian/styling/sizeConfig.dart';
 import 'package:health_guardian/styling/strings.dart';
+import 'package:health_guardian/widgets/buttons/double_buttons.dart';
 import 'package:health_guardian/widgets/onboard/onboard_widgets.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -42,8 +43,10 @@ class OnboardScreen extends StatelessWidget {
                         blurRadius: 10)
                   ],
                   borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(6.32 * SizeConfig.heightMultiplier),
-                      topRight: Radius.circular(6.32 * SizeConfig.heightMultiplier))),
+                      topLeft:
+                          Radius.circular(6.32 * SizeConfig.heightMultiplier),
+                      topRight:
+                          Radius.circular(6.32 * SizeConfig.heightMultiplier))),
               child: PageView(
                 controller: _pageViewController.pageController,
                 onPageChanged: (index) {
@@ -86,13 +89,22 @@ class OnboardScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    pageViewButtons("Skip", () => Get.to(()=>LoginScreen(),transition: Transition.upToDown), Color.fromARGB(255, 243, 219, 222),
-                        Colours.buttonColorRed),
                     Obx(
-                      ()=> pageViewButtons(
+                      () => doubleButton1(
+                          "Skip",
+                          _pageViewController.pageIndex.value == 0
+                              ? () => Get.to(() => LoginScreen(),
+                                  transition: Transition.upToDown)
+                              : () => _pageViewController.previousPage(),
+                          Color.fromARGB(255, 243, 219, 222),
+                          Colours.buttonColorRed),
+                    ),
+                    Obx(
+                      () => doubleButton2(
                           "Continue",
                           _pageViewController.pageIndex.value == 2
-                              ? () => Get.to(()=>LoginScreen(),transition: Transition.upToDown)
+                              ? () => Get.to(() => LoginScreen(),
+                                  transition: Transition.upToDown)
                               : () => _pageViewController.navigatePage(),
                           Colours.buttonColorRed,
                           Colors.white),

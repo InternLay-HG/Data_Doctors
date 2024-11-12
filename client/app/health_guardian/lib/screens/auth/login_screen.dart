@@ -9,9 +9,12 @@ import 'package:health_guardian/widgets/auth/login_widgets.dart';
 class LoginScreen extends StatelessWidget {
   final function loginControllers = Get.put(function());
 
-  void signin(){
-    loginControllers.clear();
-    Get.to(()=>OtpScreen(),transition: Transition.rightToLeft);
+  void signin() async {
+    Future.delayed(Duration(milliseconds: 200), () {
+      loginControllers.clear();
+      print("Nav");
+      Get.to(() => OtpScreen(), transition: Transition.rightToLeft);
+    });
   }
 
   @override
@@ -20,7 +23,9 @@ class LoginScreen extends StatelessWidget {
         child: Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 4.5 * SizeConfig.widthMultiplier, vertical: 2.10 * SizeConfig.heightMultiplier),
+          padding: EdgeInsets.symmetric(
+              horizontal: 4.5 * SizeConfig.widthMultiplier,
+              vertical: 2.10 * SizeConfig.heightMultiplier),
           child: Column(
             children: [
               Align(

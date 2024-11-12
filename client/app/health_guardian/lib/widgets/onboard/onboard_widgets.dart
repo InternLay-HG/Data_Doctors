@@ -1,30 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:health_guardian/getX_controllers/button/button_controllers.dart';
 import 'package:health_guardian/styling/sizeConfig.dart';
 
-Widget pageViewButtons(
-    String title, void Function() onTap, Color color, Color textColor) {
-  return InkWell(
-    onTap: onTap,
-    child: Container(
-      decoration: BoxDecoration(
-          color: color,
-          borderRadius:
-              BorderRadius.circular(3.16 * SizeConfig.heightMultiplier)),
-      height: 6.32 * SizeConfig.heightMultiplier,
-      width: 43.64 * SizeConfig.widthMultiplier,
-      child: Center(
-        child: Text(
-          title,
-          style: TextStyle(
-            color: textColor,
-            fontFamily: "CoreSansMed",
-            fontWeight: FontWeight.bold,
-          ).copyWith(fontSize: 2.6 * SizeConfig.heightMultiplier),
-        ),
-      ),
-    ),
-  );
-}
+final ButtonControllers controller = Get.put(ButtonControllers());
 
 Widget cardText(String title, String desc) {
   return Column(
@@ -67,8 +46,8 @@ Widget cardText(String title, String desc) {
   );
 }
 
-Widget buttonsSample(
-    String title, void Function() onTap, Color color, Color textColor,double height,double width) {
+Widget buttonsSample(String title, void Function() onTap, Color color,
+    Color textColor, double height, double width) {
   return InkWell(
     onTap: onTap,
     child: Container(

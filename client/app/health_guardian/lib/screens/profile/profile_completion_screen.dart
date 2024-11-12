@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:health_guardian/screens/onboard/onboard_screen.dart';
+import 'package:health_guardian/screens/welcome/welcome_screen_new.dart';
+import 'package:health_guardian/screens/welcome/welcome_screen_user.dart';
 import 'package:health_guardian/styling/colors.dart';
 import 'package:health_guardian/styling/images.dart';
 import 'package:health_guardian/styling/sizeConfig.dart';
-import 'package:health_guardian/widgets/onboard/onboard_widgets.dart';
+import 'package:health_guardian/widgets/buttons/double_buttons.dart';
 import 'package:health_guardian/widgets/profile/profile_screens.dart';
 import 'package:health_guardian/widgets/profile/profile_screens_1.dart';
 import 'package:health_guardian/widgets/profile/profile_screens_2.dart';
@@ -34,43 +35,51 @@ class _ProfileCompletionScreenState extends State<ProfileCompletionScreen> {
   }
 
   void _navigateNextPage() {
-    if (_currentIndex < 3) {
-      setState(() {
-        _animateProgress = true;
-      });
-      _pageController.nextPage(
-        duration: Duration(milliseconds: 500),
-        curve: Curves.easeInOut,
-      );
-    } else {
-      //* show loading widget and navigate to home page
-      showDialog(
-          context: context,
-          barrierColor: Colors.black.withOpacity(0.7),
-          builder: (context) {
-            Future.delayed(Duration(seconds: 5), () {
-              Navigator.of(context).pop(); //* Close the dialog after 5 seconds
+    Future.delayed(Duration(milliseconds: 200), () async {
+      if (_currentIndex < 3) {
+        setState(() {
+          _animateProgress = true;
+        });
+        _pageController.nextPage(
+          duration: Duration(milliseconds: 400),
+          curve: Curves.easeInOut,
+        );
+      } else {
+        //* show loading widget and navigate to home page
+        await showDialog(
+            context: context,
+            barrierColor: Colors.black.withOpacity(0.7),
+            builder: (context) {
+              Future.delayed(Duration(seconds: 5), () {
+                Navigator.of(context)
+                    .pop(); //* Close the dialog after 5 seconds
+              });
+
+              return Dialog(
+                  backgroundColor: Colors.transparent,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(
+                          3.16 * SizeConfig.heightMultiplier)),
+                  child: loaderWidget());
             });
 
-            return Dialog(
-                backgroundColor: Colors.transparent,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(3.16 * SizeConfig.heightMultiplier)),
-                child: loaderWidget());
-          });
-    }
+        Get.to(WelcomeScreenUser(), transition: Transition.downToUp);
+      }
+    });
   }
 
   void _navigatePrevPage() {
-    if (_currentIndex > 0) {
-      setState(() {
-        _animateProgress = true;
-      });
-      _pageController.previousPage(
-        duration: Duration(milliseconds: 300),
-        curve: Curves.easeInOut,
-      );
-    }
+    Future.delayed(Duration(milliseconds: 200), () {
+      if (_currentIndex > 0) {
+        setState(() {
+          _animateProgress = true;
+        });
+        _pageController.previousPage(
+          duration: Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
+      }
+    });
   }
 
   void _onPageChanged(int index) {
@@ -94,26 +103,28 @@ class _ProfileCompletionScreenState extends State<ProfileCompletionScreen> {
               alignment: Alignment.topCenter,
               heightFactor: 0.1,
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 3.34 * SizeConfig.widthMultiplier),
+                padding: EdgeInsets.symmetric(
+                    horizontal: 3.34 * SizeConfig.widthMultiplier),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     //* icon for navigating back
                     InkWell(
-                      onTap: ()=> Get.back(),
+                      onTap: () => Get.back(),
                       child: Icon(
                         Icons.arrow_back,
                         color: Colors.black,
-                        size:4.00 * SizeConfig.heightMultiplier,
+                        size: 4.00 * SizeConfig.heightMultiplier,
                       ),
                     ),
                     //* indicator for pages
                     LinearPercentIndicator(
                       animation: _animateProgress,
-                      animationDuration: 1000,
+                      animationDuration: 500,
                       progressColor: Colours.buttonColorRed,
                       percent: currentProgress,
-                      barRadius: Radius.circular(2.31 * SizeConfig.heightMultiplier),
+                      barRadius:
+                          Radius.circular(2.31 * SizeConfig.heightMultiplier),
                       curve: Curves.linear,
                       lineHeight: 1.89 * SizeConfig.heightMultiplier,
                       width: 61.38 * SizeConfig.widthMultiplier,
@@ -160,13 +171,13 @@ class _ProfileCompletionScreenState extends State<ProfileCompletionScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  pageViewButtons(
+                  doubleButton1(
                     "Back",
                     _navigatePrevPage,
                     Color.fromARGB(255, 243, 219, 222),
                     Colours.buttonColorRed,
                   ),
-                  pageViewButtons(
+                  doubleButton2(
                     "Continue",
                     _navigateNextPage,
                     Colours.buttonColorRed,
@@ -187,7 +198,9 @@ Widget loaderWidget() {
     width: 40.17 * SizeConfig.widthMultiplier,
     height: 18.96 * SizeConfig.heightMultiplier,
     decoration: BoxDecoration(
-        color: Colors.white, borderRadius: BorderRadius.circular(1.05 * SizeConfig.heightMultiplier)),
+        color: Colors.white,
+        borderRadius:
+            BorderRadius.circular(1.05 * SizeConfig.heightMultiplier)),
     child: Column(
       children: [
         SizedBox(
@@ -204,7 +217,9 @@ Widget loaderWidget() {
         Text(
           "Creating your account...",
           style: TextStyle(
-              color: Colors.black, fontFamily: "CoreSansBold", fontSize: 2.21 * SizeConfig.heightMultiplier),
+              color: Colors.black,
+              fontFamily: "CoreSansBold",
+              fontSize: 2.21 * SizeConfig.heightMultiplier),
         )
       ],
     ),

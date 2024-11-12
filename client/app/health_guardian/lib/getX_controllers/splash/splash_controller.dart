@@ -11,7 +11,7 @@ class SplashController extends GetxController with SingleGetTickerProviderMixin 
 
     // Initialize the AnimationController and Tween Animation
     animationController = AnimationController(
-      duration: const Duration(seconds: 1),
+      duration: const Duration(milliseconds: 700),
       vsync: this,
     );
 

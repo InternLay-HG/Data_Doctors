@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:health_guardian/screens/auth/otp_screen.dart';
 
 class function extends GetxController {
   //* initialize the controllers
@@ -28,6 +29,11 @@ class function extends GetxController {
   }
 
   RxBool obscureText = false.obs;
+
+  //* navigating functions
+  void loginNav() {
+    Get.to(() => OtpScreen(), transition: Transition.rightToLeft);
+  }
 
   @override
   void onClose() {
