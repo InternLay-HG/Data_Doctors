@@ -63,7 +63,7 @@ class _ProfileCompletionScreenState extends State<ProfileCompletionScreen> {
                   child: loaderWidget());
             });
 
-        Get.to(WelcomeScreenUser(), transition: Transition.downToUp);
+        Get.to(() => WelcomeScreenUser(), transition: Transition.downToUp);
       }
     });
   }

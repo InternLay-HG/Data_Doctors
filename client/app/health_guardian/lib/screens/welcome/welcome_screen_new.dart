@@ -4,12 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:health_guardian/getX_controllers/splash/splash_controller.dart';
+import 'package:health_guardian/screens/dashboard/dashboard_screen.dart';
 import 'package:health_guardian/styling/sizeConfig.dart';
 import 'package:health_guardian/widgets/auth/login_widgets.dart';
 import 'package:health_guardian/widgets/splash/splash_widgets.dart';
 
 class WelcomeScreenNew extends StatelessWidget {
   final SplashController splashController = Get.put(SplashController());
+
+  void Navigate() {
+    Future.delayed(Duration(milliseconds: 200), () {
+      Get.offAll(() => DashboardScreen(),transition: Transition.rightToLeft);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +32,7 @@ class WelcomeScreenNew extends StatelessWidget {
                 child: Column(
                   children: [
                     SizedBox(height: 24.23 * SizeConfig.heightMultiplier),
-        
+
                     //* Use AnimatedBuilder to animate iconWidgetSplash with the scaleAnimation
                     AnimatedBuilder(
                       animation: splashController.scaleAnimation,
@@ -36,7 +43,7 @@ class WelcomeScreenNew extends StatelessWidget {
                         );
                       },
                     ),
-        
+
                     SizedBox(height: 11.26 * SizeConfig.imageSizeMultiplier),
                     textWidgetSplash(
                         "Your Profile", 4.84 * SizeConfig.textMultiplier),
@@ -48,7 +55,7 @@ class WelcomeScreenNew extends StatelessWidget {
                         3.8 * SizeConfig.textMultiplier,
                         const Color.fromARGB(255, 81, 79, 79)),
                     SizedBox(height: 22.23 * SizeConfig.heightMultiplier),
-                    authButton("Proceed", () {})
+                    authButton("Proceed", Navigate)
                   ],
                 ),
               ),
