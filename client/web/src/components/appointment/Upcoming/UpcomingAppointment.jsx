@@ -245,7 +245,7 @@ export default function UpcomingAppointment() {
               </div>
 
               <div className="flex items-center justify-between w-full my-3">
-                <h1 className="text-4xl font-medium">{result.name}</h1>
+                <h1 className="text-4xl font-semibold">{result.name}</h1>
                 <div
                   className={`border rounded-xl px-5 py-3 text-center mb-3 tracking-wide ${
                     result.status === "Confirmed"
