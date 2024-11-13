@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { IoMdSearch } from "react-icons/io";
-import { X } from "lucide-react";
+import { SlidersHorizontal } from "lucide-react";
 
 export default function SearchBar({ onSearch }) {
   const [searchTerm, setSearchTerm] = useState("");
@@ -12,19 +12,19 @@ export default function SearchBar({ onSearch }) {
   };
 
   return (
-    <div className="w-full border p-2 rounded-full flex items-center justify-center gap-2 focus-within:shadow-md">
+    <div className="w-2/3 border p-2 rounded-full flex items-center justify-center gap-2 focus-within:shadow-md">
       <div className="p-3 hover:bg-gray-200 rounded-full">
-        <IoMdSearch  />
+        <IoMdSearch size={23} />
       </div>
       <input
         className="w-full rounded-full rounded-l-none rounded-r-none p-2 tracking-wide text-2xl"
         type="text"
-        placeholder="Search"
+        placeholder="Search notifications"
         value={searchTerm}
         onChange={handleChange}
       />
-      <div className="p-3 hover:bg-gray-200 rounded-full">
-        <X />
+      <div className="p-4 hover:bg-gray-200 rounded-full">
+        <SlidersHorizontal size={23} />
       </div>
     </div>
   );
