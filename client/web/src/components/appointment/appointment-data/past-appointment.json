@@ -1,0 +1,79 @@
+[
+  {
+    "date": "May 15, 2005",
+    "timing": "10:00 AM",
+    "name": "Cardiology Consultation",
+    "specialization": "Heart Surgeon",
+    "mode": "Telemedicine",
+    "telemedicine": "Video Call",
+    "status": "Completed",
+    "action": "Details",
+    "price": "95"
+  },
+  {
+    "date": "May 15, 2005",
+    "timing": "10:00 AM",
+    "name": "Dermatology Check-up",
+    "specialization": "Skin",
+    "mode": "In-Person",
+    "in_person": "Location",
+    "status": "Follow-up Needed",
+    "action": "Cancel",
+    "price": "80"
+  },
+  {
+    "date": "May 15, 2005",
+    "timing": "10:00 AM",
+    "name": "Physiotherapy Session",
+    "specialization": "Physical Therapy",
+    "mode": "Telemedicine",
+    "telemedicine": "Phone Call",
+    "status": "Completed",
+    "action": "Details",
+    "price": "50"
+  },
+  {
+    "date": "May 15, 2005",
+    "timing": "10:00 AM",
+    "name": "Mental Health Therapy",
+    "specialization": "Psychology",
+    "mode": "In-Person",
+    "in_person": "Location",
+    "status": "No-show",
+    "action": "Cancel",
+    "price": "100"
+  },
+  {
+    "date": "May 15, 2005",
+    "timing": "10:00 AM",
+    "name": "Mental Health Therapy",
+    "specialization": "Psychology",
+    "mode": "Telemedicine",
+    "telemedicine": "Phone Call",
+    "status": "Completed",
+    "action": "Details",
+    "price": "70"
+  },
+  {
+    "date": "May 15, 2005",
+    "timing": "10:00 AM",
+    "name": "Mental Health Therapy",
+    "specialization": "Psychology",
+    "mode": "Telemedicine",
+    "telemedicine": "Phone Call",
+    "status": "Completed",
+    "action": "Details",
+    "price": "75"
+  },
+  {
+    "date": "May 15, 2005",
+    "timing": "10:00 AM",
+    "name": "Mental Health Therapy",
+    "specialization": "Psychology",
+    "mode": "In-Person",
+    "in_person": "Phone Call",
+    "status": "No-show",
+    "action": "Details",
+    "price": "60"
+  }
+]

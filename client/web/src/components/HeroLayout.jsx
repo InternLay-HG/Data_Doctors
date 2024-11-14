@@ -21,9 +21,9 @@ export default function HeroLayout() {
 
   return (
     <StyledAppLayout>
-      {!isSignUpPage && <Navbar />}
+      <Navbar />
       <main>
-        {!isSignUpPage && <SideBar />}
+        <SideBar />
         <Outlet />
       </main>
     </StyledAppLayout>
