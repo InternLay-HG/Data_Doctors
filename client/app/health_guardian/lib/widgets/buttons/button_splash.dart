@@ -31,7 +31,7 @@ Widget buttonWidgetSplash(String title) {
         duration: const Duration(milliseconds: 100),
         tween: Tween<double>(
           begin: 1.0,
-          end: controller.isPressed.value ? 0.93 : 1.0,
+          end: controller.isPressed.value ? 0.85 : 1.0,
         ),
         builder: (context, scale, child) {
           return Transform.scale(
@@ -66,3 +66,4 @@ Widget buttonWidgetSplash(String title) {
     ),
   );
 }
+

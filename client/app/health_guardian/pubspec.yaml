@@ -42,6 +42,7 @@ dependencies:
   pinput: ^5.0.0
   device_preview: ^1.2.0
   flutter_svg: ^2.0.14
+  font_awesome_flutter: ^10.8.0
 
 
 dev_dependencies:
@@ -72,6 +73,7 @@ flutter:
     - assets/splash/
     - assets/animations/
     - assets/auth/
+    - assets/dashboard/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

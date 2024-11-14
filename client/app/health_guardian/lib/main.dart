@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
             debugShowCheckedModeBanner: false,
             title: "Health Guardian",
-            home: SplashScreen());
+            home:SplashScreen());
       },
     );
   }

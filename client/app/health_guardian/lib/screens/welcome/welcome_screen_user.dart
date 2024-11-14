@@ -4,12 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:health_guardian/getX_controllers/splash/splash_controller.dart';
+import 'package:health_guardian/screens/dashboard/dashboard_screen.dart';
 import 'package:health_guardian/styling/sizeConfig.dart';
 import 'package:health_guardian/widgets/auth/login_widgets.dart';
 import 'package:health_guardian/widgets/splash/splash_widgets.dart';
 
 class WelcomeScreenUser extends StatelessWidget {
   final SplashController splashController = Get.put(SplashController());
+
+  void Navigate() {
+    Future.delayed(Duration(milliseconds: 200), () {
+      Get.offAll(() => DashboardScreen(),transition: Transition.rightToLeft);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +51,7 @@ class WelcomeScreenUser extends StatelessWidget {
                     textWidgetSplash("Healthy Body, Happy Life",
                         3.5 * SizeConfig.textMultiplier),
                     SizedBox(height: 29.23 * SizeConfig.heightMultiplier),
-                    authButton("Continue", () {})
+                    authButton("Continue", Navigate)
                   ],
                 ),
               ),
