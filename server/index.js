@@ -42,6 +42,13 @@ app.post('/login', async (req, res) => {
 	routes.login(req, res)
 })
 
+app.post('/resetpassword', async (req, res) => {
+	logRequest(req)
+	res.status(200)
+	res.set('Content-Type', 'application/json')
+	routes.resetpassword(req, res)
+})
+
 app.listen(config.PORT, () => {
 	console.log(`Server is listening on port ${config.PORT}`)
 })
