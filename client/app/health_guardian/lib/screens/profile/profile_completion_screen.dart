@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:health_guardian/screens/welcome/welcome_screen_new.dart';
 import 'package:health_guardian/screens/welcome/welcome_screen_user.dart';
 import 'package:health_guardian/styling/colors.dart';
 import 'package:health_guardian/styling/images.dart';

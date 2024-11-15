@@ -146,7 +146,7 @@ Widget heartMeasureCard(void Function() onTap) {
 }
 
 Widget diseaseCard(
-    String disease, String image, Color cardColor, Color buttonColor) {
+    String disease, String image, Color cardColor, Color buttonColor,void Function() onTap) {
   return Container(
     height: 100,
     padding: EdgeInsets.symmetric(horizontal: 15),
@@ -184,7 +184,7 @@ Widget diseaseCard(
         Flexible(
             flex: 1,
             child: buttonsDisease(
-                "Record", () {}, buttonColor, Colors.white, 55, 170))
+                "Record", onTap, buttonColor, Colors.white, 55, 170))
       ],
     ),
   );
