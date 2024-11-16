@@ -7,7 +7,6 @@ import { CiHeart } from "react-icons/ci";
 import { LuDot } from "react-icons/lu";
 import AppointmentDetails from "./AppointmentDetails";
 import Popup from "./Popup";
-
 export default function AppointmentScheduling() {
   const [searchResults, setSearchResults] = useState(
     appointmentData.map((appointment) => ({
@@ -69,7 +68,9 @@ export default function AppointmentScheduling() {
                     <div className="flex items-center justify-between gap-2 border rounded-full px-5 py-2">
                       <p>{result.ratings}</p>⭐
                     </div>
-                    <p className="text-xl">({result.reviews} reviews)</p>
+                    <p className="text-xl tracking-wide">
+                      ({result.reviews} Reviews)
+                    </p>
                   </div>
                   <button
                     className={
@@ -81,14 +82,14 @@ export default function AppointmentScheduling() {
                   </button>
                 </div>
                 <div className="flex flex-col items-start justify-center w-full mb-5">
-                  <p className="text-2xl tracking-wide">
+                  <p className="text-xl tracking-wide">
                     {result.specialization}
                   </p>
-                  <h2 className="font-semibold text-3xl">{result.name}</h2>
+                  <h2 className="text-3xl font-semibold">{result.name}</h2>
                 </div>
               </div>
               <div className="flex items-end justify-start mb-5">
-                <p className="font-semibold">${result.price}</p>{" "}
+                <p className="font-semibold tracking-wide">${result.price}</p>{" "}
                 <span className="text-xl">/session</span>
               </div>
               <div className="flex flex-col gap-10">
@@ -100,12 +101,14 @@ export default function AppointmentScheduling() {
                   </p>
                   <button>Date & Time picker</button>
                 </div>
-                <button
-                  className="py-5 px-12 hover:bg-green-500/10 rounded-full text-[#fff] bg-gradient-to-r from-blue-400 to-blue-700 text-2xl font-medium transition ease-in-out hover:scale-110 duration-300 uppercase tracking-wider"
-                  onClick={() => handleBookNow(result)}
-                >
-                  Book Now
-                </button>
+                <div className="bg-gradient-to-r from-blue-400 to-blue-700 p-1 rounded-full transition ease-in-out hover:scale-110 duration-300">
+                  <button
+                    className="py-5 px-12 w-full hover:bg-gradient-to-r hover:from-blue-400 hover:to-blue-700 hover:text-white bg-white rounded-full text-2xl font-medium uppercase tracking-wider"
+                    onClick={() => handleBookNow(result)}
+                  >
+                    Book Now
+                  </button>
+                </div>
               </div>
             </div>
           ))}

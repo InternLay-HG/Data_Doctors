@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import "./Filter.css";
 import { IoMdCalendar } from "react-icons/io";
 
-export default function FilterContainer() {
+export default function FilterContainer({ onFilterUpdate }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("1 day");
   const [selectedDate, setSelectedDate] = useState(null);
@@ -40,15 +40,15 @@ export default function FilterContainer() {
 
   const handleOptionSelect = (option) => {
     setSelectedOption(option.value);
+    setSelectedDate(null); // Clear specific date if a range is selected
     setIsOpen(false);
   };
 
   const handleProviderInputChange = (e) => {
     const input = e.target.value;
     setProviderInput(input);
-    setSelectedProvider(null); // Clear selected provider when input changes
+    setSelectedProvider(null);
 
-    // Filter healthcare providers by name
     const filtered = healthcareProviders.filter((provider) =>
       provider.name.toLowerCase().includes(input.toLowerCase())
     );
@@ -63,7 +63,6 @@ export default function FilterContainer() {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      // Close dropdowns only if the click is outside both dropdown areas
       if (
         providerDropdownRef.current &&
         !providerDropdownRef.current.contains(event.target) &&
@@ -81,12 +80,36 @@ export default function FilterContainer() {
     };
   }, []);
 
+  const handleClear = () => {
+    setProviderInput("");
+    setSelectedProvider(null);
+    setSelectedDate(null);
+    setSelectedOption("1 day");
+    onFilterUpdate({
+      provider: "",
+      dateWithin: "1 day",
+      selectedDate: null,
+    });
+  };
+
+  const handleSearch = () => {
+    onFilterUpdate({
+      provider: providerInput,
+      dateWithin: selectedOption || null, // Use range or null
+      selectedDate: selectedDate || null, // Use date or null
+    });
+  };
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+    setSelectedOption(null); // Clear the "Date within" option if specific date is selected
+  };
+
   return (
     <div className="flex flex-col items-end justify-center gap-8 pt-5 pb-5">
-      {/* Provider Input Section */}
       <div
         ref={providerDropdownRef}
-        className="relative flex items-center justify-start gap-[56px] w-full"
+        className="relative flex items-center justify-start gap-[52px] w-full"
       >
         <div className="text-[12px] text-gray-500">From</div>
         <input
@@ -114,7 +137,6 @@ export default function FilterContainer() {
         )}
       </div>
 
-      {/* Date within Section */}
       <div
         ref={dropdownRef}
         className="relative flex items-center justify-start gap-7 w-full"
@@ -123,6 +145,8 @@ export default function FilterContainer() {
         <div className="relative">
           <button
             className="flex items-center border-b justify-between gap-1 w-[250px] py-2 hover:bg-gray-100 focus-within:bg-gray-100 text-[12px] font-thin tracking-wide"
+            aria-expanded={isOpen}
+            aria-controls="date-options"
             onClick={toggleDropdown}
           >
             {selectedOption} <FaCaretDown />
@@ -155,24 +179,20 @@ export default function FilterContainer() {
         </div>
       </div>
 
-      {/* Buttons */}
       <div className="flex items-center justify-between gap-2">
         <span
           className="font-medium tracking-wider text-blue-700 text-xl px-8 py-4 hover:bg-blue-100 rounded-full"
-          onClick={() => {
-            setProviderInput("");
-            setSelectedProvider(null);
-            setSelectedDate(null);
-            setSelectedOption("1 day");
-          }}
+          onClick={handleClear}
         >
           Clear Filter
         </span>
-        <button className="font-medium tracking-wider text-xl bg-blue-500 px-10 py-4 text-white rounded-full hover:opacity-90 hover:shadow-md">
+        <button
+          className="font-medium tracking-wider text-xl bg-blue-500 px-10 py-4 text-white rounded-full hover:opacity-90 hover:shadow-md"
+          onClick={handleSearch}
+        >
           Search
         </button>
       </div>
     </div>
   );
 }
-  
