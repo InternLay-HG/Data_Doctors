@@ -72,6 +72,10 @@ html {
   font-size: 62.5%;
 }
 
+ul {
+    font-family: "Roboto", serif;
+}   
+
 body {
   font-family: "Poppins", sans-serif;
   color: var(--color-grey-700);
