@@ -12,11 +12,24 @@ import { BookCheck } from "lucide-react";
 import { Bell } from "lucide-react";
 import { BookX } from "lucide-react";
 
+const StyledNav = styled.nav`
+  display: flex;
+  flex-direction: column;
+  width: ${(props) => (props.collapsed ? "7rem" : "30rem")};
+  transition: width 0.3s ease;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  height: 90vh;
+  background-color: var(--color-sidebar-bg, #f4f4f4);
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+`;
+
 const NavList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  padding: 2rem 1rem;
+  padding: 2.5rem 1rem;
   justify-content: flex-start;
   height: 90vh;
 `;
@@ -26,13 +39,13 @@ const StyledNavLink = styled(NavLink)`
   &:visited {
     display: flex;
     align-items: center;
-    gap: 1.2rem;
-
-    colors: blue;
+    gap: ${(props) => (props.collapsed ? "0" : "1.2rem")};
+    color: var(--color-grey-600);
     font-size: 1.5rem;
     font-weight: 500;
     padding: 1.2rem 1.5rem;
     transition: all 0.3s;
+    justify-content: ${(props) => (props.collapsed ? "center" : "flex-start")};
   }
 
   &:hover {
@@ -41,6 +54,7 @@ const StyledNavLink = styled(NavLink)`
     background-color: var(--color-brand-700);
     opacity: 0.8;
   }
+
   &:active,
   &.active:link,
   &.active:visited {
@@ -57,12 +71,10 @@ const StyledNavLink = styled(NavLink)`
     transition: all 0.3s;
   }
 
-  // &:hover svg,
-  // &:active svg,
-  //   &.active:link svg,
-  //   &.active: visited svg {
-  //   color: blue;
-  // }
+  span {
+    display: ${(props) => (props.collapsed ? "none" : "inline")};
+    white-space: nowrap;
+  }
 `;
 
 const SubMenu = styled.ul`
@@ -72,6 +84,7 @@ const SubMenu = styled.ul`
   margin-top: 0.5rem;
   background-color: rgba(0, 0, 0, 0.05);
   border-radius: 2rem;
+  overflow: hidden;
 `;
 
 const SubMenuItem = styled(StyledNavLink)`
@@ -81,75 +94,76 @@ const SubMenuItem = styled(StyledNavLink)`
   }
 `;
 
-export default function MainSideBar() {
-  const [extended, setExtended] = useState(true);
+export default function MainSideBar({ collapsed, onCollapseToggle }) {
   const [showAppointmentDropdown, setShowAppointmentDropdown] = useState(false);
-  return (
-    <nav>
-      <NavList>
-        <AlignJustify className="mx-6 my-5 cursor-pointer" />
-        {extended ? (
-          <>
-            <li>
-              <StyledNavLink to="/home">
-                <HiOutlineHome />
-                <span>Home</span>
-              </StyledNavLink>
-            </li>
-            <li>
-              <StyledNavLink to="/dashboard">
-                <LayoutDashboard />
-                <span>Dashboard</span>
-              </StyledNavLink>
-            </li>
-            <li>
-              <StyledNavLink
-                to="/appointment"
-                onClick={() =>
-                  setShowAppointmentDropdown(!showAppointmentDropdown)
-                }
-              >
-                <Presentation />
-                <span>Appointment</span>
-              </StyledNavLink>
 
-              {showAppointmentDropdown && (
-                <SubMenu>
-                  <SubMenuItem to="/appointment/schedule">
-                    <CalendarCheck />
-                    <span>Appointment Scheduling</span>
-                  </SubMenuItem>
-                  <SubMenuItem to="/appointment/upcoming">
-                    <BookX />
-                    <span>Upcoming Appointments</span>
-                  </SubMenuItem>
-                  <SubMenuItem to="/appointment/past">
-                    <BookCheck />
-                    <span>Past Appointment</span>
-                  </SubMenuItem>
-                  <SubMenuItem to="/appointment/notifications">
-                    <Bell />
-                    <span>Notifications & Reminders</span>
-                  </SubMenuItem>
-                </SubMenu>
-              )}
-            </li>
-            <li>
-              <StyledNavLink to="/community">
-                <Users />
-                <span>Community Support</span>
-              </StyledNavLink>
-            </li>
-            <li className="mt-auto">
-              <hr className="border border-gray-800/20" />
-              <StyledNavLink to="/settings" className="mt-10">
-                <HiOutlineCog6Tooth />
-                <span>Settings</span>
-              </StyledNavLink>
-            </li>
-          </>
-        ) : null}
+  return (
+    <StyledNav collapsed={collapsed}>
+      <AlignJustify
+        className="mx-10 my-5 cursor-pointer"
+        onClick={() => onCollapseToggle(!collapsed)}
+      />
+      <NavList>
+        <li>
+          <StyledNavLink to="/home" collapsed={collapsed}>
+            <HiOutlineHome />
+            <span>Home</span>
+          </StyledNavLink>
+        </li>
+        <li>
+          <StyledNavLink to="/dashboard" collapsed={collapsed}>
+            <LayoutDashboard />
+            <span>Dashboard</span>
+          </StyledNavLink>
+        </li>
+        <li>
+          <StyledNavLink
+            to="/appointment"
+            collapsed={collapsed}
+            onClick={() => setShowAppointmentDropdown(!showAppointmentDropdown)}
+          >
+            <Presentation />
+            <span>Appointment</span>
+          </StyledNavLink>
+
+          {showAppointmentDropdown && !collapsed && (
+            <SubMenu>
+              <SubMenuItem to="/appointment/schedule" collapsed={collapsed}>
+                <CalendarCheck />
+                <span>Appointment Scheduling</span>
+              </SubMenuItem>
+              <SubMenuItem to="/appointment/upcoming" collapsed={collapsed}>
+                <BookX />
+                <span>Upcoming Appointments</span>
+              </SubMenuItem>
+              <SubMenuItem to="/appointment/past" collapsed={collapsed}>
+                <BookCheck />
+                <span>Past Appointment</span>
+              </SubMenuItem>
+              <SubMenuItem
+                to="/appointment/notifications"
+                collapsed={collapsed}
+              >
+                <Bell />
+                <span>Notifications & Reminders</span>
+              </SubMenuItem>
+            </SubMenu>
+          )}
+        </li>
+        <li>
+          <StyledNavLink to="/community" collapsed={collapsed}>
+            <Users />
+            <span>Community Support</span>
+          </StyledNavLink>
+        </li>
+        <li className="mt-auto">
+          <hr className="border border-gray-800/20" />
+          <StyledNavLink to="/settings" collapsed={collapsed} className="mt-10">
+            <HiOutlineCog6Tooth />
+            <span>Settings</span>
+          </StyledNavLink>
+        </li>
       </NavList>
-    </nav>
+    </StyledNav>
   );
 }
