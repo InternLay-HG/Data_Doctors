@@ -26,6 +26,7 @@ async function verifyotp(req, res) {
             mobileNumber: record.mobileNumber,
             email,
             password: record.password,
+            isHealthcareProvider: record.isHealthcareProvider
         })
 
         // Generate JWT token

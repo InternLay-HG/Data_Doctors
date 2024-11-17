@@ -29,7 +29,7 @@ async function sendOTPEmail(email, otp) {
 
 async function register(req, res) {
 	try {
-		let { firstName, lastName, mobileNumber, email, password } = req.body;
+		let { firstName, lastName, mobileNumber, email, password, isHealthcareProvider } = req.body;
 	
 		// Check for strong password
 		if (!isStrongPassword(password)) {
@@ -79,6 +79,7 @@ async function register(req, res) {
 			mobileNumber,
 			email,
 			password: hashedPassword,
+			isHealthcareProvider,
 			otp
 			},
 			{
