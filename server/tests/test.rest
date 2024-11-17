@@ -48,7 +48,7 @@ Content-Type: application/json
 {
     "stage": "password-reset",
     "email": "gyanprakash2483@gmail.com",
-    "otp": "999525",
+    "otp": "751385",
     "newpassword": "Gyan102@9384756"
 }
 
