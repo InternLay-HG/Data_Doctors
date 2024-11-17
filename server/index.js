@@ -3,6 +3,7 @@ const express = require("express")
 const app = express()
 const routes = require('./routes/routes.js')
 const { logRequest } = require('./logger.js')
+const cors = require('cors')
 
 require('dotenv').config() // set up environment as per .env file (not tracked by git for security reasons)
 
@@ -12,6 +13,7 @@ const config = {
 }
 
 app.use(express.json()) // use application/json
+app.use(cors())
 app.set('trust proxy', true) // Trust proxies
 // To be replaced to server frontend
 // To be removed if frontend is served separately
