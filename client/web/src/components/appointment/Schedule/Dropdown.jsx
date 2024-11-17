@@ -22,13 +22,13 @@ export default function Dropdown() {
   return (
     <div>
       <button
-        className="flex items-center justify-center gap-1 border w-[200px] py-4 rounded-full hover:shadow-lg text-2xl font-medium tracking-wide"
+        className="flex items-center justify-center gap-3 border w-[200px] py-4 rounded-full hover:shadow-lg text-[14px] font-medium tracking-wide"
         onClick={toggleDropdown}
       >
-        {selectedOption} <ChevronDown />
+        {selectedOption} {"  "} <ChevronDown />
       </button>
       {isOpen && (
-        <ul className="absolute bg-white rounded-xl w-[200px] shadow-lg px-5 py-4 text-2xl font-medium tracking-wider">
+        <ul className="absolute bg-white rounded-xl w-[200px] shadow-lg px-5 py-4 text-xl font-medium tracking-wider">
           {options.map((option) => (
             <li
               key={option.value}
