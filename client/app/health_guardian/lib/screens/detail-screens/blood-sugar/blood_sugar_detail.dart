@@ -42,12 +42,12 @@ class BloodSugarDetail extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Color.fromARGB(255, 161, 153, 153),
-                            spreadRadius: 2.5,
-                            blurRadius: 2)
-                      ],
+                      // boxShadow: [
+                      //   BoxShadow(
+                      //       color: Color.fromARGB(255, 161, 153, 153),
+                      //       spreadRadius: 2.5,
+                      //       blurRadius: 2)
+                      // ],
                     ),
                     height: 450,
                     child: dataWidget(controller,"","","")),

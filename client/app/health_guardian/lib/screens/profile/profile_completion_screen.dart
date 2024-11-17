@@ -173,7 +173,7 @@ class _ProfileCompletionScreenState extends State<ProfileCompletionScreen> {
                   doubleButton1(
                     "Back",
                     _navigatePrevPage,
-                    Color.fromARGB(255, 243, 219, 222),
+                    Color.fromARGB(255, 243, 233, 235),
                     Colours.buttonColorRed,
                   ),
                   doubleButton2(

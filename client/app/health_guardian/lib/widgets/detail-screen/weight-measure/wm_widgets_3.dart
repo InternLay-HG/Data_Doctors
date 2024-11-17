@@ -51,12 +51,12 @@ Widget userInputWeightWidget(WeightMeasureControllers controller) {
     decoration: BoxDecoration(
       color: Colors.white,
       borderRadius: BorderRadius.circular(6),
-      boxShadow: [
-        BoxShadow(
-            color: Color.fromARGB(255, 161, 153, 153),
-            spreadRadius: 2.5,
-            blurRadius: 2)
-      ],
+      // boxShadow: [
+      //   BoxShadow(
+      //       color: Color.fromARGB(255, 161, 153, 153),
+      //       spreadRadius: 2.5,
+      //       blurRadius: 2)
+      // ],
     ),
     padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
     child: Column(
@@ -131,12 +131,12 @@ Widget card1Weight(String title, IconData icon, String value) {
     decoration: BoxDecoration(
       color: Colors.white,
       borderRadius: BorderRadius.circular(6),
-      boxShadow: [
-        BoxShadow(
-            color: Color.fromARGB(255, 161, 153, 153),
-            spreadRadius: 2.5,
-            blurRadius: 2)
-      ],
+      // boxShadow: [
+      //   BoxShadow(
+      //       color: Color.fromARGB(255, 161, 153, 153),
+      //       spreadRadius: 2.5,
+      //       blurRadius: 2)
+      // ],
     ),
     padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
     child: Column(

@@ -39,12 +39,15 @@ Widget screen1() {
           controller: profileController.profileNameCOntroller,
           decoration: InputDecoration(
             label: Center(
-              child: Text(
-                "Your Name",
-                style: TextStyle(
-                    color: const Color.fromARGB(255, 144, 138, 138),
-                    fontFamily: "CoreSansBold",
-                    fontSize: 4.74 * SizeConfig.heightMultiplier),
+              child: FittedBox(
+                child: Text(
+                  overflow: TextOverflow.ellipsis,
+                  "Your Name",
+                  style: TextStyle(
+                      color: const Color.fromARGB(255, 144, 138, 138),
+                      fontFamily: "CoreSansBold",
+                      fontSize: 4.74 * SizeConfig.heightMultiplier),
+                ),
               ),
             ),
             floatingLabelBehavior: FloatingLabelBehavior.never,
@@ -137,7 +140,10 @@ Widget screen2() {
          SizedBox(
           height: 6.32*SizeConfig.heightMultiplier,
         ),
-        Center(child: buttonsSample("Prefer not to say", (){profileController.male.value = 0; profileController.female.value =0;}, Color.fromARGB(255, 243, 219, 222), Colors.black,60, 280),)
+        Center(child: buttonsSample("Prefer not to say", (){
+          print(profileController.male.value);
+          print(profileController.female.value);
+          profileController.male.value = 0; profileController.female.value =0;}, Color.fromARGB(255, 243, 219, 222), Colors.black,60, 280),)
       ],
     ),
   );

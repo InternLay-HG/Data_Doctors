@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:health_guardian/getX_controllers/dashboard/dashboard_controllers.dart';
 import 'package:health_guardian/styling/colors.dart';
 import 'package:health_guardian/styling/images.dart';
@@ -63,9 +64,9 @@ BottomNavigationBar bottomBar(
   return BottomNavigationBar(
     type: BottomNavigationBarType.fixed,
     selectedIconTheme: icontheme().copyWith(color: Colours.buttonColorRed),
-    unselectedIconTheme: icontheme().copyWith(color: Colors.black),
+    unselectedIconTheme: icontheme().copyWith(color: Colors.grey.shade800),
     selectedItemColor: Colours.buttonColorRed,
-    unselectedItemColor: const Color.fromARGB(255, 31, 30, 30),
+    unselectedItemColor:  Colors.grey.shade800,
     unselectedLabelStyle: labelStyle(),
     selectedLabelStyle: labelStyle(),
     currentIndex: controller.currentPage.value,
@@ -146,7 +147,7 @@ Widget heartMeasureCard(void Function() onTap) {
 }
 
 Widget diseaseCard(
-    String disease, String image, Color cardColor, Color buttonColor,void Function() onTap) {
+    String disease, String image, Color cardColor, Color buttonColor,void Function() onTap,RxBool buttonValue,void Function(bool) OnTap1) {
   return Container(
     height: 100,
     padding: EdgeInsets.symmetric(horizontal: 15),
@@ -184,7 +185,7 @@ Widget diseaseCard(
         Flexible(
             flex: 1,
             child: buttonsDisease(
-                "Record", onTap, buttonColor, Colors.white, 55, 170))
+                "Record", onTap, buttonColor, Colors.white, 55, 170,buttonValue,OnTap1),)
       ],
     ),
   );
