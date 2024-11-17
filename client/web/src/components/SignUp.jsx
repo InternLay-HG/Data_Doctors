@@ -225,13 +225,11 @@ export default function SignUp() {
       )}
 
       <FormRow>
-        <Button
-          type="reset"
-          size="medium"
-          className="hover:bg-blue-500/10 text-blue-700 transition ease-in-out hover:scale-110 duration-300 rounded-lg"
+        <button
+          className="hover:bg-blue-500/10 px-10 py-4 text-blue-700 rounded-lg"
         >
           Sign in
-        </Button>
+        </button>
         <Button
           size="medium"
           type="submit"

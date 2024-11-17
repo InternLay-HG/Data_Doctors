@@ -16,7 +16,8 @@ Response code descriptions can be found [here](./responsecode.md)
             "lastName": <Last Name : String>,
             "mobileNumber": <Mobile Number : String>,
             "email": <Email : String>,
-            "password": <Password : String>
+            "password": <Password : String>,
+            "isHeathcareProvider": <Healthcare Provider? : Boolean>
         }
 
 + Response 201 (application/json)

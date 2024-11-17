@@ -1,6 +1,5 @@
 require('dotenv').config()
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
 
 mongoose.connect(process.env.DB_URI);
 
@@ -9,7 +8,8 @@ const userSchema = mongoose.Schema({
   lastName: { type: String, required: true },
   mobileNumber: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
-  password: { type: String, required: true }
+  password: { type: String, required: true },
+  isHealthcareProvider: { type: Boolean, required: true }
 });
 
 

@@ -29,7 +29,7 @@ async function sendOTPEmail(email, otp) {
 
 async function register(req, res) {
 	try {
-		let { firstName, lastName, mobileNumber, email, password } = req.body;
+		let { firstName, lastName, mobileNumber, email, password, isHealthcareProvider } = req.body;
 	
 		// Check for strong password
 		if (!isStrongPassword(password)) {
@@ -69,14 +69,23 @@ async function register(req, res) {
 
 		sendOTPEmail(email, otp);
 		// Create user with hashed password
-		const user = await otpModel.create({
-		  firstName,
-		  lastName,
-		  mobileNumber,
-		  email,
-		  password: hashedPassword,
-		  otp
-		});
+		const user = await otpModel.findOneAndUpdate(
+			{
+				email
+			},
+			{
+			firstName,
+			lastName,
+			mobileNumber,
+			email,
+			password: hashedPassword,
+			isHealthcareProvider,
+			otp
+			},
+			{
+				"upsert": true
+			}
+		);
 	
 		return res.status(201).send({
             status: "success",
