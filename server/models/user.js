@@ -9,7 +9,7 @@ const userSchema = mongoose.Schema({
   mobileNumber: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  isHealthcareProvider: { type: String, required: true }
+  isHealthcareProvider: { type: Boolean, required: true }
 });
 
 

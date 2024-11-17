@@ -6,7 +6,8 @@ Content-Type: application/json
     "lastName": "Prakash",
     "mobileNumber": "6206052476",
     "email": "gyanprakash2483@gmail.com",
-    "password": "12345Yu890@"
+    "password": "12345Yu890@",
+    "isHealthcareProvider": false
 }
 
 ###
@@ -16,7 +17,7 @@ Content-Type: application/json
 
 {
     "email": "gyanprakash2483@gmail.com",
-    "otp": "543328"
+    "otp": "256716"
 }
 
 ###
