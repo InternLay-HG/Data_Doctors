@@ -34,7 +34,7 @@ async function register(req, res) {
 		// Check for strong password
 		if (!isStrongPassword(password)) {
 		  return res.status(400).send({
-            status: "success",
+            status: "failure",
 			rescode: 1002,
             message: "Password must be at least 8 characters long, with at least one uppercase letter, one lowercase letter, one number, and one special character."
         });
