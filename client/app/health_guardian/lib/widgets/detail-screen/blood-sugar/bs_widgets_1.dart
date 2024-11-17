@@ -37,9 +37,9 @@ Widget bloodSugarDataWidget() {
     decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(6),
-         boxShadow: [
-                        BoxShadow(color: Color.fromARGB(255, 161, 153, 153),spreadRadius: 2.5,blurRadius: 2)
-                      ],
+        //  boxShadow: [
+        //                 BoxShadow(color: Color.fromARGB(255, 161, 153, 153),spreadRadius: 2.5,blurRadius: 2)
+        //               ],
             ),
     padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
     child: Column(

@@ -138,7 +138,7 @@ Widget screen4() {
                       SizedBox(
                         height: 2.10 * SizeConfig.heightMultiplier,
                       ),
-                      profileScreenText("Pressure")
+                      profileScreenText("B.P")
                     ],
                   ),
                 ),

@@ -10,6 +10,8 @@ class Images {
   static const heartMeasureIcon = "assets/dashboard/heart-attack.svg";
   static const BloodPressureMeasureIcon = "assets/dashboard/blood-pressure.svg";
   static const BloodSugarMeasureIcon = "assets/dashboard/blood_sugar.svg";
+  static const BloodPressureMeasureIcon2 = "assets/dashboard/bp.svg";
   static const WeightMeasureIcon = "assets/dashboard/weight-loss.svg";
   static const AiDoctorIcon = "assets/dashboard/doctor3d.png";
+  static const DiabetesIcon = "assets/dashboard/diabetes.svg";
 }

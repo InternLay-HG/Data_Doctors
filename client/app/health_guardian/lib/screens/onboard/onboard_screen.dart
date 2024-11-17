@@ -91,12 +91,12 @@ class OnboardScreen extends StatelessWidget {
                   children: [
                     Obx(
                       () => doubleButton1(
-                          "Skip",
+                          "Back",
                           _pageViewController.pageIndex.value == 0
                               ? () => Get.to(() => LoginScreen(),
                                   transition: Transition.upToDown)
                               : () => _pageViewController.previousPage(),
-                          Color.fromARGB(255, 243, 219, 222),
+                          Color.fromARGB(255, 243, 233, 235),
                           Colours.buttonColorRed),
                     ),
                     Obx(

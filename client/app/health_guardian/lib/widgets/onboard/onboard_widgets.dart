@@ -56,6 +56,7 @@ Widget buttonsSample(String title, void Function() onTap, Color color,
       controller.setPressed(
           false); //* Return to original size when the tap is released
     },
+    onTap: onTap,
     child: Obx(
       () => TweenAnimationBuilder<double>(
         duration: const Duration(milliseconds: 100),
@@ -82,7 +83,7 @@ Widget buttonsSample(String title, void Function() onTap, Color color,
                     color: textColor,
                     fontFamily: "CoreSansMed",
                     fontWeight: FontWeight.bold,
-                  ).copyWith(fontSize: 2.6 * SizeConfig.heightMultiplier),
+                  ).copyWith(fontSize: 2.8 * SizeConfig.heightMultiplier),
                 ),
               ),
             ),

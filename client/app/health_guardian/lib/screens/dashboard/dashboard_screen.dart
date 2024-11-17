@@ -5,7 +5,7 @@ import 'package:health_guardian/getX_controllers/dashboard/dashboard_controllers
 import 'package:health_guardian/screens/dashboard/account_screen.dart';
 import 'package:health_guardian/screens/dashboard/diet_screen.dart';
 import 'package:health_guardian/screens/dashboard/home_screen.dart';
-import 'package:health_guardian/screens/dashboard/measure_screen.dart';
+import 'package:health_guardian/screens/dashboard/analyze_screen.dart';
 import 'package:health_guardian/screens/dashboard/report_screen.dart';
 import 'package:health_guardian/styling/colors.dart';
 import 'package:health_guardian/widgets/dashboard/dashboard_widgets_1.dart';
@@ -13,7 +13,7 @@ import 'package:health_guardian/widgets/dashboard/dashboard_widgets_1.dart';
 List<dynamic> pages = [
   Text("Hello"),
   Home_D_Screen(),
-  MeasureScreen(),
+  AnalyzeScreen(),
   DietScreen(),
   ReportScreen(),
   AccountScreen()

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:health_guardian/screens/dashboard/dashboard_screen.dart';
 import 'package:health_guardian/screens/splash/splash_screen.dart';
 import 'package:health_guardian/styling/sizeConfig.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
             debugShowCheckedModeBanner: false,
             title: "Health Guardian",
-            home:SplashScreen());
+            home:DashboardScreen());
       },
     );
   }

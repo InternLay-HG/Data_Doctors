@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:health_guardian/styling/colors.dart';
 import 'package:health_guardian/styling/images.dart';
 import 'package:health_guardian/styling/sizeConfig.dart';
+import 'package:health_guardian/widgets/buttons/dashboard_buttons.dart';
 
 Widget historyText() {
   return Container(
@@ -98,13 +101,68 @@ Widget aiDoctorWidget() {
                   style: TextStyle(
                       color: const Color.fromARGB(255, 80, 78, 78),
                       fontFamily: "Poppins-Bold",
-                      fontSize:1.9* SizeConfig.heightMultiplier),
+                      fontSize: 1.9 * SizeConfig.heightMultiplier),
                 ),
                 SizedBox(height: 25),
               ],
             )),
         //* for vector image
         Flexible(flex: 3, child: Image.asset(Images.AiDoctorIcon))
+      ],
+    ),
+  );
+}
+
+Widget descTextAnalyze(String title,double fontSize) {
+  return Row(
+    children: [
+      Text(
+        maxLines: 3,
+        overflow: TextOverflow.ellipsis,
+        title,
+        style: TextStyle(
+            color: Color.fromARGB(255, 99, 92, 92),
+            fontFamily: "CoreSansLight",
+            fontWeight: FontWeight.bold,
+            fontSize: fontSize),
+      ),
+    ],
+  );
+}
+
+Widget analyzeDiseaseCard(String Disease, Color color, Color buttonColor,String Image,RxBool buttonValue,void Function(bool) OnTap1,void Function() OnTap) {
+  return Container(
+    padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
+    height: 220,
+    width: 200,
+    decoration:
+        BoxDecoration(borderRadius: BorderRadius.circular(8), color: color),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+         SizedBox(
+          height: 5,
+        ),
+        Text(
+          Disease,
+          style: TextStyle(
+              fontFamily: "Poppins-Bold", fontSize: 25, color: Colors.grey.shade900),
+        ),
+        SizedBox(
+          height: 15,
+        ),
+        analyzeButton(
+            "Analyze", OnTap, buttonColor, Colors.white, 45, 110, 30, 19,buttonValue,OnTap1),
+        SizedBox(
+          height: 20,
+        ),
+        Align(
+            alignment: Alignment.topRight,
+            child: SvgPicture.asset(
+              Image,
+              height: 70,
+              width: 70,
+            ))
       ],
     ),
   );
