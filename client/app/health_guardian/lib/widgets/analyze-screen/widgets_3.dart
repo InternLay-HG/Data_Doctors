@@ -16,7 +16,7 @@ Widget Four_Parameter_Card(
     String buttonTitle2,
     String buttonTitle3,
     String buttonTitle4,
-    double width) {
+    double width,IconData icon) {
   return Container(
     height: 100,
     width: width,
@@ -28,7 +28,7 @@ Widget Four_Parameter_Card(
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        header(title, Icons.star_border_outlined),
+        header(title, icon),
         SizedBox(
           height: 10,
         ),
