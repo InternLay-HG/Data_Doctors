@@ -1,14 +1,11 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import Dashboard from "./components/Dashboard";
-import HeroLayout from "./components/HeroLayout";
 import PageNotFound from "./components/PageNotFound";
-import CommunitySupport from "./components/CommunitySupport";
 import GlobalStyles from "./style/GlobalStyle";
 import { Loader1, Loader2 } from "./ui/Loaders";
+import {lazy,Suspense} from "react";
 
 // Lazy-loaded components
 const HeroLayout = lazy(() => import("./components/HeroLayout"));
-const PageNotFound = lazy(() => import("./components/PageNotFound"));
 const Appointment = lazy(() => import("./components/Appointment"));
 const AppointmentScheduling = lazy(() =>
   import("./components/appointment/Schedule/AppointmentScheduling")
@@ -25,7 +22,6 @@ const NotificationAndReminder = lazy(() =>
 const CommunitySupport = lazy(() => import("./components/CommunitySupport"));
 const Home = lazy(() => import("./components/Home"));
 import Settings from "./components/Settings";
-import Home from "./components/Home";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import ForgetPassword from "./components/ForgetPassword";
@@ -45,14 +41,6 @@ export default function App() {
                 element={
                   <Suspense fallback={<Loader2 />}>
                     <Home />
-                  </Suspense>
-                }
-              />
-              <Route
-                path="dashboard"
-                element={
-                  <Suspense fallback={<Loader2 />}>
-                    <Dashboard />
                   </Suspense>
                 }
               />
@@ -90,7 +78,7 @@ export default function App() {
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<SignUp />} />
             <Route paht="forgetpassword" element={<ForgetPassword />} />
-            <Route path="otpverify" element={<OTPverifyPage />} />
+            <Route path="verifyotp" element={<OTPverifyPage />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </Suspense>
