@@ -3,7 +3,6 @@ import { Suspense, lazy } from "react";
 import GlobalStyles from "./style/GlobalStyle";
 import { Loader1, Loader2 } from "./ui/Loaders";
 // Lazy-loaded components
-const Dashboard = lazy(() => import("./components/Dashboard"));
 const HeroLayout = lazy(() => import("./components/HeroLayout"));
 const PageNotFound = lazy(() => import("./components/PageNotFound"));
 const Appointment = lazy(() => import("./components/Appointment"));
@@ -41,14 +40,6 @@ export default function App() {
                 element={
                   <Suspense fallback={<Loader2 />}>
                     <Home />
-                  </Suspense>
-                }
-              />
-              <Route
-                path="dashboard"
-                element={
-                  <Suspense fallback={<Loader2 />}>
-                    <Dashboard />
                   </Suspense>
                 }
               />
