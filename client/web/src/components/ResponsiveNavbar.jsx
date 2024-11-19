@@ -2,8 +2,8 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { HiOutlineHome } from "react-icons/hi2";
 import { AlignJustify } from "lucide-react";
+import { Logout as LogoutIcon } from "@mui/icons-material";
 import {
-  LayoutDashboard,
   Presentation,
   Users,
   CalendarCheck,
@@ -84,6 +84,10 @@ const SubMenuItem = styled(StyledNavLink)`
 `;
 
 export default function ResponsiveNavbar() {
+  const handleLogout = () => {
+    localStorage.removeItem("authtoken");
+    window.location.href = "/login";
+  };
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
   const [showAppointmentDropdown, setShowAppointmentDropdown] = useState(false);
   const location = useLocation();
@@ -119,12 +123,6 @@ export default function ResponsiveNavbar() {
                     <StyledNavLink to="/home">
                       <HiOutlineHome />
                       <span>Home</span>
-                    </StyledNavLink>
-                  </li>
-                  <li>
-                    <StyledNavLink to="/dashboard">
-                      <LayoutDashboard />
-                      <span>Dashboard</span>
                     </StyledNavLink>
                   </li>
                   <li>
@@ -167,18 +165,32 @@ export default function ResponsiveNavbar() {
                   </li>
                 </div>
                 <div className="flex justify-center ml-auto mr-5 items-center gap-5">
-                  <button
-                    onClick={() => (window.location.href = "/login")}
-                    className="py-5 px-10 text-3xl hover:bg-blue-500/10 text-blue-700 rounded-full transition ease-in-out hover:scale-110 duration-300"
-                  >
-                    Login
-                  </button>
-                  <button
-                    onClick={() => (window.location.href = "/signup")}
-                    className="py-5 px-12 hover:bg-green-500/10 rounded-full text-[#fff] bg-gradient-to-r from-blue-400 to-blue-700 text-3xl font-medium transition ease-in-out hover:scale-110 duration-300"
-                  >
-                    Sign up
-                  </button>
+                  {!localStorage.getItem("authtoken") ? (
+                    <div>
+                      <button
+                        onClick={() => (window.location.href = "/login")}
+                        className="py-5 px-10 text-3xl hover:bg-blue-500/10 text-blue-700 rounded-full transition ease-in-out hover:scale-110 duration-300"
+                      >
+                        Login
+                      </button>
+                      <button
+                        onClick={() => (window.location.href = "/signup")}
+                        className="py-5 px-12 hover:bg-green-500/10 rounded-full text-[#fff] bg-gradient-to-r from-blue-400 to-blue-700 text-3xl font-medium transition ease-in-out hover:scale-110 duration-300"
+                      >
+                        Sign up
+                      </button>
+                    </div>
+                  ) : (
+                    <div>
+                     <button
+              
+              onClick={handleLogout}
+              style={{paddingRight:"2rem"}}
+            >
+              <LogoutIcon style={{height:"3rem",width:"3rem"}}/>
+            </button>
+                    </div>
+                  )}
                 </div>
               </div>
               <li className="mt-auto">

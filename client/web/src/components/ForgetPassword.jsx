@@ -2,8 +2,10 @@ import React, { useState,useEffect } from "react";
 import { KeyboardBackspace as BackIcon } from "@mui/icons-material";
 import { useNavigate } from "react-router";
 import Authentication from "../api/Authentication";
+import Toast from "../ui/Toast";
 const ForgetPassword = () => {
   const navigate = useNavigate();
+  const { ToastFunc } = Toast();
   const { ForgetPasswordCall } = Authentication();
   const [Email, setEmail] = useState("");
   const [NewPassword, setNewPassword] = useState("");
@@ -21,6 +23,7 @@ const ForgetPassword = () => {
         ...prevErrors,
         email: "Please enter a valid email address.",
       }));
+      return;
     } else {
       setErrors((prevErrors) => ({
         ...prevErrors,
@@ -30,7 +33,13 @@ const ForgetPassword = () => {
         stage:"verifyownership",
         email:Email
       }
-      ForgetPasswordCall(data);
+      try{
+        await ForgetPasswordCall(data);
+      }
+      catch(err){
+        console.error("OTP verification error:", err);
+        ToastFunc("error",err.message);
+      }
     }
   };
 
@@ -49,7 +58,8 @@ const ForgetPassword = () => {
 
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
-    } else {
+      return;
+    }
       setErrors({});
 
       const data={
@@ -58,8 +68,14 @@ const ForgetPassword = () => {
         otp:Otp,
         newpassword:NewPassword
       }
-      await ForgetPasswordCall(data);
-    }
+      try{
+        await ForgetPasswordCall(data);
+      }
+      catch(err){
+        console.error("Password reset error:", err);
+        ToastFunc("error",err.message);
+      }
+    
   };
   const handleBack = () => {
     navigate("/login");

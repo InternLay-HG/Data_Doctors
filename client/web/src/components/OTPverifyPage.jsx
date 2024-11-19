@@ -2,8 +2,10 @@ import React, { useState,useEffect } from "react";
 import { KeyboardBackspace as BackIcon } from "@mui/icons-material";
 import { useNavigate } from "react-router";
 import Authentication from "../api/Authentication";
+import Toast from "../ui/Toast";
 const OTPverifyPage = () => {
   const navigate = useNavigate();
+  const { ToastFunc } = Toast();
   const {verifyOtpCall} = Authentication();
   const [email, setEmail] = useState("");
   const [Otp, setOtp] = useState("");
@@ -26,16 +28,21 @@ const OTPverifyPage = () => {
 
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
-    } else {
+      return;
+    } 
       setErrors({});
       const data={
         email:email,
         otp:Otp
       }
-      await verifyOtpCall(data)
-    }
+      try{
+        await verifyOtpCall(data)
+      }
+      catch(err){
+        console.error("OTP verification error:", err);
+        ToastFunc("error",err.message);
+      }
   };
-
   const handleBack = () => {
     navigate("/signup");
   };
