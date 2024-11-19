@@ -77,7 +77,7 @@ export default function UpcomingAppointment() {
   };
 
   return (
-    <div className="mx-10 my-10">
+    <div className="mx-10 my-10 max-md:mx-5">
       <h1 className="text-5xl font-bold tracking-wide py-10">
         Upcoming Appointment
       </h1>
@@ -95,7 +95,7 @@ export default function UpcomingAppointment() {
       </div>
 
       {isFilterExpanded && (
-        <div className="mt-5 flex gap-5 relative">
+        <div className="mt-5 flex max-md:flex-col gap-5 relative max-md:w-1/3 max-sm:w-10/12">
           {/* Filter dropdowns */}
           {/* Type of Appointment */}
           <div className="relative">
@@ -259,10 +259,10 @@ export default function UpcomingAppointment() {
                 </div>
               </div>
               <div className="flex items-center justify-between w-full mb-5">
-                <button className="hover:bg-blue-100 rounded-lg px-6 py-3 text-blue-700 font-medium tracking-wide">
+                <button className="hover:bg-blue-100 rounded-lg px-6 py-3 max-sm:px-5 text-blue-700 font-medium tracking-wide">
                   More Details
                 </button>
-                <div className="flex items-center justify-center gap-2 font-medium tracking-wide">
+                <div className="flex items-center justify-center gap-2 max-sm:gap-0 font-medium tracking-wide">
                   <button className="hover:bg-red-100 rounded-full px-8 py-4 text-red-700">
                     Cancel
                   </button>

@@ -11,16 +11,18 @@ export default function AppointmentDetails({ appointment }) {
   };
 
   return (
-    <div className="w-full ml-2 mr-4 flex flex-col">
+    <div className="w-full max-sm:ml-0 max-sm:mr-0 ml-2 mr-4 flex flex-col">
       {/* Appointment Header Section */}
       <div className="flex items-center justify-between mt-6">
         <img
           src={User}
           alt="Profile"
-          className="w-60 h-60 mb-2 rounded-full object-cover"
+          className="w-60 h-60 max-sm:w-50 max-sm:h-50 mb-2 rounded-full object-cover"
         />
         <div>
-          <h2 className="text-4xl font-semibold">{appointment.name}</h2>
+          <h2 className="text-4xl max-sm:text-3xl font-semibold">
+            {appointment.name}
+          </h2>
           <h3 className="text-2xl font-medium text-end">
             {appointment.specialization}
           </h3>

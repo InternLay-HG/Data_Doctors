@@ -12,7 +12,7 @@ export default function SearchBar({ onSearch, onFilterToggle }) {
   };
 
   return (
-    <div className="w-2/3 border p-2 rounded-full flex items-center justify-center gap-2 focus-within:shadow-md relative">
+    <div className="w-2/3 max-md:w-full border p-2 rounded-full flex items-center justify-center gap-2 focus-within:shadow-md relative">
       <div className="p-3 hover:bg-gray-200 rounded-full">
         <IoMdSearch size={23} />
       </div>

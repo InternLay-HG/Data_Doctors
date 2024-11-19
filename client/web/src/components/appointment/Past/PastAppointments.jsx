@@ -92,7 +92,7 @@ export default function PastAppointments() {
   };
 
   return (
-    <div className="mx-10 my-10">
+    <div className="mx-10 my-10 max-sm:mx-5">
       <h1 className="text-5xl font-bold tracking-wide py-10">
         Past Appointment
       </h1>

@@ -30,7 +30,7 @@ export default function AppointmentDetails({ appointment }) {
   };
 
   return (
-    <div className="w-full ml-2 mr-4 flex flex-col">
+    <div className="w-full ml-2 mr-4 max-sm:ml-0 max-sm:mr-0 flex flex-col">
       <div className="flex items-center justify-between mt-6">
         <img
           src={User}
@@ -38,26 +38,26 @@ export default function AppointmentDetails({ appointment }) {
           className="w-60 h-60 mb-2 rounded-full object-cover"
         />
         <div>
-          <h2 className="text-4xl font-semibold">{appointment.name}</h2>
-          <h3 className="text-2xl font-medium text-end">
+          <h2 className="text-4xl max-sm:text- font-semibold">{appointment.name}</h2>
+          <h3 className="text-2xl max-sm:text-xl font-thin text-end max-sm:text-start">
             {appointment.specialization}
           </h3>
-          <h3 className="text-xl font-medium text-end tracking-wider">
+          <h3 className="text-xl font-medium text-end max-sm:text-start tracking-wider">
             {appointment.degree}
           </h3>
-          <h3 className="text-xl font-medium text-end tracking-wide">
+          <h3 className="text-xl font-medium text-end max-sm:text-start tracking-wide">
             ({appointment.experience} years)
           </h3>
         </div>
       </div>
 
       {/* Disease Details Input Field with Voice Option */}
-      <div className=" flex items-center ml-4">
+      <div className=" flex items-center ml-4 max-sm:ml-0">
         <textarea
           value={diseaseDetails}
           onChange={(e) => setDiseaseDetails(e.target.value)}
           placeholder="Enter details about your condition or symptoms"
-          className="w-11/12 border border-gray-300 rounded-full pt-7 px-8 text-xl resize-none"
+          className="w-11/12 border border-gray-300 rounded-full py-7 max-sm:py-4 px-8 max-sm:px-7 text-xl resize-none"
         />
         <div
           onClick={handleVoiceInput}
