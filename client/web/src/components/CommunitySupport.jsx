@@ -216,7 +216,6 @@ const CommunitySupport = () => {
               <div
                 style={{
                   fontSize: "2rem",
-                  color: "black",
                   textAlign: "center",
                   paddingRight: "4rem",
                   fontFamily: "Space Mono",
