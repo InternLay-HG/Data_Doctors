@@ -1,31 +1,25 @@
 import SideBar from "./SideBar";
 import Navbar from "./Navbar";
+import ResponsiveNavbar from "./ResponsiveNavbar";
 import { Outlet, useLocation } from "react-router";
 import styled from "styled-components";
 import { useState } from "react";
+import { useMediaQuery } from "react-responsive";
 
 const StyledAppLayout = styled.div`
-  display: grid;
-  grid-template-rows: auto 1fr;
+  display: flex;
+  flex-direction: column;
   height: 100vh;
 
   & > main {
-    display: grid;
-    grid-template-columns: ${(props) => (props.collapsed ? "7rem 1fr" : "30rem 1fr")};
-    transition: grid-template-columns 0.3s ease;
+    display: flex;
     overflow: hidden;
-
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr; /* Adjust for mobile */
-    }
   }
 
   .content {
-    grid-column: 2 / 3;
-
-    @media (max-width: 768px) {
-      grid-column: 1 / 2;
-    }
+    overflow-y: auto;
+    padding: 1rem;
+    width: 100vw;
   }
 `;
 
@@ -33,12 +27,23 @@ export default function HeroLayout() {
   const location = useLocation();
   const isSignUpPage = location.pathname === "/signup";
   const [isSidebarCollapsed, setSidebarCollapsed] = useState(false);
-
+  const isSmallScreen = useMediaQuery({ maxWidth: 1350 });
   return (
     <StyledAppLayout collapsed={isSidebarCollapsed}>
-      {!isSignUpPage && <Navbar />}
+      {!isSignUpPage && (
+        <>
+          {isSmallScreen ? (
+            <ResponsiveNavbar collapsed={isSidebarCollapsed} />
+          ) : (
+            <Navbar
+              collapsed={isSidebarCollapsed}
+              onCollapseToggle={setSidebarCollapsed}
+            />
+          )}
+        </>
+      )}
       <main>
-        {!isSignUpPage && (
+        {!isSignUpPage && !isSmallScreen && (
           <SideBar
             collapsed={isSidebarCollapsed}
             onCollapseToggle={setSidebarCollapsed}

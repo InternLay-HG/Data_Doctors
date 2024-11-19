@@ -1,7 +1,11 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import { Suspense, lazy } from "react";
+import Dashboard from "./components/Dashboard";
+import HeroLayout from "./components/HeroLayout";
+import PageNotFound from "./components/PageNotFound";
+import CommunitySupport from "./components/CommunitySupport";
 import GlobalStyles from "./style/GlobalStyle";
 import { Loader1, Loader2 } from "./ui/Loaders";
+
 // Lazy-loaded components
 const HeroLayout = lazy(() => import("./components/HeroLayout"));
 const PageNotFound = lazy(() => import("./components/PageNotFound"));
@@ -21,10 +25,11 @@ const NotificationAndReminder = lazy(() =>
 const CommunitySupport = lazy(() => import("./components/CommunitySupport"));
 const Home = lazy(() => import("./components/Home"));
 import Settings from "./components/Settings";
+import Home from "./components/Home";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
-import OTP from "./components/OTPverifyPage";
 import ForgetPassword from "./components/ForgetPassword";
+import OTPverifyPage from "./components/OTPverifyPage";
 
 export default function App() {
   return (
@@ -44,6 +49,14 @@ export default function App() {
                 }
               />
               <Route
+                path="dashboard"
+                element={
+                  <Suspense fallback={<Loader2 />}>
+                    <Dashboard />
+                  </Suspense>
+                }
+              />
+              <Route
                 path="appointment"
                 element={
                   <Suspense fallback={<Loader2 />}>
@@ -53,35 +66,16 @@ export default function App() {
               />
               <Route
                 path="appointment/schedule"
-                element={
-                  <Suspense fallback={<Loader2 />}>
-                    <AppointmentScheduling />
-                  </Suspense>
-                }
+                element={<AppointmentScheduling />}
               />
               <Route
                 path="appointment/upcoming"
-                element={
-                  <Suspense fallback={<Loader2 />}>
-                    <UpcomingAppointment />
-                  </Suspense>
-                }
+                element={<UpcomingAppointment />}
               />
-              <Route
-                path="appointment/past"
-                element={
-                  <Suspense fallback={<Loader2 />}>
-                    <PastAppointments />
-                  </Suspense>
-                }
-              />
+              <Route path="appointment/past" element={<PastAppointments />} />
               <Route
                 path="appointment/notifications"
-                element={
-                  <Suspense fallback={<Loader2 />}>
-                    <NotificationAndReminder />
-                  </Suspense>
-                }
+                element={<NotificationAndReminder />}
               />
               <Route
                 path="community"
@@ -95,8 +89,8 @@ export default function App() {
             </Route>
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<SignUp />} />
-            <Route path="forgetpassword" element={<ForgetPassword />} />
-            <Route path="verifyotp" element={<OTP />} />
+            <Route paht="forgetpassword" element={<ForgetPassword />} />
+            <Route path="otpverify" element={<OTPverifyPage />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </Suspense>

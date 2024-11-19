@@ -99,10 +99,9 @@ export default function MainSideBar({ collapsed, onCollapseToggle }) {
 
   return (
     <StyledNav collapsed={collapsed}>
-      <AlignJustify
-        className="mx-10 my-5 cursor-pointer"
-        onClick={() => onCollapseToggle(!collapsed)}
-      />
+      <div onClick={() => onCollapseToggle(!collapsed)}>
+        <AlignJustify className="mx-10 my-5 cursor-pointer max-lg:hidden" />
+      </div>
       <NavList>
         <li>
           <StyledNavLink to="/home" collapsed={collapsed}>
