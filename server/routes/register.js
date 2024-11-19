@@ -60,7 +60,7 @@ async function register(req, res) {
 	
 		// Check for strong password
 		if (!isStrongPassword(password)) {
-		  return res.status(400).send({
+		  return res.send({
             status: "failure",
 			rescode: 1002,
             message: "Password must be at least 8 characters long, with at least one uppercase letter, one lowercase letter, one number, and one special character."
@@ -70,7 +70,7 @@ async function register(req, res) {
 		// Check if user is already registered
 		let user_email = await userModel.findOne({ email });
 		if (user_email) {
-		  return res.status(409).send({
+		  return res.send({
             status: "failure",
 			rescode: 1003,
             message: "Email already registered"
@@ -79,7 +79,7 @@ async function register(req, res) {
 	
 		let user_mobile = await userModel.findOne({ mobileNumber });
 		if (user_mobile) {
-		  return res.status(409).send({
+		  return res.send({
             status: "failure",
 			rescode: 1004,
             message: "Mobile Number Already in use"
@@ -114,7 +114,7 @@ async function register(req, res) {
 			}
 		);
 	
-		return res.status(201).send({
+		return res.send({
             status: "success",
 			rescode: 1001,
             message: "OTP has been sent to email, proceed with otp verification."
@@ -122,7 +122,7 @@ async function register(req, res) {
 	
 	  } catch (error) {
 		console.log(error)
-		return res.status(500).send({
+		return res.send({
             status: "failure",
 			rescode: 1005,
             message: "Unknown Server Error"
