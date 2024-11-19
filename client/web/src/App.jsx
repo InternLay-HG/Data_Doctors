@@ -1,11 +1,11 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import PageNotFound from "./components/PageNotFound";
 import GlobalStyles from "./style/GlobalStyle";
 import { Loader1, Loader2 } from "./ui/Loaders";
-import React, { lazy, Suspense } from "react";
+import {lazy,Suspense} from "react";
+
 // Lazy-loaded components
-const Dashboard = lazy(() => import("./components/Dashboard"));
 const HeroLayout = lazy(() => import("./components/HeroLayout"));
-const PageNotFound = lazy(() => import("./components/PageNotFound"));
 const Appointment = lazy(() => import("./components/Appointment"));
 const AppointmentScheduling = lazy(() =>
   import("./components/appointment/Schedule/AppointmentScheduling")
@@ -20,10 +20,12 @@ const NotificationAndReminder = lazy(() =>
   import("./components/appointment/Notifications/NotificationAndReminder")
 );
 const CommunitySupport = lazy(() => import("./components/CommunitySupport"));
-const Settings = lazy(() => import("./components/Settings"));
 const Home = lazy(() => import("./components/Home"));
+import Settings from "./components/Settings";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
+import ForgetPassword from "./components/ForgetPassword";
+import OTPverifyPage from "./components/OTPverifyPage";
 
 export default function App() {
   return (
@@ -39,16 +41,6 @@ export default function App() {
                 element={
                   <Suspense fallback={<Loader2 />}>
                     <Home />
-                  </Suspense>
-                }
-              />
-              <Route path="signup" element={<SignUp />} />
-              <Route path="login" element={<Login />} />
-              <Route
-                path="dashboard"
-                element={
-                  <Suspense fallback={<Loader2 />}>
-                    <Dashboard />
                   </Suspense>
                 }
               />
@@ -83,6 +75,10 @@ export default function App() {
               />
               <Route path="settings" element={<Settings />} />
             </Route>
+            <Route path="login" element={<Login />} />
+            <Route path="signup" element={<SignUp />} />
+            <Route paht="forgetpassword" element={<ForgetPassword />} />
+            <Route path="verifyotp" element={<OTPverifyPage />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </Suspense>
