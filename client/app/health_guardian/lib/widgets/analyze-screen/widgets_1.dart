@@ -4,11 +4,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:health_guardian/getX_controllers/analyze-screen/analyze_sugar_controllers.dart';
-import 'package:health_guardian/styling/images.dart';
 import 'package:health_guardian/styling/sizeConfig.dart';
 import 'package:health_guardian/widgets/detail-screen/blood-sugar/bs_widgets_3.dart';
 
-AppBar appBAnalyzeSugar(void Function() onTap1, void Function() onTap2) {
+AppBar appBAnalyze(void Function() onTap1, void Function() onTap2,String Image) {
   return AppBar(
     backgroundColor: Color.fromARGB(255, 245, 242, 242),
     toolbarHeight: 90,
@@ -21,7 +20,7 @@ AppBar appBAnalyzeSugar(void Function() onTap1, void Function() onTap2) {
         )),
     centerTitle: true,
     title: SvgPicture.asset(
-      Images.DiabetesIcon,
+      Image,
       height: 65,
       width: 65,
     ),

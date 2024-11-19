@@ -4,30 +4,24 @@ import 'package:health_guardian/widgets/detail-screen/blood-sugar/bs_widgets_3.d
 
 Widget addNoteWidget(TextEditingController controller) {
   return Container(
-      height: 105,
+      height: 11.06*SizeConfig.heightMultiplier,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(6),
-        // boxShadow: [
-        //   BoxShadow(
-        //       color: Color.fromARGB(255, 161, 153, 153),
-        //       spreadRadius: 2.5,
-        //       blurRadius: 2)
-        // ],
+        borderRadius: BorderRadius.circular(0.63*SizeConfig.heightMultiplier),
       ),
-      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+      padding: EdgeInsets.symmetric(horizontal: 2.67*SizeConfig.widthMultiplier, vertical: 1.05*SizeConfig.heightMultiplier),
       child: Column(
         children: [
           header("Note", Icons.note_alt_outlined),
           SizedBox(
-            height: 5,
+            height: 0.52*SizeConfig.heightMultiplier,
           ),
           SizedBox(
-            height: 50,
+            height: 5.26*SizeConfig.heightMultiplier,
             child: TextField(
               style: TextStyle(
                   color: Color.fromARGB(255, 98, 94, 94),
-                  fontSize: 18,
+                  fontSize: 1.89*SizeConfig.heightMultiplier,
                   fontFamily: "CoreSansMed"),
               controller: controller,
               decoration: InputDecoration(
@@ -39,7 +33,7 @@ Widget addNoteWidget(TextEditingController controller) {
                     style: TextStyle(
                         color: const Color.fromARGB(255, 98, 94, 94),
                         fontFamily: "CoreSansMed",
-                        fontSize: 22),
+                        fontSize: 2.31*SizeConfig.heightMultiplier),
                   )),
             ),
           )
@@ -49,19 +43,13 @@ Widget addNoteWidget(TextEditingController controller) {
 
 Widget sugarScaleWidget() {
   return Container(
-      height: 260,
+      height: 27.38 * SizeConfig.heightMultiplier,
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(6),
-        // boxShadow: [
-        //   BoxShadow(
-        //       color: Color.fromARGB(255, 161, 153, 153),
-        //       spreadRadius: 2.5,
-        //       blurRadius: 2)
-        // ],
+        borderRadius: BorderRadius.circular(0.63*SizeConfig.heightMultiplier),
       ),
-      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+      padding: EdgeInsets.symmetric(horizontal: 2.67*SizeConfig.widthMultiplier, vertical: 1.05*SizeConfig.heightMultiplier),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -74,7 +62,7 @@ Widget sugarScaleWidget() {
                 fontSize: 3.2 * SizeConfig.heightMultiplier),
           ),
           SizedBox(
-            height: 15,
+            height: 1.58*SizeConfig.heightMultiplier,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -86,23 +74,23 @@ Widget sugarScaleWidget() {
             ],
           ),
           SizedBox(
-            height: 25,
+            height: 2.63*SizeConfig.heightMultiplier,
           ),
           scaleText(Colors.blue, "Low", "< 72"),
           SizedBox(
-            height: 5,
+            height: 0.52*SizeConfig.heightMultiplier,
           ),
           scaleText(Colors.green, "Normal", "72 - 99"),
           SizedBox(
-            height: 5,
+            height: 0.52*SizeConfig.heightMultiplier,
           ),
           scaleText(Colors.orange, "Pre-Diabetes", "99 - 126"),
           SizedBox(
-            height: 5,
+            height: 0.52*SizeConfig.heightMultiplier,
           ),
           scaleText(Colors.red, "Diabetes", ">= 126"),
           SizedBox(
-            height: 5,
+            height: 0.52*SizeConfig.heightMultiplier,
           ),
         ],
       ));
@@ -110,10 +98,10 @@ Widget sugarScaleWidget() {
 
 Widget colorBar(Color color) {
   return Container(
-    width: 90, // Adjust width as needed
-    height: 12, // Adjust height as needed
+    width: 20.08*SizeConfig.widthMultiplier, 
+    height: 1.26*SizeConfig.heightMultiplier, // Adjust height as needed
     decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(15),
+      borderRadius: BorderRadius.circular(1.58*SizeConfig.heightMultiplier),
       color: color,
     ),
   );
@@ -121,18 +109,19 @@ Widget colorBar(Color color) {
 
 Widget scaleText(Color color, String text, String range) {
   return Padding(
-    padding: EdgeInsets.symmetric(horizontal: 5),
+    padding: EdgeInsets.symmetric(horizontal: 1.11*SizeConfig.widthMultiplier),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
           text,
-          style: TextStyle(color: color, fontFamily: "CoreSansMed", fontSize: 22),
+          style:
+              TextStyle(color: color, fontFamily: "CoreSansMed", fontSize: 2.31*SizeConfig.heightMultiplier),
         ),
         Text(
           range,
           style: TextStyle(
-              color: Colors.black, fontFamily: "CoreSansMed", fontSize: 21),
+              color: Colors.black, fontFamily: "CoreSansMed", fontSize: 2.21*SizeConfig.heightMultiplier),
         ),
       ],
     ),

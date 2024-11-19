@@ -42,7 +42,7 @@ Widget titleWidget() {
             color: Colors.black,
             fontFamily: "Poppins-Med",
             fontWeight: FontWeight.w700,
-            fontSize: 34),
+            fontSize: 3.58* SizeConfig.heightMultiplier),
       ),
       SizedBox(
         width: 2.4 * SizeConfig.widthMultiplier,
@@ -60,13 +60,13 @@ TextStyle style = TextStyle(
     color: const Color.fromARGB(255, 103, 101, 101), fontFamily: "Poppins-Med");
 
 BottomNavigationBar bottomBar(
-     DashboardControllers controller, BuildContext context) {
+    DashboardControllers controller, BuildContext context) {
   return BottomNavigationBar(
     type: BottomNavigationBarType.fixed,
     selectedIconTheme: icontheme().copyWith(color: Colours.buttonColorRed),
     unselectedIconTheme: icontheme().copyWith(color: Colors.grey.shade800),
     selectedItemColor: Colours.buttonColorRed,
-    unselectedItemColor:  Colors.grey.shade800,
+    unselectedItemColor: Colors.grey.shade800,
     unselectedLabelStyle: labelStyle(),
     selectedLabelStyle: labelStyle(),
     currentIndex: controller.currentPage.value,
@@ -90,21 +90,17 @@ BottomNavigationBar bottomBar(
         label: "Reports",
         icon: Icon(Icons.assignment),
       ),
-      BottomNavigationBarItem(
-        label: "Account",
-        icon: Icon(Icons.account_circle),
-      ),
     ],
   );
 }
 
 Widget heartMeasureCard(void Function() onTap) {
   return Container(
-    padding: EdgeInsets.symmetric(horizontal: 20),
-    height: 230,
+    padding: EdgeInsets.symmetric(horizontal: 4.46* SizeConfig.widthMultiplier),
+    height: 24.22 * SizeConfig.heightMultiplier,
     decoration: BoxDecoration(
         color: Color.fromARGB(255, 245, 208, 204),
-        borderRadius: BorderRadius.circular(10)),
+        borderRadius: BorderRadius.circular(1.05 * SizeConfig.heightMultiplier)),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -115,7 +111,7 @@ Widget heartMeasureCard(void Function() onTap) {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: 25,
+                  height: 2.63 * SizeConfig.heightMultiplier,
                 ),
                 Text(
                   "Heart Rate",
@@ -125,7 +121,7 @@ Widget heartMeasureCard(void Function() onTap) {
                       fontSize: 3.4 * SizeConfig.heightMultiplier),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 1.05 * SizeConfig.heightMultiplier,
                 ),
                 Text(
                   "150 Records",
@@ -134,9 +130,9 @@ Widget heartMeasureCard(void Function() onTap) {
                       fontFamily: "Poppins-Bold",
                       fontSize: 2.5 * SizeConfig.heightMultiplier),
                 ),
-                SizedBox(height: 25),
+                SizedBox(height: 2.63 * SizeConfig.heightMultiplier),
                 buttonsSample("Measure", onTap, Colours.buttonColorRed,
-                    Colors.white, 55, 160)
+                    Colors.white, 5.79*SizeConfig.heightMultiplier, 35.71*SizeConfig.widthMultiplier)
               ],
             )),
         //* for vector image
@@ -147,12 +143,18 @@ Widget heartMeasureCard(void Function() onTap) {
 }
 
 Widget diseaseCard(
-    String disease, String image, Color cardColor, Color buttonColor,void Function() onTap,RxBool buttonValue,void Function(bool) OnTap1) {
+    String disease,
+    String image,
+    Color cardColor,
+    Color buttonColor,
+    void Function() onTap,
+    RxBool buttonValue,
+    void Function(bool) OnTap1) {
   return Container(
-    height: 100,
-    padding: EdgeInsets.symmetric(horizontal: 15),
+    height:10.53 * SizeConfig.heightMultiplier,
+    padding: EdgeInsets.symmetric(horizontal: 3.34 * SizeConfig.widthMultiplier),
     decoration: BoxDecoration(
-        color: cardColor, borderRadius: BorderRadius.circular(10)),
+        color: cardColor, borderRadius: BorderRadius.circular(1.05*SizeConfig.heightMultiplier)),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -167,7 +169,7 @@ Widget diseaseCard(
                     disease,
                     style: TextStyle(
                         color: Colors.black,
-                        fontSize: 21,
+                        fontSize: 2.21 * SizeConfig.heightMultiplier,
                         fontFamily: "Poppins-Bold"),
                   ),
                 ),
@@ -175,17 +177,20 @@ Widget diseaseCard(
                   flex: 1,
                   child: SvgPicture.asset(
                     image,
-                    height: 60,
-                    width: 60,
+                    height:6.32 * SizeConfig.heightMultiplier,
+                    width: 13.39*SizeConfig.widthMultiplier,
                   ),
                 ),
               ],
             )),
-        SizedBox(width: 5,),
+        SizedBox(
+          width: 1.11*SizeConfig.widthMultiplier,
+        ),
         Flexible(
-            flex: 1,
-            child: buttonsDisease(
-                "Record", onTap, buttonColor, Colors.white, 55, 170,buttonValue,OnTap1),)
+          flex: 1,
+          child: buttonsDisease("Record", onTap, buttonColor, Colors.white, 5.79*SizeConfig.heightMultiplier,
+             37.94*SizeConfig.widthMultiplier, buttonValue, OnTap1),
+        )
       ],
     ),
   );

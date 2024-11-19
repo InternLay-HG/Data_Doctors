@@ -51,12 +51,6 @@ Widget userInputWeightWidget(WeightMeasureControllers controller) {
     decoration: BoxDecoration(
       color: Colors.white,
       borderRadius: BorderRadius.circular(6),
-      // boxShadow: [
-      //   BoxShadow(
-      //       color: Color.fromARGB(255, 161, 153, 153),
-      //       spreadRadius: 2.5,
-      //       blurRadius: 2)
-      // ],
     ),
     padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
     child: Column(
@@ -114,6 +108,70 @@ Widget userInputWeightWidget(WeightMeasureControllers controller) {
   );
 }
 
+Widget userInputHeightWidget(WeightMeasureControllers controller) {
+  return Container(
+    height: 170,
+    width: double.infinity,
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(6),
+    ),
+    padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+    child: Column(
+      children: [
+        Center(
+          child: buttonsDetail1("Enter your Height in cms", () {},
+              Colours.buttonColorRed, Colors.white, 50, 390, 6, 24),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        //* value display
+        GestureDetector(
+          onTap: () {
+            Get.bottomSheet(
+              Container(
+                height: 26.34 * SizeConfig.heightMultiplier,
+                color: Colors.white,
+                child: CupertinoPicker(
+                  itemExtent: 40,
+                  scrollController: FixedExtentScrollController(
+                    initialItem: (controller.heightValue.value * 2).toInt(),
+                  ),
+                  onSelectedItemChanged: (int index) {
+                    double selectedHeight = index * 0.5;
+                    controller.changeLevelHeight(selectedHeight);
+                  },
+                  children: List<Widget>.generate(440, (int index) {
+                    double height = index * 0.5;
+                    return Center(
+                      child: Text(
+                        "${height.toStringAsFixed(1)} cms",
+                        style: TextStyle(
+                          fontFamily: "CoreSansBold",
+                          fontSize: 2.73 * SizeConfig.heightMultiplier,
+                        ),
+                      ),
+                    );
+                  }),
+                ),
+              ),
+            );
+          },
+          child: Obx(() => Text(
+                "${controller.heightValue.value.toStringAsFixed(1)} cms",
+                style: TextStyle(
+                  fontFamily: "CoreSansBold",
+                  fontSize: 38,
+                  color: Colors.black,
+                ),
+              )),
+        )
+      ],
+    ),
+  );
+}
+
 Widget stateSelectWeightWIdget(WeightMeasureControllers controller) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -142,7 +200,7 @@ Widget card1Weight(String title, IconData icon, String value) {
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-       headerWeight(title, icon),
+        headerWeight(title, icon),
         SizedBox(
           height: 10,
         ),

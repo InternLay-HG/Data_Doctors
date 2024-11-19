@@ -59,7 +59,7 @@ class _ProfileCompletionScreenState extends State<ProfileCompletionScreen> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(
                           3.16 * SizeConfig.heightMultiplier)),
-                  child: loaderWidget());
+                  child: loaderWidget(Images.loadingAnimation,"Creating your account..."));
             });
 
         Get.to(() => WelcomeScreenUser(), transition: Transition.downToUp);
@@ -192,7 +192,7 @@ class _ProfileCompletionScreenState extends State<ProfileCompletionScreen> {
   }
 }
 
-Widget loaderWidget() {
+Widget loaderWidget(String animation,String title) {
   return Container(
     width: 40.17 * SizeConfig.widthMultiplier,
     height: 18.96 * SizeConfig.heightMultiplier,
@@ -206,7 +206,7 @@ Widget loaderWidget() {
           height: 2.63 * SizeConfig.heightMultiplier,
         ),
         LottieBuilder.asset(
-          Images.loadingAnimation,
+          animation,
           height: 8.42 * SizeConfig.heightMultiplier,
           width: 17.85 * SizeConfig.widthMultiplier,
         ),
@@ -214,7 +214,7 @@ Widget loaderWidget() {
           height: 1.05 * SizeConfig.heightMultiplier,
         ),
         Text(
-          "Creating your account...",
+          title,
           style: TextStyle(
               color: Colors.black,
               fontFamily: "CoreSansBold",

@@ -42,10 +42,16 @@ class WeightMeasureControllers extends GetxController {
     }
   }
 
-  //* Double for Weight Entered By User
+  //* Double for Weight And Height Entered By User
   RxDouble weightValue = 0.0.obs;
 
   void changeLevel(double value) {
     weightValue.value = value;
+  }
+
+  RxDouble heightValue = 0.0.obs;
+
+  void changeLevelHeight(double value){
+    heightValue.value = value;
   }
 }

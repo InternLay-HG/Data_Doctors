@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:health_guardian/getX_controllers/detail-screen/weight_measure_controllers.dart';
-import 'package:health_guardian/screens/detail-screens/weight_measure/weight_measure_graph.dart';
-import 'package:health_guardian/screens/detail-screens/weight_measure/weight_measure_history_screen.dart';
+import 'package:health_guardian/getX_controllers/detail-screen/blood_pressure_controllers.dart';
+import 'package:health_guardian/screens/detail-screens/blood-pressure/blood_sugar_history_screen.dart';
+import 'package:health_guardian/screens/detail-screens/blood-pressure/pressure_graph_report.dart';
+// ignore: unused_import
+import 'package:health_guardian/screens/detail-screens/blood-sugar/sugar_graph_report.dart';
 import 'package:health_guardian/styling/sizeConfig.dart';
 import 'package:health_guardian/widgets/buttons/detail_buttons.dart';
 
-Widget dataWidgetWeightMeasure(WeightMeasureControllers controller,
-    String value, String state, String type) {
+Widget dataWidgetBP(
+    BloodPressureControllers controller, String value, String state, String type) {
   return Column(
     children: [
       Center(
-        child: Text("Weight (kg)",
+        child: Text("Blood Pressure (mmHg)",
             style: TextStyle(
               fontSize: 29,
               color: Colors.black,
@@ -31,16 +33,13 @@ Widget dataWidgetWeightMeasure(WeightMeasureControllers controller,
 
       //* For displaying graph and history
       Obx(() => controller.pageIndex.value == 0
-          ? graphDataWeightMeasure(controller)
-          : historyListWeightMeasure(controller, value, state, type, () {
-              Get.to(() => WeightMeasureHistoryScreen(),
-                  transition: Transition.rightToLeft);
-            })),
+          ? graphDataBP(controller)
+          : historyListBP(controller, value, state, type,(){Get.to(()=>BloodPressureHistoryScreen(),transition: Transition.rightToLeft);})),
     ],
   );
 }
 
-Widget graphDataWeightMeasure(WeightMeasureControllers controller) {
+Widget graphDataBP(BloodPressureControllers controller) {
   return Column(children: [
     SizedBox(
       height: 0,
@@ -56,7 +55,7 @@ Widget graphDataWeightMeasure(WeightMeasureControllers controller) {
           onPressed: controller.previousPageDate,
           color: Colors.black,
         ),
-        Text("Dec 16 - Dec 22, 2024",
+        Text("Dec 16 - Dec 22, 2024",overflow: TextOverflow.ellipsis,
             style: TextStyle(
                 fontSize: 22,
                 color: Colors.black,
@@ -73,25 +72,34 @@ Widget graphDataWeightMeasure(WeightMeasureControllers controller) {
       ],
     ),
     SizedBox(
-      height: 0,
+      height: 25,
     ),
     Container(
       color: Colors.white,
-      height: 300,
+      height: 275,
       width: 410,
       child: PageView(
-        controller: controller.pageController,
+        controller: controller.pageControllerDate,
         children: [
-          CustomBarChart(),
-          CustomBarChart(),
+          BarChartExample(),
+          BarChartExample(),
         ],
       ),
     ),
+    SizedBox(height: 20,),
+     Text("Systolic Pressure, Diastolic Pressure",
+     overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+                fontSize: 21.5,
+                color: Colors.black,
+                fontFamily: "Poppins-Med",
+                fontWeight: FontWeight.bold)),
+   SizedBox(height: 25,),
   ]);
 }
 
-Widget historyListWeightMeasure(WeightMeasureControllers controller,
-    String value, String state, String type, void Function() onTap) {
+Widget historyListBP(
+    BloodPressureControllers controller, String value, String state, String type,void Function() onTap) {
   return GestureDetector(
     onTap: onTap,
     child: Container(
@@ -117,14 +125,14 @@ Widget historyListWeightMeasure(WeightMeasureControllers controller,
                       Column(
                         children: [
                           Text(
-                            "75.6",
+                            "105",
                             style: TextStyle(
                                 color: Colors.black,
                                 fontFamily: "CoreSansBold",
                                 fontSize: 3.3 * SizeConfig.heightMultiplier),
                           ),
                           Text(
-                            "kg",
+                            "mmHg",
                             style: TextStyle(
                                 color: const Color.fromARGB(255, 80, 78, 78),
                                 fontFamily: "CoreSansMed",
@@ -149,9 +157,7 @@ Widget historyListWeightMeasure(WeightMeasureControllers controller,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Flexible(
-                          flex: 3,
-                          child: statsWidgetWeightMeasure(value, state, type)),
+                      Flexible(flex: 3, child: statsWidgetBP(value, state, type)),
                       Flexible(
                           flex: 1,
                           child: Icon(
@@ -169,7 +175,7 @@ Widget historyListWeightMeasure(WeightMeasureControllers controller,
   );
 }
 
-Widget statsWidgetWeightMeasure(String value, String state, String type) {
+Widget statsWidgetBP(String value, String state, String type) {
   return Column(
     children: [
       Flexible(
@@ -180,11 +186,11 @@ Widget statsWidgetWeightMeasure(String value, String state, String type) {
             buttonsDetail1(
                 "Normal", () {}, Colors.green, Colors.white, 45, 100, 6, 19),
             Text(
-              "BMI 21.6",
+              "Sitting",
               style: TextStyle(
                   color: Colors.black,
                   fontFamily: "CoreSansBold",
-                  fontSize: 2.2 * SizeConfig.heightMultiplier),
+                  fontSize: 2.6 * SizeConfig.heightMultiplier),
             ),
           ],
         ),

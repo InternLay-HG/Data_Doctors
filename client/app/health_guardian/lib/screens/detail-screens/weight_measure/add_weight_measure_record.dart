@@ -27,6 +27,12 @@ class AddWeightMeasureRecord extends StatelessWidget {
                 height: 35,
               ),
 
+              userInputHeightWidget(controller),
+
+              SizedBox(
+                height: 35,
+              ),
+
               //* Selecting the state of user
               stateSelectWeightWIdget(controller),
 

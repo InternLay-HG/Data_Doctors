@@ -8,6 +8,7 @@ import 'package:health_guardian/screens/dashboard/home_screen.dart';
 import 'package:health_guardian/screens/dashboard/analyze_screen.dart';
 import 'package:health_guardian/screens/dashboard/report_screen.dart';
 import 'package:health_guardian/styling/colors.dart';
+import 'package:health_guardian/styling/sizeConfig.dart';
 import 'package:health_guardian/widgets/dashboard/dashboard_widgets_1.dart';
 
 List<dynamic> pages = [
@@ -16,7 +17,6 @@ List<dynamic> pages = [
   AnalyzeScreen(),
   DietScreen(),
   ReportScreen(),
-  AccountScreen()
 ];
 
 class DashboardScreen extends StatelessWidget {
@@ -31,21 +31,28 @@ class DashboardScreen extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: currentTimeWidget(),
-        toolbarHeight: 95,
+        toolbarHeight: 10.01 * SizeConfig.heightMultiplier,
         actions: [
           IconButton(
               onPressed: () {},
               icon: Icon(
                 Icons.favorite,
                 color: Colours.buttonColorRed,
-                size: 42,
+                size: 4.42 * SizeConfig.heightMultiplier,
               )),
           IconButton(
               onPressed: () {},
               icon: Icon(
                 FontAwesomeIcons.solidBell,
                 color: const Color.fromARGB(255, 103, 101, 101),
-                size: 41,
+                size: 4.10 * SizeConfig.heightMultiplier,
+              )),
+         IconButton(
+              onPressed: () {Get.to(()=> AccountScreen(),transition: Transition.upToDown);},
+              icon: Icon(
+                Icons.account_circle,
+                color: const Color.fromARGB(255, 103, 101, 101),
+                size: 4.84 * SizeConfig.heightMultiplier,
               )),
         ],
       ),
@@ -53,7 +60,7 @@ class DashboardScreen extends StatelessWidget {
       body: Obx(
         () => SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+            padding: EdgeInsets.symmetric(horizontal: 3.34 * SizeConfig.widthMultiplier, vertical: 0.52* SizeConfig.heightMultiplier),
             child: pages[controllers.currentPage.value + 1],
           ),
         ),
