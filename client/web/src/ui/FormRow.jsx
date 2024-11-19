@@ -3,7 +3,7 @@ import styled from "styled-components";
 const StyledFormRow = styled.div`
   display: grid;
   gap: 1rem;
-  padding: 1.2rem 0;
+  padding: 0.5rem 0;
 
   /* Specific styles for the first row (First Name and Last Name) */
   &:nth-child(2) {
