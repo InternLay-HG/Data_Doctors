@@ -15,6 +15,7 @@ Widget Double_Parameter_Card(
   bool condition1,
   bool condition2,
   double width,
+  IconData icon
 ) {
   return Container(
     height: 100,
@@ -27,7 +28,7 @@ Widget Double_Parameter_Card(
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        header(title, Icons.star_border_outlined),
+        header(title, icon),
         const SizedBox(height: 10),
         GestureDetector(
           onTap: () {
@@ -104,7 +105,8 @@ Widget triple_Parameter_Card(
     String buttonTitle1,
     String buttonTitle2,
     String buttonTitle3,
-    double width) {
+    double width,IconData icon
+    ) {
   return Container(
     height: 100,
     width: width,
@@ -116,7 +118,7 @@ Widget triple_Parameter_Card(
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        header(title, Icons.star_border_outlined),
+        header(title, icon),
         SizedBox(
           height: 10,
         ),

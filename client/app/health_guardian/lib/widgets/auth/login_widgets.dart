@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:health_guardian/getX_controllers/auth/login_controllers.dart';
 import 'package:health_guardian/getX_controllers/button/button_controllers.dart';
+import 'package:health_guardian/screens/auth/forgot_password.dart';
 import 'package:health_guardian/styling/colors.dart';
 import 'package:health_guardian/styling/sizeConfig.dart';
 import 'package:pinput/pinput.dart';
@@ -264,21 +265,27 @@ Widget forgotPassWidget(function loginControllers) {
                 value: loginControllers.isCheck.value,
                 onChanged: (value) => loginControllers.changeCheck(value)),
           ),
-          Text(
-            "Remember me",
-            style: TextStyle(
-                color: Colors.black,
-                fontFamily: "CoreSansBold",
-                fontSize: 2.20 * SizeConfig.heightMultiplier),
+          GestureDetector(
+            onTap: ()=>Get.to(()=>ForgotPassword()),
+            child: Text(
+              "Remember me",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontFamily: "CoreSansBold",
+                  fontSize: 2.20 * SizeConfig.heightMultiplier),
+            ),
           ),
         ],
       ),
-      Text(
-        "Forgot Password?",
-        style: TextStyle(
-            color: Colours.buttonColorRed,
-            fontFamily: "CoreSansBold",
-            fontSize: 2.1 * SizeConfig.heightMultiplier),
+      GestureDetector(
+        onTap: (){ Get.to(()=> ForgotPassword(),transition: Transition.rightToLeft); },
+        child: Text(
+          "Forgot Password?",
+          style: TextStyle(
+              color: Colours.buttonColorRed,
+              fontFamily: "CoreSansBold",
+              fontSize: 2.1 * SizeConfig.heightMultiplier),
+        ),
       ),
     ],
   );

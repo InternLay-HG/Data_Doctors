@@ -3,8 +3,10 @@ class Images {
 
   static const heartIconRed = "assets/splash/heart_vector_2.svg";
   static const loadingAnimation = "assets/animations/loading.json";
+  static const emailAnimation = "assets/animations/email.json";
   static const welcomeIcon = "assets/auth/welcome.svg";
   static const otpIcon = "assets/auth/otp.svg";
+  static const lockIcon = "assets/auth/forgot-password.svg";
 
   //*d Dashboard icons
   static const heartMeasureIcon = "assets/dashboard/heart-attack.svg";
@@ -14,4 +16,5 @@ class Images {
   static const WeightMeasureIcon = "assets/dashboard/weight-loss.svg";
   static const AiDoctorIcon = "assets/dashboard/doctor3d.png";
   static const DiabetesIcon = "assets/dashboard/diabetes.svg";
+  static const profileIcon = "assets/dashboard/profile.png";
 }

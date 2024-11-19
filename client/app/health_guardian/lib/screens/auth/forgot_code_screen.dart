@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:health_guardian/getX_controllers/auth/login_controllers.dart';
-
-import 'package:health_guardian/screens/profile/profile_completion_screen.dart';
+import 'package:health_guardian/getX_controllers/auth/forgot_pass_controllers.dart';
+import 'package:health_guardian/screens/auth/reset_password_screen.dart';
+import 'package:health_guardian/screens/auth/user_password_notify.dart';
 import 'package:health_guardian/styling/images.dart';
 import 'package:health_guardian/styling/sizeConfig.dart';
 import 'package:health_guardian/widgets/auth/login_widgets.dart';
 
-class OtpScreen extends StatelessWidget {
-  final function controller = Get.put(function());
+class ForgotCodeScreen extends StatelessWidget {
+  final ForgotPassControllers controller = Get.put(ForgotPassControllers());
 
-  void submit() {
-    Future.delayed(Duration(milliseconds: 200), () {
-      controller.otpClear();
-      Get.to(() => ProfileCompletionScreen(), transition: Transition.upToDown);
+  void submit(BuildContext context) {
+    controller.clear1();
+    Future.delayed(Duration(milliseconds: 200), () async {
+      //* navigate to login page
+      Get.to(() => MyWidget(), transition: Transition.rightToLeft);
     });
   }
 
@@ -27,7 +27,7 @@ class OtpScreen extends StatelessWidget {
           children: [
             Container(
               padding: EdgeInsets.symmetric(
-                  horizontal: 4.91 * SizeConfig.widthMultiplier,
+                  horizontal: 4 * SizeConfig.widthMultiplier,
                   vertical: 2.10 * SizeConfig.heightMultiplier),
               child: Column(
                 children: [
@@ -45,14 +45,14 @@ class OtpScreen extends StatelessWidget {
                     height: 3.16 * SizeConfig.heightMultiplier,
                   ),
                   T1(
-                    "Enter your App Pin",
+                    "Enter Code",
                     Images.otpIcon,
                   ),
                   SizedBox(
                     height: 1.45 * SizeConfig.heightMultiplier,
                   ),
                   T2(
-                    "Enter your 4 digit pin to continue.",
+                    "Enter the 4-digit PIN sent to your email\nto continue.",
                   ),
                 ],
               ),
@@ -82,9 +82,11 @@ class OtpScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 46.0 * SizeConfig.heightMultiplier,
+                    height: 42.5 * SizeConfig.heightMultiplier,
                   ),
-                  authButton("Continue", submit)
+                  authButton("Continue", () {
+                    submit(context);
+                  })
                 ],
               ),
             )

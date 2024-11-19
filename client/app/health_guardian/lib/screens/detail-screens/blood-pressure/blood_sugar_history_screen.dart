@@ -1,33 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:health_guardian/styling/sizeConfig.dart';
-import 'package:health_guardian/widgets/detail-screen/blood-sugar/bs_widgets_2.dart';
+import 'package:health_guardian/widgets/detail-screen/blood-pressure/bp_widgets_2.dart';
 
-class BloodSugarHistoryScreen extends StatelessWidget {
-  const BloodSugarHistoryScreen({super.key});
+class BloodPressureHistoryScreen extends StatelessWidget {
+  const BloodPressureHistoryScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
+    return SafeArea(child: Scaffold(
       backgroundColor: Color.fromARGB(255, 247, 241, 241),
-
-      //* AppBar
+      
+       //* AppBar
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 247, 241, 241),
-        toolbarHeight: 8.42*SizeConfig.heightMultiplier,
+        toolbarHeight: 80,
         centerTitle: true,
         leading:  IconButton(
         onPressed: (){Get.back();},
         icon: Icon(
           Icons.arrow_back,
           color: Colors.black,
-          size: 3.58*SizeConfig.heightMultiplier,
+          size: 34,
         )),
         title: Text(
-          "Blood Sugar History",
+          "Blood Pressure History",
           style: TextStyle(
-              fontFamily: "CoreSansBold", color: Colors.black, fontSize: 3.58*SizeConfig.heightMultiplier),
+              fontFamily: "CoreSansBold", color: Colors.black, fontSize: 30),
         ),
       ),
 
@@ -35,17 +35,17 @@ class BloodSugarHistoryScreen extends StatelessWidget {
           itemCount: 10,
           itemBuilder: (context, index) {
             return Container(
-              padding: EdgeInsets.symmetric(vertical: 1.58*SizeConfig.heightMultiplier, horizontal: 2.67*SizeConfig.widthMultiplier),
-              margin: EdgeInsets.symmetric(vertical: 1.26*SizeConfig.heightMultiplier, horizontal: 2.67*SizeConfig.widthMultiplier),
-              height:11.06*SizeConfig.heightMultiplier,
+              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 12),
+              margin: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+              height: 105,
               decoration: BoxDecoration(
-                  // boxShadow: [
-                  //   BoxShadow(
-                  //       color: Color.fromARGB(255, 161, 153, 153),
-                  //       spreadRadius: 2.5,
-                  //       blurRadius: 2)
-                  // ],
-                  borderRadius: BorderRadius.circular(1.05*SizeConfig.heightMultiplier),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Color.fromARGB(255, 161, 153, 153),
+                        spreadRadius: 2.5,
+                        blurRadius: 2)
+                  ],
+                  borderRadius: BorderRadius.circular(10),
                   color: Color.fromARGB(255, 240, 237, 237)),
               child: Row(children: [
                 Flexible(
@@ -55,14 +55,14 @@ class BloodSugarHistoryScreen extends StatelessWidget {
                       Column(
                         children: [
                           Text(
-                            "78",
+                            "105",
                             style: TextStyle(
                                 color: Colors.black,
                                 fontFamily: "CoreSansBold",
                                 fontSize: 3.3 * SizeConfig.heightMultiplier),
                           ),
                           Text(
-                            "mg/dL",
+                            "mmHg",
                             style: TextStyle(
                                 color: const Color.fromARGB(255, 80, 78, 78),
                                 fontFamily: "CoreSansMed",
@@ -71,10 +71,10 @@ class BloodSugarHistoryScreen extends StatelessWidget {
                         ],
                       ),
                       SizedBox(
-                        width: 2.10*SizeConfig.heightMultiplier,
+                        width: 20,
                       ),
                       Container(
-                          height: 7.37*SizeConfig.heightMultiplier,
+                          height: 70,
                           child: VerticalDivider(
                             color: Color.fromARGB(255, 229, 222, 222),
                             thickness: 3,
@@ -87,13 +87,13 @@ class BloodSugarHistoryScreen extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Flexible(flex: 3, child: statsWidget("", "", "")),
+                      Flexible(flex: 3, child: statsWidgetBP("", "", "")),
                       Flexible(
                           flex: 1,
                           child: Icon(
                             Icons.arrow_forward_ios,
                             color: Colors.black,
-                            size: 2.94*SizeConfig.heightMultiplier,
+                            size: 28,
                           )),
                     ],
                   ),

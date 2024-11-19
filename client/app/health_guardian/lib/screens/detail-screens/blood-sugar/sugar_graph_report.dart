@@ -1,14 +1,18 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:health_guardian/styling/colors.dart';
+import 'package:health_guardian/styling/sizeConfig.dart';
 
 class CustomLineChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       backgroundColor: Colors.white,
+      backgroundColor: Colors.white,
       body: Padding(
-        padding: EdgeInsets.only(top: 55,right: 20,left: 10),
+        padding: EdgeInsets.only(
+            top: 5.79 * SizeConfig.heightMultiplier,
+            right: 4.46 * SizeConfig.widthMultiplier,
+            left: 2.23 * SizeConfig.widthMultiplier),
         child: Center(
           child: LineChart(
             LineChartData(
@@ -20,7 +24,7 @@ class CustomLineChart extends StatelessWidget {
               titlesData: FlTitlesData(
                 bottomTitles: AxisTitles(
                   sideTitles: SideTitles(
-                    reservedSize: 35,
+                    reservedSize: 3.68 * SizeConfig.heightMultiplier,
                     showTitles: true,
                     interval: 1,
                     getTitlesWidget: (value, meta) {
@@ -29,14 +33,14 @@ class CustomLineChart extends StatelessWidget {
                         style: TextStyle(
                             color: const Color.fromARGB(255, 59, 56, 56),
                             fontFamily: "CoreSansBold",
-                            fontSize: 16),
+                            fontSize: 1.68 * SizeConfig.heightMultiplier),
                       );
                     },
                   ),
                 ),
                 leftTitles: AxisTitles(
                   sideTitles: SideTitles(
-                    reservedSize: 45,
+                    reservedSize: 4.74 * SizeConfig.heightMultiplier,
                     showTitles: true,
                     interval: 20,
                     getTitlesWidget: (value, meta) {
@@ -45,7 +49,7 @@ class CustomLineChart extends StatelessWidget {
                         style: TextStyle(
                             color: Color.fromARGB(255, 59, 56, 56),
                             fontFamily: "CoreSansBold",
-                            fontSize: 16),
+                            fontSize: 1.68 * SizeConfig.heightMultiplier),
                       );
                     },
                   ),
@@ -54,7 +58,8 @@ class CustomLineChart extends StatelessWidget {
                   sideTitles: SideTitles(showTitles: false), // Hide top titles
                 ),
                 rightTitles: AxisTitles(
-                  sideTitles: SideTitles(showTitles: false), // Hide right titles
+                  sideTitles:
+                      SideTitles(showTitles: false), // Hide right titles
                 ),
               ),
               gridData: FlGridData(show: false),
@@ -72,7 +77,7 @@ class CustomLineChart extends StatelessWidget {
                   ],
                   isCurved: false,
                   color: Colours.buttonColorRed,
-                  barWidth: 3.5,
+                  barWidth: 0.78 * SizeConfig.widthMultiplier,
                   belowBarData: BarAreaData(
                     show: true,
                     color: Colors.red.withOpacity(0.2),
@@ -81,7 +86,7 @@ class CustomLineChart extends StatelessWidget {
                     show: true,
                     getDotPainter: (spot, percent, barData, index) =>
                         FlDotCirclePainter(
-                      radius: 6.5,
+                      radius: 0.68 * SizeConfig.heightMultiplier,
                       color: Colors.white,
                       strokeWidth: 3,
                       strokeColor: Colours.buttonColorRed,
@@ -95,18 +100,19 @@ class CustomLineChart extends StatelessWidget {
                   getTooltipColor: (touchedSpot) {
                     return Color.fromARGB(255, 11, 10, 10);
                   },
-        
-                  tooltipRoundedRadius: 30, // Rounded radius to make it circular
-                  tooltipPadding: const EdgeInsets.all(
-                      8), // Adjust padding to make it more circular
+
+                  tooltipRoundedRadius: 3.16 *
+                      SizeConfig
+                          .heightMultiplier, // Rounded radius to make it circular
+                  tooltipPadding: EdgeInsets.all(0.84*SizeConfig.heightMultiplier),
                   getTooltipItems: (touchedSpots) {
                     return touchedSpots.map((spot) {
                       return LineTooltipItem(
                         spot.y.toInt().toString(),
-                        const TextStyle(
+                         TextStyle(
                           color: Colours.buttonColorRed,
                           fontWeight: FontWeight.bold,
-                          fontSize: 16,
+                          fontSize: 1.68*SizeConfig.heightMultiplier,
                         ),
                       );
                     }).toList();

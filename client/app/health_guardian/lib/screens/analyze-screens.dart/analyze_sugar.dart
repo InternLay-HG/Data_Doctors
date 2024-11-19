@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:health_guardian/getX_controllers/analyze-screen/analyze_sugar_controllers.dart';
 import 'package:health_guardian/getX_controllers/detail-screen/blood_sugar_controllers.dart';
 import 'package:health_guardian/styling/colors.dart';
+import 'package:health_guardian/styling/images.dart';
 import 'package:health_guardian/styling/sizeConfig.dart';
 import 'package:health_guardian/widgets/analyze-screen/widgets_1.dart';
 import 'package:health_guardian/widgets/analyze-screen/widgets_2.dart';
@@ -24,9 +25,9 @@ class AnalyzeSugarScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color.fromARGB(255, 247, 241, 241),
-        appBar: appBAnalyzeSugar(() {
+        appBar: appBAnalyze(() {
           Get.back();
-        }, () {}),
+        }, () {},Images.DiabetesIcon),
         body: SingleChildScrollView(
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
@@ -72,7 +73,7 @@ class AnalyzeSugarScreen extends StatelessWidget {
                         "No",
                         controller.FD_State.value == "Yes",
                         controller.FD_State.value == "No",
-                        220,
+                        220,Icons.bloodtype
                       ),
                       Double_Parameter_Card(
                         "High BP",
@@ -83,7 +84,7 @@ class AnalyzeSugarScreen extends StatelessWidget {
                         "No",
                         controller.HB_State.value == "Yes",
                         controller.HB_State.value == "No",
-                        190,
+                        190,Icons.bloodtype
                       ),
                     ],
                   );
@@ -104,7 +105,7 @@ class AnalyzeSugarScreen extends StatelessWidget {
                         "No",
                         controller.P_D_State.value == "Yes",
                         controller.P_D_State.value == "No",
-                        195,
+                        195,Icons.bloodtype
                       ),
                       Four_Parameter_Card(
                         "Physically Active",
@@ -117,7 +118,7 @@ class AnalyzeSugarScreen extends StatelessWidget {
                         'More than half an hr',
                         'Less than half an hr',
                         'None',
-                        215,
+                        215,Icons.star_border_outlined
                       ),
                     ],
                   );
@@ -138,7 +139,7 @@ class AnalyzeSugarScreen extends StatelessWidget {
                         "No",
                         controller.Smoking_State.value == "Yes",
                         controller.Smoking_State.value == "No",
-                        205,
+                        205,Icons.smoke_free_outlined
                       ),
                       Double_Parameter_Card(
                         "Alcohol",
@@ -149,7 +150,7 @@ class AnalyzeSugarScreen extends StatelessWidget {
                         "No",
                         controller.Alchohol_State.value == "Yes",
                         controller.Alchohol_State.value == "No",
-                        205,
+                        205,Icons.no_drinks_outlined
                       ),
                     ],
                   );
@@ -181,7 +182,7 @@ class AnalyzeSugarScreen extends StatelessWidget {
                         "No",
                         controller.SoundSleep_State.value == "Yes",
                         controller.SoundSleep_State.value == "No",
-                        205,
+                        205,Icons.night_shelter_rounded
                       ),
                     ),
                     PregnancyCard("Pregnancies", Icons.pregnant_woman, "2", 205,
@@ -206,7 +207,7 @@ class AnalyzeSugarScreen extends StatelessWidget {
                         "Often",
                         "Very Often",
                         "Always",
-                        205,
+                        205,Icons.fastfood
                       ),
                       Four_Parameter_Card(
                         "Stress",
@@ -219,7 +220,7 @@ class AnalyzeSugarScreen extends StatelessWidget {
                         'Sometimes',
                         'Very Often',
                         'Always',
-                        205,
+                        205,Icons.self_improvement
                       ),
                     ],
                   ),
@@ -242,7 +243,7 @@ class AnalyzeSugarScreen extends StatelessWidget {
                           "Low",
                           "Normal",
                           "High",
-                          205),
+                          205,Icons.bloodtype_outlined),
                       Double_Parameter_Card(
                           "Urination Freq",
                           controller.UF_State.value,
@@ -252,7 +253,7 @@ class AnalyzeSugarScreen extends StatelessWidget {
                           'Quite Often',
                           controller.UF_State.value == 'Not Much',
                           controller.UF_State.value == 'Quite Often',
-                          205),
+                          205,Icons.star_border_outlined),
                     ],
                   ),
                 ),
@@ -273,7 +274,7 @@ class AnalyzeSugarScreen extends StatelessWidget {
                         "No",
                         controller.RM_State.value == "Yes",
                         controller.RM_State.value == "No",
-                        235),
+                        235,Icons.medication),
                   ),
                 ),
 

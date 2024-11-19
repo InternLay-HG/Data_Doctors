@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:health_guardian/getX_controllers/splash/splash_controller.dart';
 import 'package:health_guardian/screens/dashboard/dashboard_screen.dart';
 import 'package:health_guardian/styling/sizeConfig.dart';

@@ -13,20 +13,20 @@ Widget dataWidget(
       Center(
         child: Text("Blood Sugar (mg/dL)",
             style: TextStyle(
-              fontSize: 29,
+              fontSize: 3.05*SizeConfig.heightMultiplier,
               color: Colors.black,
               fontFamily: "CoreSansBold",
             )),
       ),
       SizedBox(
-        height: 8,
+        height: 0.84*SizeConfig.heightMultiplier,
       ),
       Divider(
         color: Color.fromARGB(255, 229, 222, 222),
         thickness: 2,
       ),
       SizedBox(
-        height: 10,
+        height: 1.05*SizeConfig.heightMultiplier,
       ),
 
       //* For displaying graph and history
@@ -93,18 +93,18 @@ Widget historyList(
     onTap: onTap,
     child: Container(
       padding: EdgeInsets.symmetric(
-        horizontal: 5,
+        horizontal: 1.11*SizeConfig.widthMultiplier,
       ),
-      height: 350,
+      height: 36.86*SizeConfig.heightMultiplier,
       child: ListView.builder(
           itemCount: 3,
           itemBuilder: (context, index) {
             return Container(
-              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 12),
-              margin: EdgeInsets.symmetric(vertical: 8),
-              height: 105,
+              padding: EdgeInsets.symmetric(vertical: 1.58*SizeConfig.heightMultiplier, horizontal: 2.67*SizeConfig.widthMultiplier),
+              margin: EdgeInsets.symmetric(vertical: 0.84*SizeConfig.heightMultiplier),
+              height: 11.06*SizeConfig.heightMultiplier,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(1.05*SizeConfig.heightMultiplier),
                   color: Color.fromARGB(255, 240, 237, 237)),
               child: Row(children: [
                 Flexible(
@@ -130,10 +130,10 @@ Widget historyList(
                         ],
                       ),
                       SizedBox(
-                        width: 20,
+                        width: 4.46*SizeConfig.widthMultiplier,
                       ),
                       Container(
-                          height: 70,
+                          height: 7.37*SizeConfig.heightMultiplier,
                           child: VerticalDivider(
                             color: Color.fromARGB(255, 229, 222, 222),
                             thickness: 3,
@@ -152,7 +152,7 @@ Widget historyList(
                           child: Icon(
                             Icons.arrow_forward_ios,
                             color: Colors.black,
-                            size: 28,
+                            size: 2.94*SizeConfig.heightMultiplier,
                           )),
                     ],
                   ),
@@ -173,7 +173,7 @@ Widget statsWidget(String value, String state, String type) {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             buttonsDetail1(
-                "Normal", () {}, Colors.green, Colors.white, 45, 100, 6, 19),
+                "Normal", () {}, Colors.green, Colors.white, 4.74*SizeConfig.heightMultiplier,22.32*SizeConfig.widthMultiplier, 0.63*SizeConfig.heightMultiplier, 2.00*SizeConfig.heightMultiplier),
             Text(
               "Asleep",
               style: TextStyle(
@@ -185,7 +185,7 @@ Widget statsWidget(String value, String state, String type) {
         ),
       ),
       SizedBox(
-        height: 10,
+        height: 1.05 * SizeConfig.heightMultiplier,
       ),
       Flexible(
         flex: 1,

@@ -61,7 +61,7 @@ Widget wightMeasureDataWidget(){
                         height: 15,
                       ),
                       Text(
-                        "Weight Measure",
+                        "Weight & BMI",
                         style: TextStyle(
                             color: Colors.black,
                             fontFamily: "CoreSansBold",
