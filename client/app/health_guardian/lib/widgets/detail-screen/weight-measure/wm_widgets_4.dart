@@ -5,10 +5,10 @@ import 'package:health_guardian/widgets/detail-screen/blood-sugar/bs_widgets_3.d
 
 Widget addNoteWeightWidget(TextEditingController controller) {
   return Container(
-      height: 105,
+      height: 11.06*SizeConfig.heightMultiplier,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(6),
+        borderRadius: BorderRadius.circular(0.63 * SizeConfig.heightMultiplier),
         // boxShadow: [
         //   BoxShadow(
         //       color: Color.fromARGB(255, 161, 153, 153),
@@ -16,23 +16,23 @@ Widget addNoteWeightWidget(TextEditingController controller) {
         //       blurRadius: 2)
         // ],
       ),
-      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+      padding: EdgeInsets.symmetric(horizontal: 2.67*SizeConfig.widthMultiplier, vertical: 1.05*SizeConfig.heightMultiplier),
       child: Column(
         children: [
           header("Note", Icons.note_alt_outlined),
           SizedBox(
-            height: 5,
+            height: 0.52*SizeConfig.heightMultiplier,
           ),
           SizedBox(
-            height: 50,
+            height: 5.26*SizeConfig.heightMultiplier,
             child: TextField(
               style: TextStyle(
                   color: Color.fromARGB(255, 98, 94, 94),
-                  fontSize: 18,
+                  fontSize: 1.89*SizeConfig.heightMultiplier,
                   fontFamily: "CoreSansMed"),
               controller: controller,
               decoration: InputDecoration(
-                  contentPadding: EdgeInsets.only(bottom: 10),
+                  contentPadding: EdgeInsets.only(bottom: 1.05*SizeConfig.heightMultiplier),
                   floatingLabelBehavior: FloatingLabelBehavior.never,
                   border: InputBorder.none,
                   label: Text(
@@ -40,7 +40,7 @@ Widget addNoteWeightWidget(TextEditingController controller) {
                     style: TextStyle(
                         color: const Color.fromARGB(255, 98, 94, 94),
                         fontFamily: "CoreSansMed",
-                        fontSize: 22),
+                        fontSize: 2.31*SizeConfig.heightMultiplier),
                   )),
             ),
           )
@@ -50,11 +50,11 @@ Widget addNoteWeightWidget(TextEditingController controller) {
 
 Widget weightScaleWidget() {
   return Container(
-      height: 440,
+      height: 46.34*SizeConfig.heightMultiplier,
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(6),
+        borderRadius: BorderRadius.circular(1.33*SizeConfig.heightMultiplier),
         // boxShadow: [
         //   BoxShadow(
         //       color: Color.fromARGB(255, 161, 153, 153),
@@ -62,7 +62,7 @@ Widget weightScaleWidget() {
         //       blurRadius: 2)
         // ],
       ),
-      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+      padding: EdgeInsets.symmetric(horizontal: 2.67*SizeConfig.widthMultiplier, vertical: 1.05*SizeConfig.heightMultiplier),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -75,7 +75,7 @@ Widget weightScaleWidget() {
                 fontSize: 3.2 * SizeConfig.heightMultiplier),
           ),
           SizedBox(
-            height: 15,
+            height: 1.58*SizeConfig.heightMultiplier,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -91,39 +91,39 @@ Widget weightScaleWidget() {
             ],
           ),
           SizedBox(
-            height: 30,
+            height: 3.16*SizeConfig.heightMultiplier,
           ),
           scaleTextWeight(Colors.blue, "Very Severely Underweight", "< 40 kg"),
           SizedBox(
-            height: 10,
+            height: 1.05*SizeConfig.heightMultiplier,
           ),
           scaleTextWeight(Colors.blue.shade300, "Severely underweight", "40 - 45 kg"),
           SizedBox(
-            height: 10,
+            height: 1.05*SizeConfig.heightMultiplier,
           ),
           scaleTextWeight(Colors.blue.shade200, "Underweight", "46 - 54 kg"),
           SizedBox(
-            height: 10,
+            height: 1.05*SizeConfig.heightMultiplier,
           ),
           scaleTextWeight(Colors.green, "Normal", "55 - 70 kg"),
           SizedBox(
-            height: 10,
+            height: 1.05*SizeConfig.heightMultiplier,
           ),
           scaleTextWeight(Colors.yellow, "Overweight", "71 - 85 kg"),
           SizedBox(
-            height: 10,
+            height: 1.05*SizeConfig.heightMultiplier,
           ),
           scaleTextWeight(Colors.yellow.shade800, "Obese Class I", "86 - 100 kg"),
           SizedBox(
-            height: 10,
+            height: 1.05*SizeConfig.heightMultiplier,
           ),
            scaleTextWeight(Colors.orange, "Obese Class II", "101 - 120 kg"),
           SizedBox(
-            height: 10,
+            height: 1.05*SizeConfig.heightMultiplier,
           ),
            scaleTextWeight(Colors.red, "Obese Class Obese Class III", "> 120 kg"),
           SizedBox(
-            height: 10,
+            height: 1.05*SizeConfig.heightMultiplier,
           ),
         ],
       ));
@@ -131,8 +131,8 @@ Widget weightScaleWidget() {
 
 Widget colorBarWeight(Color color) {
   return Container(
-    width: 44, // Adjust width as needed
-    height: 12, // Adjust height as needed
+    width: 9.821*SizeConfig.widthMultiplier, // Adjust width as needed
+    height: 1.264*SizeConfig.heightMultiplier, // Adjust height as needed
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(15),
       color: color,
@@ -142,18 +142,18 @@ Widget colorBarWeight(Color color) {
 
 Widget scaleTextWeight(Color color, String text, String range) {
   return Padding(
-    padding: EdgeInsets.symmetric(horizontal: 5),
+    padding: EdgeInsets.symmetric(horizontal: 1.11*SizeConfig.widthMultiplier),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
           text,
-          style: TextStyle(color: color, fontFamily: "CoreSansMed", fontSize: 20),
+          style: TextStyle(color: color, fontFamily: "CoreSansMed", fontSize: 2.10*SizeConfig.heightMultiplier),
         ),
         Text(
           range,
           style: TextStyle(
-              color: Colors.black, fontFamily: "CoreSansMed", fontSize: 18),
+              color: Colors.black, fontFamily: "CoreSansMed", fontSize: 1.89*SizeConfig.heightMultiplier),
         ),
       ],
     ),

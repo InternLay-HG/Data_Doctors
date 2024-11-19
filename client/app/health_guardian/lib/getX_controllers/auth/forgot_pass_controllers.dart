@@ -9,6 +9,10 @@ class ForgotPassControllers extends GetxController {
   TextEditingController passwordController = TextEditingController();
   TextEditingController ConfirmPasswordController = TextEditingController();
 
+  var isPasswordValid1 = true.obs;
+  var isPasswordValid2 = true.obs;
+
+
   void clear() {
     controller.clear();
   }

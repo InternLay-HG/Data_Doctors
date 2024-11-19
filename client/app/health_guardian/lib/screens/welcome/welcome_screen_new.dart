@@ -55,7 +55,8 @@ class WelcomeScreenNew extends StatelessWidget {
                         3.8 * SizeConfig.textMultiplier,
                         const Color.fromARGB(255, 81, 79, 79)),
                     SizedBox(height: 22.23 * SizeConfig.heightMultiplier),
-                    authButton("Proceed", Navigate)
+                    authButton("Proceed", Navigate),
+                     SizedBox(height: 2.23 * SizeConfig.heightMultiplier),
                   ],
                 ),
               ),

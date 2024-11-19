@@ -13,20 +13,20 @@ Widget dataWidgetWeightMeasure(WeightMeasureControllers controller,
       Center(
         child: Text("Weight (kg)",
             style: TextStyle(
-              fontSize: 29,
+              fontSize: 3.054*SizeConfig.heightMultiplier,
               color: Colors.black,
               fontFamily: "CoreSansBold",
             )),
       ),
       SizedBox(
-        height: 8,
+        height: 0.842*SizeConfig.heightMultiplier,
       ),
       Divider(
         color: Color.fromARGB(255, 229, 222, 222),
         thickness: 2,
       ),
       SizedBox(
-        height: 10,
+        height: 1.053*SizeConfig.heightMultiplier,
       ),
 
       //* For displaying graph and history
@@ -51,21 +51,21 @@ Widget graphDataWeightMeasure(WeightMeasureControllers controller) {
         IconButton(
           icon: Icon(
             Icons.arrow_back_ios,
-            size: 24,
+            size: 2.528*SizeConfig.heightMultiplier,
           ),
           onPressed: controller.previousPageDate,
           color: Colors.black,
         ),
         Text("Dec 16 - Dec 22, 2024",
             style: TextStyle(
-                fontSize: 22,
+                fontSize: 2.317*SizeConfig.heightMultiplier,
                 color: Colors.black,
                 fontFamily: "Poppins-Med",
                 fontWeight: FontWeight.bold)),
         IconButton(
           icon: Icon(
             Icons.arrow_forward_ios_outlined,
-            size: 24,
+            size: 2.528*SizeConfig.heightMultiplier,
           ),
           onPressed: controller.navigatePageDate,
           color: Colors.black,
@@ -77,8 +77,8 @@ Widget graphDataWeightMeasure(WeightMeasureControllers controller) {
     ),
     Container(
       color: Colors.white,
-      height: 300,
-      width: 410,
+      height: 31*SizeConfig.heightMultiplier,
+      width: 91.517*SizeConfig.widthMultiplier,
       child: PageView(
         controller: controller.pageController,
         children: [
@@ -96,18 +96,18 @@ Widget historyListWeightMeasure(WeightMeasureControllers controller,
     onTap: onTap,
     child: Container(
       padding: EdgeInsets.symmetric(
-        horizontal: 5,
+        horizontal: 1.116*SizeConfig.widthMultiplier,
       ),
-      height: 350,
+      height: 36.869*SizeConfig.heightMultiplier,
       child: ListView.builder(
           itemCount: 3,
           itemBuilder: (context, index) {
             return Container(
-              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 12),
-              margin: EdgeInsets.symmetric(vertical: 8),
+              padding: EdgeInsets.symmetric(vertical: 1.580*SizeConfig.heightMultiplier, horizontal: 2.678*SizeConfig.widthMultiplier),
+              margin: EdgeInsets.symmetric(vertical: 0.842*SizeConfig.heightMultiplier),
               height: 105,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(1.0*SizeConfig.heightMultiplier),
                   color: Color.fromARGB(255, 240, 237, 237)),
               child: Row(children: [
                 Flexible(
@@ -133,10 +133,10 @@ Widget historyListWeightMeasure(WeightMeasureControllers controller,
                         ],
                       ),
                       SizedBox(
-                        width: 20,
+                        width: 2.106*SizeConfig.heightMultiplier,
                       ),
                       Container(
-                          height: 70,
+                          height: 7.373*SizeConfig.heightMultiplier,
                           child: VerticalDivider(
                             color: Color.fromARGB(255, 229, 222, 222),
                             thickness: 3,
@@ -157,7 +157,7 @@ Widget historyListWeightMeasure(WeightMeasureControllers controller,
                           child: Icon(
                             Icons.arrow_forward_ios,
                             color: Colors.black,
-                            size: 28,
+                            size: 2.949*SizeConfig.heightMultiplier,
                           )),
                     ],
                   ),
@@ -190,7 +190,7 @@ Widget statsWidgetWeightMeasure(String value, String state, String type) {
         ),
       ),
       SizedBox(
-        height: 10,
+        height: 1.05*SizeConfig.heightMultiplier,
       ),
       Flexible(
         flex: 1,

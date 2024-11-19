@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:health_guardian/styling/sizeConfig.dart';
 
 class CustomBarChart extends StatelessWidget {
   @override
@@ -7,7 +8,7 @@ class CustomBarChart extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
-        padding: EdgeInsets.only(top: 30, right: 20, left: 20),
+        padding: EdgeInsets.only(top: 3.16*SizeConfig.heightMultiplier, right: 4.46*SizeConfig.widthMultiplier, left: 4.46*SizeConfig.widthMultiplier),
         child: Center(
           child: BarChart(
             BarChartData(
@@ -28,27 +29,27 @@ class CustomBarChart extends StatelessWidget {
                 leftTitles: AxisTitles(
                   sideTitles: SideTitles(
                     showTitles: true,
-                    reservedSize: 35,
+                    reservedSize: 3.68*SizeConfig.heightMultiplier,
                     interval: 20,
                     getTitlesWidget: (value, meta) => Text(
                       value.toInt().toString(),
                       style: TextStyle(
                           color: const Color.fromARGB(255, 59, 56, 56),
                           fontFamily: "CoreSansBold",
-                          fontSize: 16),
+                          fontSize: 1.68*SizeConfig.heightMultiplier),
                     ),
                   ),
                 ),
                 bottomTitles: AxisTitles(
                   sideTitles: SideTitles(
-                    reservedSize: 30,
+                    reservedSize: 3.16*SizeConfig.heightMultiplier,
                     showTitles: true,
                     getTitlesWidget: (value, meta) => Text(
                       value.toInt().toString(),
                       style: TextStyle(
                           color: const Color.fromARGB(255, 59, 56, 56),
                           fontFamily: "CoreSansBold",
-                          fontSize: 16),
+                          fontSize: 1.68*SizeConfig.heightMultiplier),
                     ),
                   ),
                 ),
@@ -89,12 +90,12 @@ class CustomBarChart extends StatelessWidget {
   BarChartRodData barRod(double y, {bool isHighlighted = false}) {
     return BarChartRodData(
       borderRadius: BorderRadius.only(
-        topLeft: Radius.circular(18),
-        topRight: Radius.circular(18),
+        topLeft: Radius.circular(1.89*SizeConfig.heightMultiplier),
+        topRight: Radius.circular(1.89*SizeConfig.heightMultiplier),
       ),
       toY: y,
       color: isHighlighted ? Colors.red : Colors.red.withOpacity(0.5),
-      width: 35,
+      width: 7.81*SizeConfig.widthMultiplier,
     );
   }
 }

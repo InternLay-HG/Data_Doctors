@@ -41,7 +41,7 @@ Widget bloodSugarDataWidget() {
         //                 BoxShadow(color: Color.fromARGB(255, 161, 153, 153),spreadRadius: 2.5,blurRadius: 2)
         //               ],
             ),
-    padding: EdgeInsets.symmetric(horizontal:3.34*SizeConfig.heightMultiplier, vertical: 0.52*SizeConfig.heightMultiplier),
+    padding: EdgeInsets.symmetric(horizontal:1*SizeConfig.heightMultiplier, vertical: 0.52*SizeConfig.heightMultiplier),
     child: Column(
       children: [
         //* Upper Card
@@ -92,33 +92,33 @@ Widget bloodSugarDataWidget() {
             child: Column(
               children: [
                 SizedBox(
-                  height: 7,
+                  height: 0.737*SizeConfig.heightMultiplier
                 ),
                 Divider(
-                  height: 5,
+                  height: .52*SizeConfig.heightMultiplier,
                   color: const Color.fromARGB(255, 223, 214, 214),
                   thickness: 3,
                 ),
                 SizedBox(
-                  height: 15,
+                  height: 1.58*SizeConfig.heightMultiplier,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     dataCard("90.6", "Average"),
                     Container(
-                        height: 90,
+                        height: 9.48*SizeConfig.heightMultiplier,
                         child: VerticalDivider(
                           color: Color.fromARGB(255, 223, 214, 214),
-                          width: 10,
+                          width: 2.23*SizeConfig.widthMultiplier,
                           thickness: 3,
                         )),
                     dataCard("132.5", "Maximum"),
                     Container(
-                        height: 90,
+                        height: 9.48*SizeConfig.heightMultiplier,
                         child: VerticalDivider(
                           color: Color.fromARGB(255, 223, 214, 214),
-                          width: 10,
+                          width: 2.23*SizeConfig.widthMultiplier,
                           thickness: 3,
                         )),
                     dataCard("74.9", "Minimum"),
@@ -171,7 +171,7 @@ Widget doubleButtonWidget(BloodSugarControllers controller) {
                 : Color.fromARGB(255, 211, 206, 206),
             controller.pageIndex.value == 0 ? Colors.white : Colors.black,
              5.79*SizeConfig.heightMultiplier,
-            46.87*SizeConfig.widthMultiplier,
+            44.9*SizeConfig.widthMultiplier,
             1.26*SizeConfig.heightMultiplier),
       ),
       Obx(
@@ -183,7 +183,7 @@ Widget doubleButtonWidget(BloodSugarControllers controller) {
                 : Color.fromARGB(255, 211, 206, 206),
             controller.pageIndex.value == 1? Colors.white : Colors.black,
             5.79*SizeConfig.heightMultiplier,
-            46.87*SizeConfig.widthMultiplier,
+            44.9*SizeConfig.widthMultiplier,
             1.26*SizeConfig.heightMultiplier),
       ),
     ],

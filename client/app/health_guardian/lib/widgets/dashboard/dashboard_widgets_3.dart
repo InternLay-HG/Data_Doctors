@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:health_guardian/styling/colors.dart';
 import 'package:health_guardian/styling/images.dart';
+import 'package:health_guardian/styling/sizeConfig.dart';
 
 List<IconData> iconDataList = [
   Icons.account_circle_outlined,
@@ -20,11 +21,11 @@ List<String> title = [
 
 Widget profileWidgetAcc() {
   return Container(
-    padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-    height: 110,
+    padding: EdgeInsets.symmetric(horizontal: 3.348*SizeConfig.widthMultiplier, vertical: 0.526*SizeConfig.heightMultiplier),
+    height: 12.4*SizeConfig.heightMultiplier,
     decoration: BoxDecoration(
       color: Colors.white,
-      borderRadius: BorderRadius.circular(6),
+      borderRadius: BorderRadius.circular(0.632*SizeConfig.heightMultiplier),
     ),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -32,33 +33,35 @@ Widget profileWidgetAcc() {
         Flexible(
             flex: 1,
             child: CircleAvatar(
-                radius: 40, backgroundImage: AssetImage(Images.profileIcon))),
+                radius: 4.213*SizeConfig.heightMultiplier, backgroundImage: AssetImage(Images.profileIcon))),
         Flexible(
             flex: 3,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: 12,
+                  height: 1.5*SizeConfig.heightMultiplier,
                 ),
                 Text(
                   "Rohit Patel",
                   style: TextStyle(
                       fontFamily: "Poppins-Med",
                       fontWeight: FontWeight.bold,
-                      fontSize: 26,
+                      fontSize: 2.738*SizeConfig.heightMultiplier,
                       color: Colors.black),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 1.053*SizeConfig.heightMultiplier,
                 ),
-                Text(
-                  "rohit.2023ug2019@iiitranchi.ac.in",
-                  style: TextStyle(
-                      fontFamily: "Poppins-Med",
-                      fontWeight: FontWeight.bold,
-                      fontSize: 17,
-                      color: Colors.grey.shade700),
+                FittedBox(
+                  child: Text(
+                    "rohit.2023ug2019@iiitranchi.ac.in",
+                    style: TextStyle(
+                        fontFamily: "Poppins-Med",
+                        fontWeight: FontWeight.bold,
+                        fontSize: 1.790*SizeConfig.heightMultiplier,
+                        color: Colors.grey.shade700),
+                  ),
                 )
               ],
             )),
@@ -71,29 +74,29 @@ Widget profileOptions(BuildContext context) {
   return Container(
     decoration: BoxDecoration(
       color: Colors.white,
-      borderRadius: BorderRadius.circular(6),
+      borderRadius: BorderRadius.circular(0.632*SizeConfig.heightMultiplier),
     ),
-    height: 350,
-    padding: EdgeInsets.symmetric(vertical: 12),
+    height: 36.869*SizeConfig.heightMultiplier,
+    padding: EdgeInsets.symmetric(vertical: 1.264*SizeConfig.heightMultiplier),
     child: ListView.builder(
         itemCount: 5,
         itemBuilder: (context, index) {
           return Container(
-            height: 65,
+            height: 6.847*SizeConfig.heightMultiplier,
             child: ListTile(
               leading: Icon(
                 iconDataList[index],
                 color: iconDataList[index] == Icons.logout
                     ? Colours.buttonColorRed
                     : Colors.black,
-                size: 30,
+                size: 3.160*SizeConfig.heightMultiplier,
               ),
               title: Text(
                 title[index],
                 style: TextStyle(
                     fontFamily: "Poppins-Med",
                     fontWeight: FontWeight.bold,
-                    fontSize: 22,
+                    fontSize: 2.317*SizeConfig.heightMultiplier,
                     color:
                         title[index] == "Logout" ? Colors.red : Colors.black),
               ),
@@ -102,7 +105,7 @@ Widget profileOptions(BuildContext context) {
                   : Icon(
                       Icons.arrow_forward_ios_sharp,
                       color: Colors.black,
-                      size: 24,
+                      size: 2.528*SizeConfig.heightMultiplier,
                     ),
             ),
           );

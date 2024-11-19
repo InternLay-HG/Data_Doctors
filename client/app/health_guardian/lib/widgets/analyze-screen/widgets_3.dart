@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:health_guardian/styling/sizeConfig.dart';
 import 'package:health_guardian/widgets/analyze-screen/widgets_1.dart';
 import 'package:health_guardian/widgets/auth/login_widgets.dart';
 import 'package:health_guardian/widgets/buttons/detail_buttons.dart';
@@ -16,21 +17,24 @@ Widget Four_Parameter_Card(
     String buttonTitle2,
     String buttonTitle3,
     String buttonTitle4,
-    double width,IconData icon) {
+    double width,
+    IconData icon) {
   return Container(
-    height: 100,
+    height: 10.534 * SizeConfig.heightMultiplier,
     width: width,
     decoration: BoxDecoration(
       color: Colors.white,
-      borderRadius: BorderRadius.circular(6),
+      borderRadius: BorderRadius.circular(0.632 * SizeConfig.heightMultiplier),
     ),
-    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+    padding: EdgeInsets.symmetric(
+        horizontal: 2.678 * SizeConfig.widthMultiplier,
+        vertical: 1.053 * SizeConfig.heightMultiplier),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         header(title, icon),
         SizedBox(
-          height: 10,
+          height: 1.053 * SizeConfig.heightMultiplier,
         ),
         GestureDetector(
             //* button color and text color changing logic based on their selection
@@ -38,11 +42,13 @@ Widget Four_Parameter_Card(
               Get.bottomSheet(
                   backgroundColor: Colors.white,
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 12),
-                    height: 320,
+                    padding: EdgeInsets.symmetric(
+                        horizontal: 2.232 * SizeConfig.widthMultiplier,
+                        vertical: 1.264 * SizeConfig.heightMultiplier),
+                    height: 33.709 * SizeConfig.heightMultiplier,
                     child: Column(children: [
                       SizedBox(
-                        height: 20,
+                        height: 2.106 * SizeConfig.heightMultiplier,
                       ),
                       Column(
                         children: [
@@ -54,23 +60,23 @@ Widget Four_Parameter_Card(
                                   onTap1,
                                   Color.fromARGB(255, 246, 240, 241),
                                   Colors.black,
-                                  60,
-                                  195,
-                                  25,
-                                  22),
+                                  6.320 * SizeConfig.heightMultiplier,
+                                  43.52 * SizeConfig.widthMultiplier,
+                                  2.63 * SizeConfig.heightMultiplier,
+                                  2.317 * SizeConfig.heightMultiplier),
                               buttonsDetail1(
                                   buttonTitle2,
                                   onTap2,
                                   Color.fromARGB(255, 246, 240, 241),
                                   Colors.black,
-                                  65,
-                                  225,
-                                  25,
-                                  20),
+                                  6.320 * SizeConfig.heightMultiplier,
+                                  43.52 * SizeConfig.widthMultiplier,
+                                  2.63 * SizeConfig.heightMultiplier,
+                                  2.317 * SizeConfig.heightMultiplier),
                             ],
                           ),
                           SizedBox(
-                            height: 15,
+                            height: 1.580 * SizeConfig.heightMultiplier,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -80,23 +86,23 @@ Widget Four_Parameter_Card(
                                   onTap3,
                                   Color.fromARGB(255, 246, 240, 241),
                                   Colors.black,
-                                  60,
-                                  215,
-                                  25,
-                                  20),
+                                  6.320 * SizeConfig.heightMultiplier,
+                                  43.52 * SizeConfig.widthMultiplier,
+                                  2.63 * SizeConfig.heightMultiplier,
+                                  2.317 * SizeConfig.heightMultiplier),
                               buttonsACard(
                                   buttonTitle4,
                                   onTap4,
                                   Color.fromARGB(255, 246, 240, 241),
                                   Colors.black,
-                                  60,
-                                  200,
-                                  25,
-                                  24),
+                                  6.320 * SizeConfig.heightMultiplier,
+                                  43.52 * SizeConfig.widthMultiplier,
+                                  2.63 * SizeConfig.heightMultiplier,
+                                  2.317 * SizeConfig.heightMultiplier),
                             ],
                           ),
                           SizedBox(
-                            height: 65,
+                            height: 6.847 * SizeConfig.heightMultiplier,
                           ),
                           authButton("OK", () {
                             Get.back();
@@ -113,7 +119,7 @@ Widget Four_Parameter_Card(
                 content,
                 style: TextStyle(
                     fontFamily: "CoreSansBold",
-                    fontSize: 25,
+                    fontSize: 2.633 * SizeConfig.heightMultiplier,
                     color: Colors.black),
               ),
             )),

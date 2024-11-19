@@ -21,37 +21,40 @@ class UserPasswordNotify extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      body: Container(
-        padding:
-            EdgeInsets.symmetric(horizontal: 3.34 * SizeConfig.widthMultiplier),
-        child: Center(
-          child: Column(
-            children: [
-              SizedBox(height: 26.23 * SizeConfig.heightMultiplier),
-
-              //* Use AnimatedBuilder to animate iconWidgetSplash with the scaleAnimation
-              AnimatedBuilder(
-                animation: splashController.scaleAnimation,
-                builder: (context, child) {
-                  return Transform.scale(
-                    scale: splashController.scaleAnimation.value,
-                    child: iconWidgetSplash(),
-                  );
-                },
-              ),
-
-              SizedBox(height: 8 * SizeConfig.imageSizeMultiplier),
-              textWidgetSplash(
-                  "Your password has been", 3.5 * SizeConfig.textMultiplier),
-
-              textWidgetSplash(
-                  "changed successfully!", 3.5 * SizeConfig.textMultiplier),
-
-              SizedBox(height: 32.23 * SizeConfig.heightMultiplier),
-              authButton("Proceed", () {
-                submit(context);
-              })
-            ],
+      body: SingleChildScrollView(
+        child: Container(
+          padding:
+              EdgeInsets.symmetric(horizontal: 3.34 * SizeConfig.widthMultiplier),
+          child: Center(
+            child: Column(
+              children: [
+                SizedBox(height: 26.23 * SizeConfig.heightMultiplier),
+        
+                //* Use AnimatedBuilder to animate iconWidgetSplash with the scaleAnimation
+                AnimatedBuilder(
+                  animation: splashController.scaleAnimation,
+                  builder: (context, child) {
+                    return Transform.scale(
+                      scale: splashController.scaleAnimation.value,
+                      child: iconWidgetSplash(),
+                    );
+                  },
+                ),
+        
+                SizedBox(height: 8 * SizeConfig.imageSizeMultiplier),
+                textWidgetSplash(
+                    "Your password has been", 3.5 * SizeConfig.textMultiplier),
+        
+                textWidgetSplash(
+                    "changed successfully!", 3.5 * SizeConfig.textMultiplier),
+        
+                SizedBox(height: 32.23 * SizeConfig.heightMultiplier),
+                authButton("Proceed", () {
+                  submit(context);
+                }),
+                SizedBox(height: 2.23 * SizeConfig.heightMultiplier),
+              ],
+            ),
           ),
         ),
       ),

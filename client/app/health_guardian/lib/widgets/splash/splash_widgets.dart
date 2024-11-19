@@ -15,9 +15,12 @@ Widget textWidgetSplash(String title, double size) {
   return Column(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
-      Text(
-        title,
-        style: style.copyWith(fontSize: size),
+      FittedBox(
+        child: Text(
+          overflow: TextOverflow.ellipsis,
+          title,
+          style: style.copyWith(fontSize: size),
+        ),
       ),
     ],
   );

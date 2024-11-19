@@ -9,28 +9,31 @@ import 'package:health_guardian/widgets/detail-screen/blood-pressure/bp_widgets_
 
 Widget historyText() {
   return Container(
-    padding: EdgeInsets.symmetric(horizontal: 1.11*SizeConfig.widthMultiplier),
+    padding:
+        EdgeInsets.symmetric(horizontal: 1.11 * SizeConfig.widthMultiplier),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Flexible(
-          flex: 3,
+          flex: 5,
           child: Text(
             "Recorded History",
             style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
-                fontSize:2.73*SizeConfig.heightMultiplier,
+                fontSize: 2.73 * SizeConfig.heightMultiplier,
                 fontFamily: "CoreSansBold"),
           ),
         ),
+        SizedBox(width: 11.160*SizeConfig.widthMultiplier,),
         Flexible(
-            flex: 1,
+            flex: 2,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
                   "View All",
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                       color: Colours.buttonColorRed,
                       fontFamily: "CoreSansBold",
@@ -46,19 +49,23 @@ Widget historyText() {
 Widget historyRecordWidget() {
   return Container(
     padding: EdgeInsets.symmetric(
-      horizontal: 1.11*SizeConfig.widthMultiplier,
+      horizontal: 1.11 * SizeConfig.widthMultiplier,
     ),
-    height: 36.86*SizeConfig.heightMultiplier,
+    height: 36.86 * SizeConfig.heightMultiplier,
     child: ListView.builder(
-      physics: NeverScrollableScrollPhysics(),
+        physics: NeverScrollableScrollPhysics(),
         itemCount: 3,
         itemBuilder: (context, index) {
           return Container(
-            padding: EdgeInsets.symmetric(vertical: 1.58*SizeConfig.heightMultiplier, horizontal: 2.67*SizeConfig.widthMultiplier),
-            margin: EdgeInsets.symmetric(vertical: 0.84*SizeConfig.heightMultiplier),
+            padding: EdgeInsets.symmetric(
+                vertical: 1.58 * SizeConfig.heightMultiplier,
+                horizontal: 2.67 * SizeConfig.widthMultiplier),
+            margin: EdgeInsets.symmetric(
+                vertical: 0.84 * SizeConfig.heightMultiplier),
             height: 11.06 * SizeConfig.heightMultiplier,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(1.05*SizeConfig.heightMultiplier),
+                borderRadius:
+                    BorderRadius.circular(1.05 * SizeConfig.heightMultiplier),
                 color: Colors.grey.shade200),
             child: Row(children: [
               Flexible(
@@ -84,10 +91,10 @@ Widget historyRecordWidget() {
                       ],
                     ),
                     SizedBox(
-                      width: 4.46*SizeConfig.widthMultiplier,
+                      width: 4.46 * SizeConfig.widthMultiplier,
                     ),
                     Container(
-                        height: 7.37*SizeConfig.heightMultiplier,
+                        height: 7.37 * SizeConfig.heightMultiplier,
                         child: VerticalDivider(
                           color: Color.fromARGB(255, 229, 222, 222),
                           thickness: 3,
@@ -106,7 +113,7 @@ Widget historyRecordWidget() {
                         child: Icon(
                           Icons.arrow_forward_ios,
                           color: Colors.black,
-                          size: 2.94*SizeConfig.heightMultiplier,
+                          size: 2.94 * SizeConfig.heightMultiplier,
                         )),
                   ],
                 ),
@@ -119,11 +126,13 @@ Widget historyRecordWidget() {
 
 Widget aiDoctorWidget() {
   return Container(
-    padding: EdgeInsets.symmetric(horizontal: 4.46*SizeConfig.widthMultiplier),
-    height: 13.69*SizeConfig.heightMultiplier,
+    padding:
+        EdgeInsets.symmetric(horizontal: 4.46 * SizeConfig.widthMultiplier),
+    height: 13.69 * SizeConfig.heightMultiplier,
     decoration: BoxDecoration(
         color: Color.fromARGB(255, 228, 210, 135),
-        borderRadius: BorderRadius.circular(1.05*SizeConfig.heightMultiplier)),
+        borderRadius:
+            BorderRadius.circular(1.05 * SizeConfig.heightMultiplier)),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -134,7 +143,7 @@ Widget aiDoctorWidget() {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: 2.63*SizeConfig.heightMultiplier,
+                  height: 2.63 * SizeConfig.heightMultiplier,
                 ),
                 Text(
                   "Your AI Doctor",
@@ -144,7 +153,7 @@ Widget aiDoctorWidget() {
                       fontSize: 2.8 * SizeConfig.heightMultiplier),
                 ),
                 SizedBox(
-                  height: 1.05*SizeConfig.heightMultiplier,
+                  height: 1.05 * SizeConfig.heightMultiplier,
                 ),
                 Text(
                   "Chat with AI Assistant",
@@ -153,7 +162,7 @@ Widget aiDoctorWidget() {
                       fontFamily: "Poppins-Bold",
                       fontSize: 1.9 * SizeConfig.heightMultiplier),
                 ),
-                SizedBox(height: 2.63*SizeConfig.heightMultiplier),
+                SizedBox(height: 2.63 * SizeConfig.heightMultiplier),
               ],
             )),
         //* for vector image
@@ -164,19 +173,17 @@ Widget aiDoctorWidget() {
 }
 
 Widget descTextAnalyze(String title, double fontSize) {
-  return Row(
-    children: [
-      Text(
-        maxLines: 3,
-        overflow: TextOverflow.ellipsis,
-        title,
-        style: TextStyle(
-            color: Color.fromARGB(255, 99, 92, 92),
-            fontFamily: "CoreSansLight",
-            fontWeight: FontWeight.bold,
-            fontSize: fontSize),
-      ),
-    ],
+  return FittedBox(
+    child: Text(
+      maxLines: 3,
+      overflow: TextOverflow.ellipsis,
+      title,
+      style: TextStyle(
+          color: Color.fromARGB(255, 99, 92, 92),
+          fontFamily: "CoreSansLight",
+          fontWeight: FontWeight.bold,
+          fontSize: fontSize),
+    ),
   );
 }
 
@@ -189,38 +196,52 @@ Widget analyzeDiseaseCard(
     void Function(bool) OnTap1,
     void Function() OnTap) {
   return Container(
-    padding: EdgeInsets.symmetric(vertical: 1.26*SizeConfig.heightMultiplier, horizontal: 2.23*SizeConfig.widthMultiplier),
+    padding: EdgeInsets.symmetric(
+        vertical: 1.26 * SizeConfig.heightMultiplier,
+        horizontal: 2.23 * SizeConfig.widthMultiplier),
     height: 23.17 * SizeConfig.heightMultiplier,
-    width: 21.11 * SizeConfig.widthMultiplier,
-    decoration:
-        BoxDecoration(borderRadius: BorderRadius.circular(0.84*SizeConfig.heightMultiplier), color: color),
+    width: 45.11 * SizeConfig.widthMultiplier,
+    decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(0.84 * SizeConfig.heightMultiplier),
+        color: color),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
-          height: 0.52*SizeConfig.heightMultiplier,
+          height: 0.52 * SizeConfig.heightMultiplier,
         ),
-        Text(
-          Disease,
-          style: TextStyle(
-              fontFamily: "Poppins-Bold",
-              fontSize: 2.63*SizeConfig.heightMultiplier,
-              color: Colors.grey.shade900),
+        FittedBox(
+          child: Text(
+            Disease,
+            style: TextStyle(
+                fontFamily: "Poppins-Bold",
+                fontSize: 2.63 * SizeConfig.heightMultiplier,
+                color: Colors.grey.shade900),
+          ),
         ),
         SizedBox(
-          height: 1.58*SizeConfig.heightMultiplier,
+          height: 1.58 * SizeConfig.heightMultiplier,
         ),
-        analyzeButton("Analyze", OnTap, buttonColor, Colors.white, 4.74*SizeConfig.heightMultiplier,24.55*SizeConfig.widthMultiplier, 3.16*SizeConfig.heightMultiplier,
-            2.00*SizeConfig.heightMultiplier, buttonValue, OnTap1),
+        analyzeButton(
+            "Analyze",
+            OnTap,
+            buttonColor,
+            Colors.white,
+            4.74 * SizeConfig.heightMultiplier,
+            24.55 * SizeConfig.widthMultiplier,
+            3.16 * SizeConfig.heightMultiplier,
+            2.00 * SizeConfig.heightMultiplier,
+            buttonValue,
+            OnTap1),
         SizedBox(
-          height: 2.10*SizeConfig.heightMultiplier,
+          height: 2.10 * SizeConfig.heightMultiplier,
         ),
         Align(
             alignment: Alignment.topRight,
             child: SvgPicture.asset(
               Image,
-              height: 7.37*SizeConfig.heightMultiplier,
-              width: 15.625*SizeConfig.widthMultiplier,
+              height: 7.37 * SizeConfig.heightMultiplier,
+              width: 15.625 * SizeConfig.widthMultiplier,
             ))
       ],
     ),

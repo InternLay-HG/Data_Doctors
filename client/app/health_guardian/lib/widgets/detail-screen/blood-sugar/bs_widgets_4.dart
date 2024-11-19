@@ -25,7 +25,7 @@ Widget addNoteWidget(TextEditingController controller) {
                   fontFamily: "CoreSansMed"),
               controller: controller,
               decoration: InputDecoration(
-                  contentPadding: EdgeInsets.only(bottom: 10),
+                  contentPadding: EdgeInsets.only(bottom: 1.05 * SizeConfig.heightMultiplier),
                   floatingLabelBehavior: FloatingLabelBehavior.never,
                   border: InputBorder.none,
                   label: Text(
@@ -43,13 +43,13 @@ Widget addNoteWidget(TextEditingController controller) {
 
 Widget sugarScaleWidget() {
   return Container(
-      height: 27.38 * SizeConfig.heightMultiplier,
+      height: 28.5 * SizeConfig.heightMultiplier,
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(0.63*SizeConfig.heightMultiplier),
       ),
-      padding: EdgeInsets.symmetric(horizontal: 2.67*SizeConfig.widthMultiplier, vertical: 1.05*SizeConfig.heightMultiplier),
+      padding: EdgeInsets.symmetric(horizontal: 2.67*SizeConfig.widthMultiplier, vertical: 1.1*SizeConfig.heightMultiplier),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

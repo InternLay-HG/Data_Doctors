@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:health_guardian/getX_controllers/auth/login_controllers.dart';
@@ -39,7 +41,7 @@ class LoginScreen extends StatelessWidget {
                     )),
               ),
               SizedBox(
-                height: 3.16 * SizeConfig.heightMultiplier,
+                height: 2.9 * SizeConfig.heightMultiplier,
               ),
               T1(
                 "Welcome Back!",
@@ -77,6 +79,10 @@ class LoginScreen extends StatelessWidget {
               ),
               Obx(
                 () => TextField(
+                  onChanged: (value) {
+                    //* Validate password length
+                    loginControllers.isPasswordValid.value = value.length >= 6;
+                  },
                   style: TextStyle(
                     color: Color.fromARGB(255, 51, 49, 49),
                     fontFamily: "CoreSansLight",
@@ -86,7 +92,7 @@ class LoginScreen extends StatelessWidget {
                   controller: loginControllers.passwordController,
                   decoration: fieldPasswordDecoration(
                     "Enter your password",
-                    Icons.lock_outline,
+                    Icons.lock_outline,loginControllers.isPasswordValid.value
                   ).copyWith(
                     suffixIcon: IconButton(
                       icon: Icon(
@@ -105,16 +111,19 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 3.4 * SizeConfig.heightMultiplier,
+                height: 5 * SizeConfig.heightMultiplier,
               ),
-              Obx(() => forgotPassWidget(loginControllers)),
+              forgotPassWidget(loginControllers),
               SizedBox(
-                height: 22.65 * SizeConfig.heightMultiplier,
+                height: 23.6* SizeConfig.heightMultiplier,
               ),
               authButton(
                 "Sign in",
                 signin,
               ),
+              SizedBox(
+                height: 1.7 * SizeConfig.heightMultiplier,
+              )
             ],
           ),
         ),

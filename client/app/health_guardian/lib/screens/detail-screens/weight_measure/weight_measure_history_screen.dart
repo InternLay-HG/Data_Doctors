@@ -15,19 +15,19 @@ class WeightMeasureHistoryScreen extends StatelessWidget {
       //* AppBar
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 247, 241, 241),
-        toolbarHeight: 80,
+        toolbarHeight: 8.42*SizeConfig.heightMultiplier,
         centerTitle: true,
         leading:  IconButton(
         onPressed: (){Get.back();},
         icon: Icon(
           Icons.arrow_back,
           color: Colors.black,
-          size: 34,
+          size:3.58*SizeConfig.heightMultiplier,
         )),
         title: Text(
           "Weight Measure History",
           style: TextStyle(
-              fontFamily: "CoreSansBold", color: Colors.black, fontSize: 34),
+              fontFamily: "CoreSansBold", color: Colors.black, fontSize: 3.58*SizeConfig.heightMultiplier),
         ),
       ),
 
@@ -35,9 +35,9 @@ class WeightMeasureHistoryScreen extends StatelessWidget {
           itemCount: 10,
           itemBuilder: (context, index) {
             return Container(
-              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 12),
-              margin: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
-              height: 105,
+              padding: EdgeInsets.symmetric(vertical: 1.58*SizeConfig.heightMultiplier, horizontal: 2.67*SizeConfig.widthMultiplier),
+              margin: EdgeInsets.symmetric(vertical: 1.26*SizeConfig.heightMultiplier, horizontal: 2.67*SizeConfig.widthMultiplier),
+              height: 11.06*SizeConfig.heightMultiplier,
               decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
@@ -45,7 +45,7 @@ class WeightMeasureHistoryScreen extends StatelessWidget {
                         spreadRadius: 2.5,
                         blurRadius: 2)
                   ],
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(1.05*SizeConfig.heightMultiplier),
                   color: Color.fromARGB(255, 240, 237, 237)),
               child: Row(children: [
                 Flexible(
@@ -71,10 +71,10 @@ class WeightMeasureHistoryScreen extends StatelessWidget {
                         ],
                       ),
                       SizedBox(
-                        width: 20,
+                        width: 2.10*SizeConfig.heightMultiplier,
                       ),
                       Container(
-                          height: 70,
+                          height: 7.37*SizeConfig.heightMultiplier,
                           child: VerticalDivider(
                             color: Color.fromARGB(255, 229, 222, 222),
                             thickness: 3,
@@ -93,7 +93,7 @@ class WeightMeasureHistoryScreen extends StatelessWidget {
                           child: Icon(
                             Icons.arrow_forward_ios,
                             color: Colors.black,
-                            size: 28,
+                            size: 2.94*SizeConfig.heightMultiplier,
                           )),
                     ],
                   ),

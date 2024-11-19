@@ -11,13 +11,13 @@ import 'package:health_guardian/widgets/detail-screen/blood-sugar/bs_widgets_1.d
 AppBar appB_BP(void Function() onTap1, void Function() onTap2) {
   return AppBar(
     backgroundColor: Color.fromARGB(255, 245, 242, 242),
-    toolbarHeight: 90,
+    toolbarHeight: 9.48*SizeConfig.heightMultiplier,
     leading: IconButton(
         onPressed: onTap1,
         icon: Icon(
           Icons.arrow_back,
           color: Colors.black,
-          size: 44,
+          size: 4.63*SizeConfig.heightMultiplier,
         )),
     actions: [
       IconButton(
@@ -25,7 +25,7 @@ AppBar appB_BP(void Function() onTap1, void Function() onTap2) {
           icon: Icon(
             Icons.more_vert_outlined,
             color: Colors.black,
-            size: 44,
+            size: 4.63,
           ))
     ],
   );
@@ -33,16 +33,16 @@ AppBar appB_BP(void Function() onTap1, void Function() onTap2) {
 
 Widget bloodPressureDataWidget() {
   return Container(
-    height: 270,
+    height:28.44*SizeConfig.heightMultiplier,
     width: double.infinity,
     decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(6),
+        borderRadius: BorderRadius.circular(0.63*SizeConfig.heightMultiplier),
         //  boxShadow: [
         //                 BoxShadow(color: Color.fromARGB(255, 161, 153, 153),spreadRadius: 2.5,blurRadius: 2)
         //               ],
             ),
-    padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+    padding: EdgeInsets.symmetric(horizontal:1*SizeConfig.heightMultiplier, vertical: 0.52*SizeConfig.heightMultiplier),
     child: Column(
       children: [
         //* Upper Card
@@ -58,7 +58,7 @@ Widget bloodPressureDataWidget() {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
-                        height: 15,
+                        height: 1.58*SizeConfig.heightMultiplier,
                       ),
                       Text(
                         "Blood Pressure",
@@ -68,7 +68,7 @@ Widget bloodPressureDataWidget() {
                             fontSize: 4.2 * SizeConfig.heightMultiplier),
                       ),
                       SizedBox(
-                        height: 5,
+                        height: 0.52*SizeConfig.heightMultiplier,
                       ),
                       Text(
                         "Average Summary",
@@ -93,33 +93,33 @@ Widget bloodPressureDataWidget() {
             child: Column(
               children: [
                 SizedBox(
-                  height: 7,
+                  height: 0.73*SizeConfig.heightMultiplier,
                 ),
                 Divider(
-                  height: 5,
+                  height: 0.52*SizeConfig.heightMultiplier,
                   color: const Color.fromARGB(255, 223, 214, 214),
                   thickness: 3,
                 ),
                 SizedBox(
-                  height: 15,
+                  height: 1.58*SizeConfig.heightMultiplier,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     dataCard("105", "Systolic"),
                     Container(
-                        height: 90,
+                        height: 9.48*SizeConfig.heightMultiplier,
                         child: VerticalDivider(
                           color: Color.fromARGB(255, 223, 214, 214),
-                          width: 10,
+                          width: 2.23*SizeConfig.widthMultiplier,
                           thickness: 3,
                         )),
                     dataCard("73", "Diastolic"),
                     Container(
-                        height: 90,
+                        height:9.48*SizeConfig.heightMultiplier,
                         child: VerticalDivider(
                           color: Color.fromARGB(255, 223, 214, 214),
-                          width: 10,
+                          width: 2.23*SizeConfig.widthMultiplier,
                           thickness: 3,
                         )),
                     dataCard("76", "Pulse"),
@@ -144,9 +144,9 @@ Widget doubleButtonWidgetBP(BloodPressureControllers controller) {
                 ? Colours.buttonColorRed
                 : Color.fromARGB(255, 211, 206, 206),
             controller.pageIndex.value == 0 ? Colors.white : Colors.black,
-            55,
-            210,
-            12),
+            5.79*SizeConfig.heightMultiplier,
+            44.9*SizeConfig.widthMultiplier,
+            1.26*SizeConfig.heightMultiplier),
       ),
       Obx(
         () => buttonsDetail(
@@ -156,9 +156,9 @@ Widget doubleButtonWidgetBP(BloodPressureControllers controller) {
                 ? Colours.buttonColorRed
                 : Color.fromARGB(255, 211, 206, 206),
             controller.pageIndex.value == 1? Colors.white : Colors.black,
-            55,
-            210,
-            12),
+            5.79*SizeConfig.heightMultiplier,
+            44.9*SizeConfig.widthMultiplier,
+            1.26*SizeConfig.heightMultiplier),
       ),
     ],
   );

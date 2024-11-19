@@ -86,7 +86,10 @@ class ForgotCodeScreen extends StatelessWidget {
                   ),
                   authButton("Continue", () {
                     submit(context);
-                  })
+                  }),
+                  SizedBox(
+                    height: 1.5 * SizeConfig.heightMultiplier,
+                  ),
                 ],
               ),
             )

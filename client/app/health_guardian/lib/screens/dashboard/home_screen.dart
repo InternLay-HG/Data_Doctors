@@ -35,7 +35,7 @@ class Home_D_Screen extends StatelessWidget {
         Color.fromARGB(255, 164, 238, 183), Colors.green,(){Get.to(() => BloodSugarDetail());},controller.bloodSugarDetail,controller.setBloodSugar)
         ,
     SizedBox(
-      height: 1.58,
+      height: 1.58*SizeConfig.heightMultiplier,
     ),
     diseaseCard("Weight & BMI", Images.WeightMeasureIcon,
         Color.fromARGB(255, 235, 245, 174), Color.fromARGB(255, 226, 207, 41),(){Get.to(() => WeightMeasureDetail());},controller.weightDetail,controller.setWeightDetail),
