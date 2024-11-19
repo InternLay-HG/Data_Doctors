@@ -33,12 +33,39 @@ async function resetpassword(req, res) {
                     pass: process.env.EMAIL_PASS
                 }
             });
-        
             const mailOptions = {
                 from: process.env.EMAIL_USER,
                 to: email,
                 subject: 'Your OTP Code',
-                text: `Your OTP code is ${otp}. It will expire in 5 minutes.`
+                html: ` <div style="font-family: Arial, sans-serif; color: #333; padding: 20px; background-color: #f7f7f7; border-radius: 8px; max-width: 600px; margin: auto;">
+          <h2 style="color: #007bff;">Password Reset Request</h2>
+      
+          <p style="font-size: 16px; line-height: 1.6;">
+            Dear ${user.firstName},
+          </p>
+      
+          <p style="font-size: 16px; line-height: 1.6;">
+            We received a request to reset your password. To proceed, please use the following One-Time Password (OTP) to verify your identity:
+          </p>
+      
+          <p style="font-size: 20px; font-weight: bold; color: #007bff; text-align: center; padding: 10px; border: 1px solid #007bff; border-radius: 5px;">
+            YOUR OTP: ${otp}
+          </p>
+      
+          <p style="font-size: 16px; line-height: 1.6;">
+            This OTP is valid for the next 5 minutes. If you did not request a password reset, please ignore this email, and your password will remain unchanged.
+          </p>
+      
+          <p style="font-size: 16px; line-height: 1.6;">
+            If you have any questions, feel free to reach out to our support team.
+          </p>
+      
+          <p style="font-size: 16px; line-height: 1.6; margin-top: 20px;">
+            Best regards,<br>
+            <strong style="color: #007bff;">Data Doctors Support Team</strong>
+          </p>
+        </div>
+      `
             };
         
             transporter.sendMail(mailOptions);
