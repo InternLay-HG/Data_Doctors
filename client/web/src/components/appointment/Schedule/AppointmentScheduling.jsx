@@ -48,7 +48,7 @@ export default function AppointmentScheduling() {
 
   return (
     <div className="mx-10 my-12">
-      <h1 className="text-5xl font-bold tracking-wide py-10">
+      <h1 className="text-6xl max-md:text-center font-bold tracking-wide py-10">
         Schedule your appointment
       </h1>
       <div className="flex justify-between items-center mx-auto mt-5 mb-10 gap-5">
@@ -60,7 +60,7 @@ export default function AppointmentScheduling() {
           {searchResults.map((result, index) => (
             <div
               key={index}
-              className="px-10 py-8 w-1/4 hover:shadow border rounded-3xl"
+              className="px-10 py-8 hover:shadow border rounded-3xl w-full sm:w-[60%] md:w-[45%] lg:w-[30.5%] lg:mr-auto"
             >
               <div className="flex flex-col justify-start items-center gap-10">
                 <div className="flex items-start justify-between w-full">
@@ -116,11 +116,11 @@ export default function AppointmentScheduling() {
       ) : (
         <div className="flex flex-col justify-center items-center">
           <img
-            className="w-1/3"
+            className="w-1/3 max-md:w-2/3 max-sm:w-full"
             src={Appointment_Schedule}
             alt="Appointment illustration"
           />
-          <h1 className="text-2xl tracking-wider w-1/3 text-center">
+          <h1 className="text-3xl tracking-wider w-1/3 max-lg:w-2/3 text-center">
             Book a convenient time to discuss your needs with our experts.
           </h1>
         </div>

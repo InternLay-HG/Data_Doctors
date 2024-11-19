@@ -6,7 +6,7 @@ async function login(req, res) {
 	let { email , password } = req.body;
 	let user = await userModel.findOne({email});
 	if(!user) {
-		return res.status(400).send({
+		return res.send({
 			status: "failure",
 			rescode: 1009,
 			message: "Invalid credentials"
@@ -16,14 +16,14 @@ async function login(req, res) {
 	bcrypt.compare(password , user.password , function(err,result) {
 		if(result) {
 			let token = jwt.sign({email : email , userid : user._id} , process.env.JWT_SECRET);
-			res.status(200).send({
+			res.send({
 				status: "success",
 				rescode: 1008,
 				message: "Logged in successfully",
 				token: token
 			});
 		} else {
-			return res.status(400).send({
+			return res.send({
 				status: "failure",
 				rescode: 1009,
 				message: "Invalid credentials"

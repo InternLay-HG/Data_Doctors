@@ -33,7 +33,7 @@ async function verifyotp(req, res) {
 		const token = jwt.sign({ email: email, userid: user._id }, process.env.JWT_SECRET);
 	
         otpModel.deleteOne({ email }); // delete from temporary db
-        return res.status(201).send({
+        return res.send({
             status: "success",
             rescode: 1006,
             message: "Account created successfully",
@@ -42,7 +42,7 @@ async function verifyotp(req, res) {
 
     } catch (error) {
         // If OTP verification fails, respond with an error message
-        return res.status(400).send({
+        return res.send({
             status: "failure",
             rescode: 1007,
             message: "Invalid or expired OTP. Please try again."

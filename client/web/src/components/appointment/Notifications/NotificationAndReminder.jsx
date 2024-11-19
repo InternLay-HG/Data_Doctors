@@ -58,13 +58,13 @@ export default function NotificationAndReminder() {
   });
 
   return (
-    <div className="mx-10 my-12 relative">
+    <div className="mx-10 my-12 relative max-sm:mx-5">
       <h1 className="text-5xl font-bold tracking-wide py-10">
         Notifications & Reminders
       </h1>
       <SearchBar onSearch={handleSearch} onFilterToggle={toggleFilter} />
       {isFilterOpen && (
-        <div className="absolute w-2/3 bg-white border px-12 shadow-lg py-4">
+        <div className="absolute w-2/3 max-md:w-full bg-white border px-12 shadow-lg py-4">
           <FilterContainer onFilterUpdate={handleFilterUpdate} />
         </div>
       )}

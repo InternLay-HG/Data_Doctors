@@ -5,7 +5,9 @@ import Button from "../ui/Button";
 import Input from "../ui/Input";
 import { useNavigate } from "react-router";
 import Authentication from "../api/Authentication";
+import Toast from "../ui/Toast";
 export default function SignUp() {
+  const { ToastFunc } = Toast();
   const navigate = useNavigate();
   const { RegisterCall } = Authentication();
   const [formData, setFormData] = useState({
@@ -15,7 +17,7 @@ export default function SignUp() {
     password: "",
     passwordConfirmation: "",
     phone: "",
-    isHeathcareProvider: false,
+    isHealthcareProvider: false,
   });
 
   const [errors, setErrors] = useState({});
@@ -30,25 +32,19 @@ export default function SignUp() {
     setFormData({ ...formData, [e.target.id]: e.target.value });
     setErrors({ ...errors, [e.target.id]: "" });
   };
-
   const handleCountryCodeChange = (e) => {
     setCountryCode(e.target.value);
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     let newErrors = {};
     let hasErrors = false;
-
-    // Required field validation
     for (let field in formData) {
-      if (!formData[field]) {
+      if (formData[field] === undefined) {
         newErrors[field] = "This field is required";
         hasErrors = true;
       }
     }
-
-    // Additional validations
     if (formData.password && formData.password.length < 8) {
       newErrors.password = "Password must be at least 8 characters long";
       hasErrors = true;
@@ -62,26 +58,26 @@ export default function SignUp() {
       hasErrors = true;
     }
     if (hasErrors) {
-      setErrors(newErrors);
+        setErrors(newErrors);
       return;
     }
     setErrors({});
+
     const data = {
       firstName: formData.firstName,
       lastName: formData.lastName,
       mobileNumber: formData.phone,
       email: formData.email,
       password: formData.password,
-      isHeathcareProvider: formData.isHeathcareProvider,
+      isHealthcareProvider: formData.isHealthcareProvider,
     };
     try {
-      RegisterCall(data);
+      await RegisterCall(data);
     } catch (err) {
       setSubmitError("Failed to register. Please try again.");
-      console.error("Registration Error:", err);
+      ToastFunc("error",err.message);
     }
   };
-
   return (
     <>
       <style>
@@ -156,10 +152,10 @@ input[type="radio"]:checked + .check-box {
                   type="radio"
                   id="patient"
                   hidden
-                  value="false"
-                  checked={!formData.isHeathcareProvider}
+                  value="false"          
+                  checked={!formData.isHealthcareProvider}
                   onChange={() =>
-                    setFormData({ ...formData, isHeathcareProvider: false })
+                    setFormData({ ...formData, isHealthcareProvider: false })
                   }
                 />
                 <label htmlFor="patient" className="check-box">
@@ -169,10 +165,10 @@ input[type="radio"]:checked + .check-box {
                   type="radio"
                   id="healthcare"
                   hidden
-                  value="true"
-                  checked={formData.isHeathcareProvider}
+                  value="true"          
+                  checked={formData.isHealthcareProvider}
                   onChange={() =>
-                    setFormData({ ...formData, isHeathcareProvider: true })
+                    setFormData({ ...formData, isHealthcareProvider: true })
                   }
                 />
                 <label htmlFor="healthcare" className="check-box">

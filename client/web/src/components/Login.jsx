@@ -6,7 +6,9 @@ import FormRow from "../ui/FormRow";
 import Button from "../ui/Button";
 import Input from "../ui/Input";
 import Authentication from "../api/Authentication";
+import Toast from "../ui/Toast";
 export default function SignUp() {
+  const { ToastFunc } = Toast();
   const { LoginCall } = Authentication();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -30,29 +32,25 @@ export default function SignUp() {
     let newErrors = {};
     // Required field validation
     for (let field in formData) {
-      if (!formData[field]) {
+      if (formData[field] === undefined) {
         newErrors[field] = "This field is required";
-        setErrors(newErrors);
         return;
       }
     }
-
-    // Password length validation
     if (formData.password && formData.password.length < 8) {
       newErrors.password = "Password must be at least 8 characters long";
-    }
-
-    // Confirm password match validation
-    if (formData.password !== formData.passwordConfirmation) {
-      newErrors.passwordConfirmation = "Passwords do not match";
     }
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
-    } else {
-      await LoginCall(formData);
-    }
+    } 
     setErrors({});
+    try {
+      await LoginCall(formData);
+    } catch (err) {
+      setSubmitError("Failed to Login. Please try again.");
+      ToastFunc("error",err.message);
+    }   
   };
 
   return (

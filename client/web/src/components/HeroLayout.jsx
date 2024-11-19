@@ -3,8 +3,9 @@ import Navbar from "./Navbar";
 import ResponsiveNavbar from "./ResponsiveNavbar";
 import { Outlet, useLocation } from "react-router";
 import styled from "styled-components";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
+import { useNavigate } from "react-router";
 
 const StyledAppLayout = styled.div`
   display: flex;
@@ -18,12 +19,17 @@ const StyledAppLayout = styled.div`
 
   .content {
     overflow-y: auto;
-    padding: 1rem;
     width: 100vw;
   }
 `;
 
 export default function HeroLayout() {
+  const navigate = useNavigate();
+  useEffect(()=>{
+    if(!localStorage.getItem("authtoken")){
+      navigate("/login")
+    }
+  },[])
   const location = useLocation();
   const isSignUpPage = location.pathname === "/signup";
   const [isSidebarCollapsed, setSidebarCollapsed] = useState(false);
