@@ -33,7 +33,6 @@ async function resetpassword(req, res) {
                     pass: process.env.EMAIL_PASS
                 }
             });
-            console.log(user.firstName)
             const mailOptions = {
                 from: process.env.EMAIL_USER,
                 to: email,
