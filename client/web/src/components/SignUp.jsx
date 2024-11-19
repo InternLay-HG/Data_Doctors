@@ -15,7 +15,7 @@ export default function SignUp() {
     password: "",
     passwordConfirmation: "",
     phone: "",
-    isHeathcareProvider: false,
+    isHealthcareProvider: false,
   });
 
   const [errors, setErrors] = useState({});
@@ -42,12 +42,15 @@ export default function SignUp() {
 
     // Required field validation
     for (let field in formData) {
-      if (!formData[field]) {
+      if (formData[field] === undefined) {
         newErrors[field] = "This field is required";
+        console.log(field);
+
         hasErrors = true;
       }
     }
 
+    // console.log(hasErrors);
     // Additional validations
     if (formData.password && formData.password.length < 8) {
       newErrors.password = "Password must be at least 8 characters long";
@@ -61,21 +64,26 @@ export default function SignUp() {
       newErrors.phone = "Phone number must be exactly 10 digits";
       hasErrors = true;
     }
+    // console.log(formData);
+
     if (hasErrors) {
-      setErrors(newErrors);
+        setErrors(newErrors);
       return;
     }
     setErrors({});
+
     const data = {
       firstName: formData.firstName,
       lastName: formData.lastName,
       mobileNumber: formData.phone,
       email: formData.email,
       password: formData.password,
-      isHeathcareProvider: formData.isHeathcareProvider,
+      isHealthcareProvider: formData.isHealthcareProvider,
     };
+    // console.log(data);
     try {
-      RegisterCall(data);
+      const res = await RegisterCall(data);
+      console.log("Response: ", res);
     } catch (err) {
       setSubmitError("Failed to register. Please try again.");
       console.error("Registration Error:", err);
@@ -156,10 +164,10 @@ input[type="radio"]:checked + .check-box {
                   type="radio"
                   id="patient"
                   hidden
-                  value="false"
-                  checked={!formData.isHeathcareProvider}
+                  value="false"          
+                  checked={!formData.isHealthcareProvider}
                   onChange={() =>
-                    setFormData({ ...formData, isHeathcareProvider: false })
+                    setFormData({ ...formData, isHealthcareProvider: false })
                   }
                 />
                 <label htmlFor="patient" className="check-box">
@@ -169,10 +177,10 @@ input[type="radio"]:checked + .check-box {
                   type="radio"
                   id="healthcare"
                   hidden
-                  value="true"
-                  checked={formData.isHeathcareProvider}
+                  value="true"          
+                  checked={formData.isHealthcareProvider}
                   onChange={() =>
-                    setFormData({ ...formData, isHeathcareProvider: true })
+                    setFormData({ ...formData, isHealthcareProvider: true })
                   }
                 />
                 <label htmlFor="healthcare" className="check-box">

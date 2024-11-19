@@ -5,6 +5,8 @@ const useAuthentication = () => {
   const navigate = useNavigate();
 
   const RegisterCall = async (data) => {
+    // console.log(data);
+    
     try {
       const response = await fetch(`${server_url}/register`, {
         method: "POST",
