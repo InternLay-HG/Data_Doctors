@@ -5,7 +5,9 @@ import Button from "../ui/Button";
 import Input from "../ui/Input";
 import { useNavigate } from "react-router";
 import Authentication from "../api/Authentication";
+import Toast from "../ui/Toast";
 export default function SignUp() {
+  const { ToastFunc } = Toast();
   const navigate = useNavigate();
   const { RegisterCall } = Authentication();
   const [formData, setFormData] = useState({
@@ -30,28 +32,19 @@ export default function SignUp() {
     setFormData({ ...formData, [e.target.id]: e.target.value });
     setErrors({ ...errors, [e.target.id]: "" });
   };
-
   const handleCountryCodeChange = (e) => {
     setCountryCode(e.target.value);
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     let newErrors = {};
     let hasErrors = false;
-
-    // Required field validation
     for (let field in formData) {
       if (formData[field] === undefined) {
         newErrors[field] = "This field is required";
-        console.log(field);
-
         hasErrors = true;
       }
     }
-
-    // console.log(hasErrors);
-    // Additional validations
     if (formData.password && formData.password.length < 8) {
       newErrors.password = "Password must be at least 8 characters long";
       hasErrors = true;
@@ -64,8 +57,6 @@ export default function SignUp() {
       newErrors.phone = "Phone number must be exactly 10 digits";
       hasErrors = true;
     }
-    // console.log(formData);
-
     if (hasErrors) {
         setErrors(newErrors);
       return;
@@ -80,16 +71,13 @@ export default function SignUp() {
       password: formData.password,
       isHealthcareProvider: formData.isHealthcareProvider,
     };
-    // console.log(data);
     try {
-      const res = await RegisterCall(data);
-      console.log("Response: ", res);
+      await RegisterCall(data);
     } catch (err) {
       setSubmitError("Failed to register. Please try again.");
-      console.error("Registration Error:", err);
+      ToastFunc("error",err.message);
     }
   };
-
   return (
     <>
       <style>

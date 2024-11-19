@@ -110,12 +110,6 @@ export default function MainSideBar({ collapsed, onCollapseToggle }) {
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/dashboard" collapsed={collapsed}>
-            <LayoutDashboard />
-            <span>Dashboard</span>
-          </StyledNavLink>
-        </li>
-        <li>
           <StyledNavLink
             to="/appointment"
             collapsed={collapsed}

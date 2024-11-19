@@ -1,12 +1,10 @@
 import { useNavigate } from "react-router-dom";
-
+import Toast from "../ui/Toast";
 const server_url = import.meta.env.VITE_SERVER_PORT;
 const useAuthentication = () => {
   const navigate = useNavigate();
-
+  const { ToastFunc } = Toast();
   const RegisterCall = async (data) => {
-    // console.log(data);
-    
     try {
       const response = await fetch(`${server_url}/register`, {
         method: "POST",
@@ -19,17 +17,16 @@ const useAuthentication = () => {
       if (!response.ok) {
         throw new Error("Failed to register. Please try again.");
       }
-
       const res = await response.json();
       if (res.status === "success") {
-        alert("Registration successful. Please verify your email.");
+        ToastFunc("info",res.message);
         navigate("/verifyotp");
       } else {
-        alert(res.message || "Registration failed.");
+        ToastFunc("error",res.message);
       }
     } catch (error) {
       console.error("Registration error:", error);
-      alert(error.message);
+      ToastFunc("error",error.message);
     }
   };
 
@@ -50,14 +47,14 @@ const useAuthentication = () => {
       const res = await response.json();
       if (res.status === "success") {
         localStorage.setItem("authtoken", res.token);
-        alert("OTP verification successful");
+        ToastFunc("success",res.message);
         navigate("/");
       } else {
-        alert(res.message || "OTP verification failed.");
+        ToastFunc("error",res.message);
       }
     } catch (error) {
       console.error("OTP verification error:", error);
-      alert(error.message);
+      ToastFunc("error",error.message);
     }
   };
 
@@ -77,21 +74,21 @@ const useAuthentication = () => {
 
       const res = await response.json();
       if (res.status === "success") {
-        alert("Login successful");
+        ToastFunc("success",res.message);
         localStorage.setItem("authtoken", res.token);
         navigate("/");
       } else {
-        alert(res.message || "Login failed.");
+        ToastFunc("error",res.message);
       }
     } catch (error) {
       console.error("Login error:", error);
-      alert(error.message);
+      ToastFunc("error",error.message);
     }
   };
 
   const ForgetPasswordCall = async (data) => {
     try {
-      const response = await fetch(`${server_url}/forget-password`, {
+      const response = await fetch(`${server_url}/resetpassword`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -105,14 +102,16 @@ const useAuthentication = () => {
 
       const res = await response.json();
       if (res.rescode === 1013) {
-        alert("Password reset successful. Please log in.");
+        ToastFunc("success",res.message);
         navigate("/login");
+      }else if(res.rescode === 1013){
+        ToastFunc("info",res.message);
       } else {
-        alert(res.message || "Password reset failed.");
+        ToastFunc("error",res.message);
       }
     } catch (error) {
       console.error("Password reset error:", error);
-      alert(error.message);
+      ToastFunc("error",error.message);
     }
   };
 
