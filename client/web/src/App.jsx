@@ -45,7 +45,7 @@ export default function App() {
                 }
               />
               <Route
-                path="appointment"
+                path="appointment/schedule"
                 element={
                   <Suspense fallback={<Loader2 />}>
                     <Appointment />

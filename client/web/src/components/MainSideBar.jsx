@@ -111,7 +111,7 @@ export default function MainSideBar({ collapsed, onCollapseToggle }) {
         </li>
         <li>
           <StyledNavLink
-            to="/appointment"
+            to="/appointment/schedule"
             collapsed={collapsed}
             onClick={() => setShowAppointmentDropdown(!showAppointmentDropdown)}
           >
