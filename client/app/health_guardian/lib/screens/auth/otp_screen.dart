@@ -51,8 +51,11 @@ class OtpScreen extends StatelessWidget {
                   SizedBox(
                     height: 1.45 * SizeConfig.heightMultiplier,
                   ),
-                  T2(
-                    "Enter your 4 digit pin to continue.",
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: T2(
+                      "Enter your 4 digit pin to continue.",
+                    ),
                   ),
                 ],
               ),
@@ -84,7 +87,8 @@ class OtpScreen extends StatelessWidget {
                   SizedBox(
                     height: 46.0 * SizeConfig.heightMultiplier,
                   ),
-                  authButton("Continue", submit)
+                  authButton("Continue", submit),
+                  SizedBox(height: 1.8*SizeConfig.heightMultiplier,)
                 ],
               ),
             )

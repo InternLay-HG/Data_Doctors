@@ -34,20 +34,18 @@ Widget T1(String title, String image) {
 }
 
 Widget T2(String title) {
-  return Row(
-    children: [
-      Text(
-        maxLines: 2,
-        overflow: TextOverflow.ellipsis,
-        title,
-        style: TextStyle(
-            color: Color.fromARGB(255, 99, 92, 92),
-            fontFamily: "CoreSansLight",
-            fontWeight: FontWeight.bold,
-            fontSize: 2.38 * SizeConfig.heightMultiplier),
-      ),
-    ],
-  );
+  return FittedBox(
+        child: Text(
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+          title,
+          style: TextStyle(
+              color: Color.fromARGB(255, 99, 92, 92),
+              fontFamily: "CoreSansLight",
+              fontWeight: FontWeight.bold,
+              fontSize: 2.38 * SizeConfig.heightMultiplier),
+        ),
+      );
 }
 
 Widget Authtext(String text) {
@@ -105,12 +103,16 @@ Widget fieldText(String text, TextEditingController controller, IconData icon,
   );
 }
 
-InputDecoration fieldPasswordDecoration(String text, IconData icon) {
+InputDecoration fieldPasswordDecoration(String text, IconData icon,bool value) {
   return InputDecoration(
       filled: true,
       fillColor: Color(0x66D9D9D9),
+      errorStyle: TextStyle(fontSize: 1.790*SizeConfig.heightMultiplier),
+        // errorText: value
+        //   ? null
+        //   : " Password must be at least 6 characters",
       focusedBorder:
-          OutlineInputBorder(borderSide: BorderSide(color: Color(0x66D9D9D9))),
+          OutlineInputBorder(borderSide: BorderSide(color: value ?  Color(0x66D9D9D9) : Colours.buttonColorRed)),
       border: OutlineInputBorder(
           borderSide: BorderSide.none,
           borderRadius:
@@ -246,37 +248,10 @@ Widget orDivider() {
 
 Widget forgotPassWidget(function loginControllers) {
   return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    mainAxisAlignment: MainAxisAlignment.spaceAround,
     children: [
-      Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Transform.scale(
-            scale: 1.4,
-            child: Checkbox(
-                fillColor: WidgetStateProperty.all(Colors.white),
-                focusColor: Colours.buttonColorRed,
-                side: BorderSide(
-                    color: loginControllers.isCheck.value
-                        ? Colours.buttonColorRed
-                        : Colours.buttonColorRed,
-                    width: 2),
-                checkColor: Colors.black,
-                value: loginControllers.isCheck.value,
-                onChanged: (value) => loginControllers.changeCheck(value)),
-          ),
-          GestureDetector(
-            onTap: ()=>Get.to(()=>ForgotPassword()),
-            child: Text(
-              "Remember me",
-              style: TextStyle(
-                  color: Colors.black,
-                  fontFamily: "CoreSansBold",
-                  fontSize: 2.20 * SizeConfig.heightMultiplier),
-            ),
-          ),
-        ],
-      ),
+      Expanded(child: Divider(color: Colors.black,height: 5,thickness: 2,)),
+      SizedBox(width: 10,),
       GestureDetector(
         onTap: (){ Get.to(()=> ForgotPassword(),transition: Transition.rightToLeft); },
         child: Text(
@@ -284,9 +259,11 @@ Widget forgotPassWidget(function loginControllers) {
           style: TextStyle(
               color: Colours.buttonColorRed,
               fontFamily: "CoreSansBold",
-              fontSize: 2.1 * SizeConfig.heightMultiplier),
+              fontSize: 2.2 * SizeConfig.heightMultiplier),
         ),
       ),
+      SizedBox(width: 10,),
+      Expanded(child: Divider(color: Colors.black,height: 5,thickness: 2,)),
     ],
   );
 }

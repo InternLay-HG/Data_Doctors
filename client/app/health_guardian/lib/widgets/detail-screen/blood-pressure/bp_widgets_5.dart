@@ -8,7 +8,7 @@ import 'package:health_guardian/widgets/buttons/detail_buttons.dart';
 
 Widget userInputWidgetSystolicPressure(BloodPressureControllers controller) {
   return Container(
-    height:  17.90*SizeConfig.heightMultiplier,
+    height:  18.2*SizeConfig.heightMultiplier,
     width: double.infinity,
     decoration: BoxDecoration(
       color: Colors.white,
@@ -74,7 +74,7 @@ Widget userInputWidgetSystolicPressure(BloodPressureControllers controller) {
 
 Widget userInputWidgetDiastolicPressure(BloodPressureControllers controller) {
   return Container(
-    height: 17.90*SizeConfig.heightMultiplier,
+    height: 18.2*SizeConfig.heightMultiplier,
     width: double.infinity,
     decoration: BoxDecoration(
       color: Colors.white,
@@ -140,7 +140,7 @@ Widget userInputWidgetDiastolicPressure(BloodPressureControllers controller) {
 
 Widget pulseLevelWidget(BloodPressureControllers controller) {
   return Container(
-    height: 17.90*SizeConfig.heightMultiplier,
+    height: 18.2*SizeConfig.heightMultiplier,
     width: double.infinity,
     decoration: BoxDecoration(
       color: Colors.white,

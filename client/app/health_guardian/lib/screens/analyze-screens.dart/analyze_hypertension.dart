@@ -21,86 +21,87 @@ class AnalyzeHypertension extends StatelessWidget {
       }, () {}, Images.BloodPressureMeasureIcon2),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+          padding: EdgeInsets.symmetric(horizontal: 2.67*SizeConfig.widthMultiplier, vertical: 1.05*SizeConfig.heightMultiplier),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               SizedBox(
-                height: 15,
+                height: 1.58*SizeConfig.heightMultiplier,
               ),
 
               //* title text
               descTextAnalyze(
-                  "Complete the Health Form Below,Get\nYour Hypertension Report Instantly!",
-                  2.50 * SizeConfig.heightMultiplier),
+                  "Complete the Health Form Below, Get",
+                  2.6 * SizeConfig.heightMultiplier),
+              descTextAnalyze("Your Hypertension Report Instantly!", 2.6 * SizeConfig.heightMultiplier),
 
               SizedBox(
-                height: 30,
+                height: 3.16*SizeConfig.heightMultiplier,
               ),
 
               //* form fields
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  AnalyzeCard("Age", Icons.person, "28", 205),
-                  AnalyzeCard("Gender", Icons.male, "Male", 205),
+                  AnalyzeCard("Age", Icons.person, "28", 45.75*SizeConfig.widthMultiplier),
+                  AnalyzeCard("Gender", Icons.male, "Male", 45.75*SizeConfig.widthMultiplier),
                 ],
               ),
               SizedBox(
-                height: 20,
+                height: 2.10*SizeConfig.heightMultiplier,
               ),
 
               //* cigsPerDay and BPMeds
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  CigsCard("Cigarette Count", Icons.smoke_free, "10", 220, controller),
-                  MedsCard("BP Meds", Icons.medication, "10",190, controller)
+                  CigsCard("Cigarette Count", Icons.smoke_free, "10", 49.10*SizeConfig.widthMultiplier, controller),
+                  MedsCard("BP Meds", Icons.medication, "10",42.41*SizeConfig.widthMultiplier, controller)
                 ],
               ),
 
               SizedBox(
-                height: 20,
+                height: 2.10*SizeConfig.heightMultiplier,
               ),
 
               //* Systolic BP and Diastolic BP
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  AnalyzeCard("Systolic BP", Icons.bloodtype, "140 pa", 205,),
-                  AnalyzeCard("Diastolic BP", Icons.bloodtype, "140 pa", 205),
+                  AnalyzeCard("Systolic BP", Icons.bloodtype, "140 pa", 45.75*SizeConfig.widthMultiplier,),
+                  AnalyzeCard("Diastolic BP", Icons.bloodtype, "140 pa", 45.75*SizeConfig.widthMultiplier),
                 ],
               ),
                SizedBox(
-                height: 20,
+                height: 2.10*SizeConfig.heightMultiplier,
               ),
 
               //* BMI and Heart Rate
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  AnalyzeCard("BMI Index", Icons.bloodtype, "12.5 BMI", 205),
-                  AnalyzeCard("Heart Rate", Icons.monitor_heart_sharp, "86 bpm", 205),
+                  AnalyzeCard("BMI Index", Icons.bloodtype, "12.5 BMI", 45.75*SizeConfig.widthMultiplier),
+                  AnalyzeCard("Heart Rate", Icons.monitor_heart_sharp, "86 bpm", 45.75*SizeConfig.widthMultiplier),
                 ],
               ),
               SizedBox(
-                height: 20,
+                height: 2.10*SizeConfig.heightMultiplier,
               ),
 
               //* Total Cholesterol
               Align(
                 alignment: Alignment.bottomCenter,
-                child: AnalyzeCard("Cholesterol Level", Icons.health_and_safety_outlined, "120 mg/dL", 235),
+                child: AnalyzeCard("Cholesterol Level", Icons.health_and_safety_outlined, "120 mg/dL", 52.45*SizeConfig.widthMultiplier),
               ),
 
               SizedBox(
-                  height: 40,
+                  height: 4.21*SizeConfig.heightMultiplier,
                 ),
 
              //* Analyze Button
              authButton("Analyze", () {}),
                 SizedBox(
-                  height: 15,
+                  height: 1.58*SizeConfig.heightMultiplier,
                 ),
             ],
           ),

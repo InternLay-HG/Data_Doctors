@@ -48,21 +48,21 @@ Widget graphData(BloodSugarControllers controller) {
         IconButton(
           icon: Icon(
             Icons.arrow_back_ios,
-            size: 24,
+            size: 2.4*SizeConfig.heightMultiplier,
           ),
           onPressed: controller.previousPageDate,
           color: Colors.black,
         ),
         Text("Dec 16 - Dec 22, 2024",
             style: TextStyle(
-                fontSize: 22,
+                fontSize: 2.4*SizeConfig.heightMultiplier,
                 color: Colors.black,
                 fontFamily: "Poppins-Med",
                 fontWeight: FontWeight.bold)),
         IconButton(
           icon: Icon(
             Icons.arrow_forward_ios_outlined,
-            size: 24,
+            size:2.4*SizeConfig.heightMultiplier,
           ),
           onPressed: controller.navigatePageDate,
           color: Colors.black,
@@ -70,12 +70,12 @@ Widget graphData(BloodSugarControllers controller) {
       ],
     ),
     SizedBox(
-      height: 25,
+      height: 2.633 * SizeConfig.heightMultiplier,
     ),
     Container(
       color: Colors.white,
-      height: 275,
-      width: 410,
+      height:28.4*SizeConfig.heightMultiplier,
+      width: 91.517 * SizeConfig.widthMultiplier,
       child: PageView(
         controller: controller.pageControllerDate,
         children: [

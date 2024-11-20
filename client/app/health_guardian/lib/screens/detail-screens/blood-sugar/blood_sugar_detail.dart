@@ -22,7 +22,7 @@ class BloodSugarDetail extends StatelessWidget {
 
       body: SingleChildScrollView(
         child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 2.67*SizeConfig.heightMultiplier, vertical: 1.05*SizeConfig.heightMultiplier),
+            padding: EdgeInsets.symmetric(horizontal: 1.5*SizeConfig.heightMultiplier, vertical: 0.1*SizeConfig.heightMultiplier),
             child: Column(
               children: [
                 //* widget for showing blood sugar data

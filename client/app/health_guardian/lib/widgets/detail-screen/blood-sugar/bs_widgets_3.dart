@@ -125,7 +125,7 @@ Widget stateSelectWIdget(BloodSugarControllers controller) {
 Widget card(BloodSugarControllers controller) {
   return Container(
     height: 10.53*SizeConfig.heightMultiplier,
-    width: 28.57*SizeConfig.widthMultiplier,
+    width: 30*SizeConfig.widthMultiplier,
     decoration: BoxDecoration(
       color: Colors.white,
       borderRadius: BorderRadius.circular(0.632*SizeConfig.heightMultiplier),
@@ -315,7 +315,7 @@ Widget card(BloodSugarControllers controller) {
 Widget card1(String title, IconData icon, String value) {
   return Container(
     height: 10.53*SizeConfig.heightMultiplier,
-    width: 28.57*SizeConfig.widthMultiplier,
+    width: 30*SizeConfig.widthMultiplier,
     decoration: BoxDecoration(
       color: Colors.white,
       borderRadius: BorderRadius.circular(0.63*SizeConfig.heightMultiplier),

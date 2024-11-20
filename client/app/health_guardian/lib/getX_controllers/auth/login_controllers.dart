@@ -9,6 +9,7 @@ class function extends GetxController {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController otpController = TextEditingController();
+  var isPasswordValid = true.obs;
 
   //*clear controllers
   void clear() {

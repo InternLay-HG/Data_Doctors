@@ -6,6 +6,7 @@ import 'package:health_guardian/screens/auth/user_password_notify.dart';
 import 'package:health_guardian/styling/images.dart';
 import 'package:health_guardian/styling/sizeConfig.dart';
 import 'package:health_guardian/widgets/auth/login_widgets.dart';
+import 'package:health_guardian/widgets/buttons/button_splash.dart';
 
 class MyWidget extends StatelessWidget {
   final ForgotPassControllers controller = Get.put(ForgotPassControllers());
@@ -65,11 +66,15 @@ class MyWidget extends StatelessWidget {
                     fontFamily: "CoreSansLight",
                     fontSize: 2.31 * SizeConfig.heightMultiplier,
                   ),
+                  onChanged: (value) {
+                    //* Validate password length
+                    controller.isPasswordValid1.value = value.length >= 6;
+                  },
                   obscureText: controller.obscureText.value,
                   controller: controller.passwordController,
                   decoration: fieldPasswordDecoration(
                     "Enter your password",
-                    Icons.lock_outline,
+                    Icons.lock_outline,controller.isPasswordValid1.value
                   ).copyWith(
                     suffixIcon: IconButton(
                       icon: Icon(
@@ -103,11 +108,15 @@ class MyWidget extends StatelessWidget {
                     fontFamily: "CoreSansLight",
                     fontSize: 2.31 * SizeConfig.heightMultiplier,
                   ),
+                   onChanged: (value) {
+                    //* Validate password length
+                    controller.isPasswordValid2.value = value.length >= 6;
+                  },
                   obscureText: controller.obscureText1.value,
                   controller: controller.ConfirmPasswordController,
                   decoration: fieldPasswordDecoration(
                     "Re-Enter your password",
-                    Icons.lock_outline,
+                    Icons.lock_outline,controller.isPasswordValid2.value
                   ).copyWith(
                     suffixIcon: IconButton(
                       icon: Icon(

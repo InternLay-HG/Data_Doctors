@@ -50,7 +50,8 @@ class WelcomeScreenUser extends StatelessWidget {
                     textWidgetSplash("Healthy Body, Happy Life",
                         3.5 * SizeConfig.textMultiplier),
                     SizedBox(height: 29.23 * SizeConfig.heightMultiplier),
-                    authButton("Continue", Navigate)
+                    authButton("Continue", Navigate),
+                     SizedBox(height: 2.23 * SizeConfig.heightMultiplier),
                   ],
                 ),
               ),

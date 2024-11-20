@@ -10,19 +10,19 @@ import 'package:health_guardian/widgets/detail-screen/blood-sugar/bs_widgets_3.d
 AppBar appBAnalyze(void Function() onTap1, void Function() onTap2,String Image) {
   return AppBar(
     backgroundColor: Color.fromARGB(255, 245, 242, 242),
-    toolbarHeight: 90,
+    toolbarHeight: 9.48*SizeConfig.heightMultiplier,
     leading: IconButton(
         onPressed: onTap1,
         icon: Icon(
           Icons.arrow_back,
           color: Colors.black,
-          size: 44,
+          size: 4.63*SizeConfig.heightMultiplier,
         )),
     centerTitle: true,
     title: SvgPicture.asset(
       Image,
-      height: 65,
-      width: 65,
+      height: 6.84*SizeConfig.heightMultiplier,
+      width: 14.50*SizeConfig.widthMultiplier,
     ),
     actions: [
       IconButton(
@@ -30,7 +30,7 @@ AppBar appBAnalyze(void Function() onTap1, void Function() onTap2,String Image) 
           icon: Icon(
             Icons.more_vert_outlined,
             color: Colors.black,
-            size: 44,
+            size: 4.63*SizeConfig.heightMultiplier,
           ))
     ],
   );
@@ -38,11 +38,11 @@ AppBar appBAnalyze(void Function() onTap1, void Function() onTap2,String Image) 
 
 Widget AnalyzeCard(String title, IconData icon, String value, double width) {
   return Container(
-    height: 100,
+    height: 10.53*SizeConfig.heightMultiplier,
     width: width,
     decoration: BoxDecoration(
       color: Colors.white,
-      borderRadius: BorderRadius.circular(6),
+      borderRadius: BorderRadius.circular(0.63),
       // boxShadow: [
       //   BoxShadow(
       //       color: Color.fromARGB(255, 161, 153, 153),
@@ -50,18 +50,18 @@ Widget AnalyzeCard(String title, IconData icon, String value, double width) {
       //       blurRadius: 2)
       // ],
     ),
-    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+    padding: EdgeInsets.symmetric(horizontal: 2.67*SizeConfig.widthMultiplier, vertical: 1.05*SizeConfig.heightMultiplier),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         header(title, icon),
         SizedBox(
-          height: 10,
+          height: 1.05*SizeConfig.heightMultiplier,
         ),
         Text(
           value,
           style: TextStyle(
-              fontFamily: "CoreSansBold", fontSize: 25, color: Colors.black),
+              fontFamily: "CoreSansBold", fontSize: 2.63*SizeConfig.heightMultiplier, color: Colors.black),
         )
       ],
     ),
@@ -214,7 +214,7 @@ Widget PregnancyCard(String title, IconData icon, String value, double width,
             );
           },
           child: Obx( ()=> Text(
-                "${controller.P_Count.value} Hours",
+                "${controller.P_Count.value}",
                 style: TextStyle(
                     fontFamily: "CoreSansBold",
                     fontSize: 25,

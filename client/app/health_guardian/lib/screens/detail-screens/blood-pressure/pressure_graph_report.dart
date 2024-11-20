@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:health_guardian/styling/colors.dart';
+import 'package:health_guardian/styling/sizeConfig.dart';
 
 class BarChartExample extends StatefulWidget {
   @override
@@ -17,7 +18,7 @@ class _BarChartExampleState extends State<BarChartExample> {
       backgroundColor: Colors.white,
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.only(bottom: 15, left: 5),
+          padding:  EdgeInsets.only(bottom: 1.58*SizeConfig.heightMultiplier, left: 1.11*SizeConfig.widthMultiplier),
           child: Stack(
             alignment: Alignment.center,
             children: [
@@ -43,7 +44,7 @@ class _BarChartExampleState extends State<BarChartExample> {
                               style: TextStyle(
                                 color: Color.fromARGB(255, 59, 56, 56),
                                 fontFamily: "CoreSansBold",
-                                fontSize: 16,
+                                fontSize: 1.68*SizeConfig.heightMultiplier,
                               ),
                             );
                           }
@@ -94,14 +95,14 @@ class _BarChartExampleState extends State<BarChartExample> {
               ),
               if (tappedRodValue != null)
                 Positioned(
-                  top:200,
+                  top:21.06*SizeConfig.heightMultiplier,
                   child: CircleAvatar(
                     backgroundColor: Colors.white,
-                    radius: 30,
+                    radius: 3.16*SizeConfig.heightMultiplier,
                     child: Text(
                       '${tappedRodValue!.toStringAsFixed(1)}',
                       textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.red, fontSize: 18),
+                      style: TextStyle(color: Colors.red, fontSize: 1.89 * SizeConfig.heightMultiplier),
                     ),
                   ),
                 ),
@@ -118,13 +119,13 @@ class _BarChartExampleState extends State<BarChartExample> {
       barRods: [
         BarChartRodData(
           toY: y1,
-          width: 20,
+          width: 4.46*SizeConfig.widthMultiplier,
           borderRadius: BorderRadius.circular(10),
           color: Colours.buttonColorRed,
         ),
         BarChartRodData(
           toY: y2,
-          width: 20,
+          width: 4.46*SizeConfig.widthMultiplier,
           borderRadius: BorderRadius.circular(10),
           color: Colors.red.withOpacity(0.2),
         ),

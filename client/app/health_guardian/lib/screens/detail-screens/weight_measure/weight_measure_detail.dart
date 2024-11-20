@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:health_guardian/getX_controllers/detail-screen/weight_measure_controllers.dart';
 import 'package:health_guardian/screens/detail-screens/weight_measure/add_weight_measure_record.dart';
+import 'package:health_guardian/styling/sizeConfig.dart';
 import 'package:health_guardian/widgets/auth/login_widgets.dart';
 import 'package:health_guardian/widgets/detail-screen/weight-measure/wm_widgets_1.dart';
 import 'package:health_guardian/widgets/detail-screen/weight-measure/wm_widgets_2.dart';
@@ -20,7 +21,7 @@ class WeightMeasureDetail extends StatelessWidget {
       backgroundColor: Color.fromARGB(255, 247, 241, 241),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+          padding: EdgeInsets.symmetric(horizontal: 1.5*SizeConfig.heightMultiplier, vertical: 0.1*SizeConfig.heightMultiplier),
           child: Column(
             children: [
               //* Widget for showing weight data
@@ -37,10 +38,10 @@ class WeightMeasureDetail extends StatelessWidget {
 
               //* stats and history display widget
               Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  padding: EdgeInsets.symmetric(horizontal: 2.23*SizeConfig.widthMultiplier, vertical: 1.05*SizeConfig.heightMultiplier),
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(1.05*SizeConfig.heightMultiplier),
                     // boxShadow: [
                     //   BoxShadow(
                     //       color: Color.fromARGB(255, 161, 153, 153),
@@ -48,10 +49,10 @@ class WeightMeasureDetail extends StatelessWidget {
                     //       blurRadius: 2)
                     // ],
                   ),
-                  height: 450,
+                  height: 47.40*SizeConfig.heightMultiplier,
                   child: dataWidgetWeightMeasure(controllers, "", "", "")),
               SizedBox(
-                height: 35,
+                height:3.68*SizeConfig.heightMultiplier,
               ),
 
               //* button for a  dding new record
@@ -61,7 +62,7 @@ class WeightMeasureDetail extends StatelessWidget {
                    });
                    }),
                 SizedBox(
-                  height: 20,
+                  height: 2.10*SizeConfig.heightMultiplier,
                 ),
             ],
           ),

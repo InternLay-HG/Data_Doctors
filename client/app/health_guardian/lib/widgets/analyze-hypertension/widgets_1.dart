@@ -9,19 +9,19 @@ import 'package:health_guardian/widgets/detail-screen/blood-sugar/bs_widgets_3.d
 Widget CigsCard(String title, IconData icon, String value, double width,
     HypertensionControllers controller) {
   return Container(
-    height: 100,
+    height: 10.53*SizeConfig.heightMultiplier,
     width: width,
     decoration: BoxDecoration(
       color: Colors.white,
-      borderRadius: BorderRadius.circular(6),
+      borderRadius: BorderRadius.circular(0.63*SizeConfig.heightMultiplier),
     ),
-    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+    padding: EdgeInsets.symmetric(horizontal: 2.67*SizeConfig.widthMultiplier, vertical: 1.05*SizeConfig.heightMultiplier),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         header(title, icon),
         SizedBox(
-          height: 10,
+          height: 1.05*SizeConfig.heightMultiplier,
         ),
         GestureDetector(
           onTap: () {
@@ -35,7 +35,7 @@ Widget CigsCard(String title, IconData icon, String value, double width,
                     initialItem: controller.Cigs_Count.value.toInt(),
                   ),
                   onSelectedItemChanged: (int index) {
-                    int selectedNum= index + 1; // Calculate the selected hour
+                    int selectedNum= index ; // Calculate the selected hour
                     controller.change(
                         selectedNum
                         ); // Update the value
@@ -60,7 +60,7 @@ Widget CigsCard(String title, IconData icon, String value, double width,
                 "${controller.Cigs_Count.value}",
                 style: TextStyle(
                     fontFamily: "CoreSansBold",
-                    fontSize: 25,
+                    fontSize: 2.63*SizeConfig.heightMultiplier,
                     color: Colors.black),
               ),
           ),
@@ -73,19 +73,19 @@ Widget CigsCard(String title, IconData icon, String value, double width,
 Widget MedsCard(String title, IconData icon, String value, double width,
     HypertensionControllers controller) {
   return Container(
-    height: 100,
+    height: 10.53*SizeConfig.heightMultiplier,
     width: width,
     decoration: BoxDecoration(
       color: Colors.white,
-      borderRadius: BorderRadius.circular(6),
+      borderRadius: BorderRadius.circular(.63*SizeConfig.heightMultiplier),
     ),
-    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+    padding: EdgeInsets.symmetric(horizontal: 2.67*SizeConfig.widthMultiplier, vertical: 1.05*SizeConfig.heightMultiplier),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         header(title, icon),
         SizedBox(
-          height: 10,
+          height: 1.05*SizeConfig.heightMultiplier,
         ),
         GestureDetector(
           onTap: () {
@@ -99,7 +99,7 @@ Widget MedsCard(String title, IconData icon, String value, double width,
                     initialItem: controller.Meds_Count.value.toInt(),
                   ),
                   onSelectedItemChanged: (int index) {
-                    int selectedNum= index + 1; // Calculate the selected hour
+                    int selectedNum= index ; // Calculate the selected hour
                     controller.change_Meds(
                         selectedNum
                         ); // Update the value
@@ -124,7 +124,7 @@ Widget MedsCard(String title, IconData icon, String value, double width,
                 "${controller.Meds_Count.value}",
                 style: TextStyle(
                     fontFamily: "CoreSansBold",
-                    fontSize: 25,
+                    fontSize: 2.63*SizeConfig.heightMultiplier,
                     color: Colors.black),
               ),
           ),
