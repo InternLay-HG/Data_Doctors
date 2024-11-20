@@ -127,7 +127,7 @@ export default function ResponsiveNavbar() {
                   </li>
                   <li>
                     <StyledNavLink
-                      to="/appointment"
+                      to="/appointment/schedule"
                       onClick={() =>
                         setShowAppointmentDropdown(!showAppointmentDropdown)
                       }
