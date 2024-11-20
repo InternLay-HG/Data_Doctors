@@ -58,7 +58,7 @@ export default function SignUp() {
       hasErrors = true;
     }
     if (hasErrors) {
-        setErrors(newErrors);
+      setErrors(newErrors);
       return;
     }
     setErrors({});
@@ -75,20 +75,13 @@ export default function SignUp() {
       await RegisterCall(data);
     } catch (err) {
       setSubmitError("Failed to register. Please try again.");
-      ToastFunc("error",err.message);
+      ToastFunc("error", err.message);
     }
   };
   return (
     <>
       <style>
         {`
-      .form-group {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    width: 100%;
-}
 
 .radio-form {
     display: flex;
@@ -96,16 +89,8 @@ export default function SignUp() {
     justify-content: center;
     align-items: flex-start;
 }
-    .radio_box {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: baseline;
-    gap: 1rem;
-}
 .check-box{
     /* background-color: #0056b3; */
-    width:20rem;
     text-align: center;
     font-size: small;
     padding: 10px;
@@ -136,44 +121,49 @@ input[type="radio"]:checked + .check-box {
       >
         <Form
           onSubmit={handleSubmit}
-          className="flex flex-col justify-center mx-auto my-10 bg-neutral-900 w-[500px]"
+          className="flex flex-col justify-center mx-auto my-12 bg-neutral-900 w-[500px]"
         >
           <h1 className="text-center text-4xl font-semibold my-4">
             Create account
           </h1>
           <FormRow>
-            <div className="form-group radio-form">
+            <div className="radio-form w-full">
               <label>
                 Purpose<span className="text-pink-500 text-3xl">*</span>
               </label>
 
-              <div className="radio_box">
-                <input
-                  type="radio"
-                  id="patient"
-                  hidden
-                  value="false"          
-                  checked={!formData.isHealthcareProvider}
-                  onChange={() =>
-                    setFormData({ ...formData, isHealthcareProvider: false })
-                  }
-                />
-                <label htmlFor="patient" className="check-box">
-                  Patient
-                </label>
-                <input
-                  type="radio"
-                  id="healthcare"
-                  hidden
-                  value="true"          
-                  checked={formData.isHealthcareProvider}
-                  onChange={() =>
-                    setFormData({ ...formData, isHealthcareProvider: true })
-                  }
-                />
-                <label htmlFor="healthcare" className="check-box">
-                  Health Care Provider
-                </label>
+              <div className="w-full flex mx-auto items-center justify-between gap-5 max-sm:gap-1">
+                <div className="w-full max-sm:w-2/3">
+                  <input
+                    type="radio"
+                    id="patient"
+                    hidden
+                    value="false"
+                    checked={!formData.isHealthcareProvider}
+                    onChange={() =>
+                      setFormData({ ...formData, isHealthcareProvider: false })
+                    }
+                  />
+                  <label htmlFor="patient" className="check-box">
+                    Patient
+                  </label>
+                </div>
+                <div className="w-full max-sm:w-10/12">
+                  <input
+                    type="radio"
+                    className="w-full mr-10"
+                    id="healthcare"
+                    hidden
+                    value="true"
+                    checked={formData.isHealthcareProvider}
+                    onChange={() =>
+                      setFormData({ ...formData, isHealthcareProvider: true })
+                    }
+                  />
+                  <label htmlFor="healthcare" className="check-box">
+                    Health Care Provider
+                  </label>
+                </div>
               </div>
             </div>
           </FormRow>
@@ -307,23 +297,22 @@ input[type="radio"]:checked + .check-box {
 
           <FormRow>
             <button
-              className="hover:bg-blue-500/10 px-10 py-4 text-blue-700 rounded-lg"
+              className="hover:bg-blue-100 px-10 py-4 text-blue-700 rounded-full"
               onClick={() => navigate("/login")}
               style={{
-                border: "1px solid rgba(29,78,216,1)",
                 marginTop: "1rem",
               }}
             >
               Sign in
             </button>
-            <Button
-              size="medium"
+            <button
+              // size="medium"
               type="submit"
-              className="bg-blue-600 text-white hover:shadow-lg hover:bg-blue-800/90 rounded-lg"
-              style={{ marginTop: "1rem" }}
+              className="bg-blue-600 py-4 px-10 font-medium text-[14px] text-white hover:shadow-lg hover:bg-blue-800 rounded-full"
+              style={{ marginTop: "0rem" }}
             >
               Create account
-            </Button>
+            </button>
           </FormRow>
         </Form>
       </div>

@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { KeyboardBackspace as BackIcon } from "@mui/icons-material";
 import { useNavigate } from "react-router";
 import Authentication from "../api/Authentication";
@@ -6,7 +6,7 @@ import Toast from "../ui/Toast";
 const OTPverifyPage = () => {
   const navigate = useNavigate();
   const { ToastFunc } = Toast();
-  const {verifyOtpCall} = Authentication();
+  const { verifyOtpCall } = Authentication();
   const [email, setEmail] = useState("");
   const [Otp, setOtp] = useState("");
   const [errors, setErrors] = useState({});
@@ -29,19 +29,18 @@ const OTPverifyPage = () => {
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
-    } 
-      setErrors({});
-      const data={
-        email:email,
-        otp:Otp
-      }
-      try{
-        await verifyOtpCall(data)
-      }
-      catch(err){
-        console.error("OTP verification error:", err);
-        ToastFunc("error",err.message);
-      }
+    }
+    setErrors({});
+    const data = {
+      email: email,
+      otp: Otp,
+    };
+    try {
+      await verifyOtpCall(data);
+    } catch (err) {
+      console.error("OTP verification error:", err);
+      ToastFunc("error", err.message);
+    }
   };
   const handleBack = () => {
     navigate("/signup");
@@ -75,20 +74,20 @@ const OTPverifyPage = () => {
           background: "rgba(255,255,255,0.5)",
           borderRadius: "40%",
           cursor: "pointer",
-          padding: "0.5rem",
+          padding: "1rem 1rem",
         }}
         onClick={handleBack}
         aria-label="Go Back"
       >
-        <BackIcon style={{ width: "5rem", height: "5rem" }} />
+        <BackIcon style={{ width: "3rem", height: "3rem" }} />
       </div>
       <div
         style={{
           width: "40rem",
-          height: "50rem",
+          height: "45rem",
           border: "1px solid grey",
           background: "rgba(255,255,255,0.7)",
-          borderRadius: "1rem",
+          borderRadius: "0.5rem",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
@@ -105,7 +104,7 @@ const OTPverifyPage = () => {
           <div
             style={{
               color: "grey",
-              fontSize: "2rem",
+              fontSize: "1.5rem",
               marginBottom: "4rem",
             }}
           >
@@ -116,13 +115,14 @@ const OTPverifyPage = () => {
               display: "flex",
               justifyContent: "center",
               flexDirection: "column",
-              marginBottom: "3rem",
+              alignItems: "start",
+              marginBottom: "1.5rem",
             }}
           >
             <label
               htmlFor="email"
               style={{
-                fontSize: "2rem",
+                fontSize: "1.6rem",
                 fontWeight: "bolder",
                 marginBlock: "0.5rem",
               }}
@@ -135,13 +135,12 @@ const OTPverifyPage = () => {
               id="email"
               placeholder="Enter your email"
               style={{
-                width: "27rem",
+                width: "100%",
                 height: "5rem",
                 border: "1px solid grey",
                 borderRadius: "1rem",
                 outline: "0",
                 padding: "0.5rem 1rem",
-                fontFamily: "Space Mono",
               }}
               value={email}
               onChange={(e) => {
@@ -160,31 +159,32 @@ const OTPverifyPage = () => {
           <div
             style={{
               display: "flex",
-              justifyContent: "start",
-              alignItems: "center",
-              gap: "3rem",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "start",
+              marginBottom: "1rem",
             }}
           >
             <label
               htmlFor="OTP"
-              style={{ fontWeight: "bolder", fontSize: "2rem" }}
+              style={{ fontWeight: "bold", fontSize: "1.6rem", }}
             >
-              OTP <span style={{ marginLeft: "1rem" }}>:</span>
+              One Time Password
             </label>
             <input
               type="tel"
               name="OTP"
               id="OTP"
-              placeholder="Enter OTP"
+              placeholder="Enter your OTP"
               style={{
-                width: "17rem",
+                width: "100%",
                 height: "5rem",
                 border: "1px solid grey",
                 borderRadius: "1rem",
                 outline: "0",
-                fontSize: "2rem",
+                fontSize: "1.5rem",
                 padding: "0.5rem 1rem",
-                letterSpacing: "0.5rem",
+                letterSpacing: "0.1rem",
               }}
               value={Otp}
               onChange={(e) => {
@@ -203,17 +203,18 @@ const OTPverifyPage = () => {
             type="submit"
             disabled={!email || !Otp}
             style={{
+              marginLeft: "%", 
               border: "1px solid rgba(29,78,216)",
-              width: "20rem",
-              height: "4rem",
-              borderRadius: "1rem",
+              padding: "1rem 2rem",
+              borderRadius: "0.5rem",
               background: "rgba(29,78,216)",
               color: "white",
               marginTop: "5rem",
-              fontWeight: "bolder",
+              fontWeight: "light",
               cursor: !email || !Otp ? "not-allowed" : "pointer",
-              opacity: !email || !Otp ? 0.5 : 1,
+              opacity: !email || !Otp ? 0.8 : 1,
             }}
+            className="ml-[64%] text-[13px]"
           >
             Verify OTP
           </button>
