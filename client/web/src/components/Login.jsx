@@ -66,17 +66,15 @@ export default function SignUp() {
     >
       <Form
         onSubmit={handleSubmit}
-        className="flex flex-col justify-center mx-auto my-14 bg-neutral-900 w-[450px]"
+        className="flex flex-col justify-center mx-auto my-14 bg-neutral-900 w-[400px]"
       >
-        <h1 className="text-center text-4xl font-semibold tracking-tight mb-10">
+        <h1 className="text-center text-4xl font-semibold tracking-tight my-10">
           Sign in
         </h1>
 
         <div className="flex items-center mt-10">
           <hr className="flex-grow border-t border-gray-300" />
         </div>
-
-        <FormRow></FormRow>
 
         <FormRow>
           <label htmlFor="email">
@@ -139,7 +137,7 @@ export default function SignUp() {
           <Button
             type="reset"
             size="medium"
-            className=" hover:bg-blue-200 rounded-lg bg-white border border-blue-700"
+            className=" hover:bg-blue-100 rounded-full bg-white"
             style={{ color: "rgba(29,78,216)" }}
             onClick={() => {
               navigate("/signup");
@@ -147,13 +145,13 @@ export default function SignUp() {
           >
             Create account
           </Button>
-          <Button
+          <button
             // size="medium"
             type="submit"
-            className="px-8 py-3 font-light text-2xl bg-blue-700 text-white hover:bg-blue-800/90 hover:shadow-lg rounded-lg"
+            className="px-10 py-4 font-light text-2xl bg-blue-700 rounded-full text-white hover:bg-blue-800 hover:shadow-lg"
           >
             Sign in
-          </Button>
+          </button>
         </FormRow>
       </Form>
     </div>

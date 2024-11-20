@@ -7,8 +7,7 @@ const Form = styled.form`
       padding: 1.5rem 4rem;
 
       background-color: var(--color-grey-0);
-      border: 1px solid var(--color-grey-500);
-      border-radius: var(--border-radius-md);
+      border-radius: var(--border-radius-lg);
     `}
 
   ${(props) =>

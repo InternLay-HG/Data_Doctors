@@ -5,12 +5,6 @@ const StyledFormRow = styled.div`
   gap: 1rem;
   padding: 0.5rem 0;
 
-  /* Specific styles for the first row (First Name and Last Name) */
-  &:nth-child(2) {
-    grid-template-columns: 1fr 1fr; /* Two equal-width columns */
-    gap: 1.5rem;
-    align-items: center;
-  }
 
   &:last-child {
     padding-bottom: 0;
@@ -27,7 +21,7 @@ const StyledFormRow = styled.div`
     display: block;
     font-weight: 500;
     letter-spacing: 0.7px;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
   }
 `;
 

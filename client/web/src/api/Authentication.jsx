@@ -1,8 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import Toast from "../ui/Toast";
-const server_url = import.meta.env.VITE_SERVER_PORT;
+const server_url = 'https://data-doctors-puce.vercel.app';
+
 const useAuthentication = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const { ToastFunc } = Toast();
   const RegisterCall = async (data) => {
     try {
@@ -25,7 +26,7 @@ const useAuthentication = () => {
         ToastFunc("error",res.message);
       }
     } catch (error) {
-      console.error("Registration error:", error);
+      // console.error("Registration error:", error);
       ToastFunc("error",error.message);
     }
   };
